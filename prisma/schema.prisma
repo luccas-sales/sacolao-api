@@ -1,0 +1,25 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model suppliers {
+  id                Int     @id @default(autoincrement())
+  tax_id            String  @unique(map: "uq_suppliers_tax_id") @db.VarChar(14)
+  legal_name        String  @db.VarChar
+  legal_nature      String? @db.VarChar
+  legal_description String? @db.VarChar
+  sector            String  @db.VarChar
+}
+
+model suppliersDescriptions {
+  id                Int    @id @default(autoincrement())
+  legal_description String @unique
+  sector            String
+}
