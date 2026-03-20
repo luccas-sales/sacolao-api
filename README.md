@@ -37,7 +37,7 @@ Atualmente, a API é utilizada como base para um sistema de gerenciamento de for
 ## 🔐 Observações
 
 - Este projeto **não contém dados sensíveis**
-- Não possui autenticação (JWT, etc.) no momento
+- Possui apenas autenticação simples no momento
 - Projeto público com finalidade de estudo, portfólio e automações internas
 
 ---
