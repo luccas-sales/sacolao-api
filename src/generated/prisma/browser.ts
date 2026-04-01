@@ -22,8 +22,3 @@ export * from './enums.js';
  * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
  */
 export type suppliers = Prisma.suppliersModel
-/**
- * Model suppliersDescriptions
- * 
- */
-export type suppliersDescriptions = Prisma.suppliersDescriptionsModel

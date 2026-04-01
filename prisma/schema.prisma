@@ -17,9 +17,3 @@ model suppliers {
   legal_description String? @db.VarChar
   sector            String  @db.VarChar
 }
-
-model suppliersDescriptions {
-  id                Int    @id @default(autoincrement())
-  legal_description String @unique
-  sector            String
-}

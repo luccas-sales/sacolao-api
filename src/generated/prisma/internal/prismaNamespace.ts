@@ -384,8 +384,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  suppliers: 'suppliers',
-  suppliersDescriptions: 'suppliersDescriptions'
+  suppliers: 'suppliers'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -401,7 +400,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "suppliers" | "suppliersDescriptions"
+    modelProps: "suppliers"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -479,80 +478,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    suppliersDescriptions: {
-      payload: Prisma.$suppliersDescriptionsPayload<ExtArgs>
-      fields: Prisma.suppliersDescriptionsFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.suppliersDescriptionsFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$suppliersDescriptionsPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.suppliersDescriptionsFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$suppliersDescriptionsPayload>
-        }
-        findFirst: {
-          args: Prisma.suppliersDescriptionsFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$suppliersDescriptionsPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.suppliersDescriptionsFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$suppliersDescriptionsPayload>
-        }
-        findMany: {
-          args: Prisma.suppliersDescriptionsFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$suppliersDescriptionsPayload>[]
-        }
-        create: {
-          args: Prisma.suppliersDescriptionsCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$suppliersDescriptionsPayload>
-        }
-        createMany: {
-          args: Prisma.suppliersDescriptionsCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.suppliersDescriptionsCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$suppliersDescriptionsPayload>[]
-        }
-        delete: {
-          args: Prisma.suppliersDescriptionsDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$suppliersDescriptionsPayload>
-        }
-        update: {
-          args: Prisma.suppliersDescriptionsUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$suppliersDescriptionsPayload>
-        }
-        deleteMany: {
-          args: Prisma.suppliersDescriptionsDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.suppliersDescriptionsUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.suppliersDescriptionsUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$suppliersDescriptionsPayload>[]
-        }
-        upsert: {
-          args: Prisma.suppliersDescriptionsUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$suppliersDescriptionsPayload>
-        }
-        aggregate: {
-          args: Prisma.SuppliersDescriptionsAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateSuppliersDescriptions>
-        }
-        groupBy: {
-          args: Prisma.suppliersDescriptionsGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SuppliersDescriptionsGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.suppliersDescriptionsCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SuppliersDescriptionsCountAggregateOutputType> | number
-        }
-      }
-    }
   }
 } & {
   other: {
@@ -602,15 +527,6 @@ export const SuppliersScalarFieldEnum = {
 } as const
 
 export type SuppliersScalarFieldEnum = (typeof SuppliersScalarFieldEnum)[keyof typeof SuppliersScalarFieldEnum]
-
-
-export const SuppliersDescriptionsScalarFieldEnum = {
-  id: 'id',
-  legal_description: 'legal_description',
-  sector: 'sector'
-} as const
-
-export type SuppliersDescriptionsScalarFieldEnum = (typeof SuppliersDescriptionsScalarFieldEnum)[keyof typeof SuppliersDescriptionsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -780,7 +696,6 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   suppliers?: Prisma.suppliersOmit
-  suppliersDescriptions?: Prisma.suppliersDescriptionsOmit
 }
 
 /* Types for Logging */

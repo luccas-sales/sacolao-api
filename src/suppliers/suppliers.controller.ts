@@ -6,9 +6,8 @@ import {
   Param,
   Post,
   Put,
-  Request,
 } from '@nestjs/common';
-import { CreateSuppliersDTO, UpdateSuppliersDTO } from '../dtos/suppliers';
+import { CreateSuppliersListDTO, UpdateSuppliersDTO } from '../dtos/suppliers';
 import { SuppliersService } from './suppliers.service';
 
 @Controller('suppliers')
@@ -16,7 +15,7 @@ export class SuppliersController {
   constructor(private suppliersService: SuppliersService) {}
 
   @Post()
-  async createSuppliers(@Body() body: CreateSuppliersDTO) {
+  async createSuppliers(@Body() body: CreateSuppliersListDTO) {
     return await this.suppliersService.createSuppliers(body);
   }
 

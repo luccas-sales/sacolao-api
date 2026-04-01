@@ -1,30 +1,15 @@
-import {
-  Injectable,
-  NotFoundException,
-  UnauthorizedException,
-} from '@nestjs/common';
-import { CreateSuppliersDTO, UpdateSuppliersDTO } from 'src/dtos/suppliers';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { CreateSuppliersListDTO, UpdateSuppliersDTO } from 'src/dtos/suppliers';
 import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class SuppliersService {
   constructor(private prismaService: PrismaService) {}
 
-  async createSuppliers(data: CreateSuppliersDTO) {
-    const supplierAlreadyExists = await this.prismaService.suppliers.findUnique(
-      {
-        where: { tax_id: data.tax_id },
-      },
-    );
-
-    if (supplierAlreadyExists) {
-      throw new UnauthorizedException('Fornecedor já cadastrado');
-    }
-
-    return await this.prismaService.suppliers.create({
-      data: {
-        ...data,
-      },
+  async createSuppliers(payload: CreateSuppliersListDTO) {
+    return await this.prismaService.suppliers.createMany({
+      data: payload.suppliers,
+      skipDuplicates: true,
     });
   }
 

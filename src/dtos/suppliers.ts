@@ -1,4 +1,11 @@
-import { IsNotEmpty, IsString, IsOptional } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsString,
+  IsOptional,
+  IsArray,
+  ValidateNested,
+} from 'class-validator';
+import { Type } from 'class-transformer';
 
 export class CreateSuppliersDTO {
   @IsString()
@@ -20,6 +27,13 @@ export class CreateSuppliersDTO {
   @IsString()
   @IsNotEmpty()
   sector: string;
+}
+
+export class CreateSuppliersListDTO {
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => CreateSuppliersDTO)
+  suppliers: CreateSuppliersDTO[];
 }
 
 export class UpdateSuppliersDTO {
