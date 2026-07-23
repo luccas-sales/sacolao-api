@@ -45,7 +45,7 @@ export class CreateNoteRuralSupplierDTO {
 
   @IsString()
   @IsOptional()
-  value?: number;
+  value?: string;
 
   @IsString()
   @IsOptional()
