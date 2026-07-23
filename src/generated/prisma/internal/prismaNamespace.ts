@@ -384,7 +384,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  suppliers: 'suppliers'
+  suppliers: 'suppliers',
+  notes_rural_suppliers: 'notes_rural_suppliers'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -400,7 +401,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "suppliers"
+    modelProps: "suppliers" | "notes_rural_suppliers"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -478,6 +479,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    notes_rural_suppliers: {
+      payload: Prisma.$notes_rural_suppliersPayload<ExtArgs>
+      fields: Prisma.notes_rural_suppliersFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.notes_rural_suppliersFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$notes_rural_suppliersPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.notes_rural_suppliersFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$notes_rural_suppliersPayload>
+        }
+        findFirst: {
+          args: Prisma.notes_rural_suppliersFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$notes_rural_suppliersPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.notes_rural_suppliersFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$notes_rural_suppliersPayload>
+        }
+        findMany: {
+          args: Prisma.notes_rural_suppliersFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$notes_rural_suppliersPayload>[]
+        }
+        create: {
+          args: Prisma.notes_rural_suppliersCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$notes_rural_suppliersPayload>
+        }
+        createMany: {
+          args: Prisma.notes_rural_suppliersCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.notes_rural_suppliersCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$notes_rural_suppliersPayload>[]
+        }
+        delete: {
+          args: Prisma.notes_rural_suppliersDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$notes_rural_suppliersPayload>
+        }
+        update: {
+          args: Prisma.notes_rural_suppliersUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$notes_rural_suppliersPayload>
+        }
+        deleteMany: {
+          args: Prisma.notes_rural_suppliersDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.notes_rural_suppliersUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.notes_rural_suppliersUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$notes_rural_suppliersPayload>[]
+        }
+        upsert: {
+          args: Prisma.notes_rural_suppliersUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$notes_rural_suppliersPayload>
+        }
+        aggregate: {
+          args: Prisma.Notes_rural_suppliersAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateNotes_rural_suppliers>
+        }
+        groupBy: {
+          args: Prisma.notes_rural_suppliersGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Notes_rural_suppliersGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.notes_rural_suppliersCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Notes_rural_suppliersCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -527,6 +602,28 @@ export const SuppliersScalarFieldEnum = {
 } as const
 
 export type SuppliersScalarFieldEnum = (typeof SuppliersScalarFieldEnum)[keyof typeof SuppliersScalarFieldEnum]
+
+
+export const Notes_rural_suppliersScalarFieldEnum = {
+  id: 'id',
+  supplier_tax_id: 'supplier_tax_id',
+  supplier_name: 'supplier_name',
+  sector: 'sector',
+  note: 'note',
+  note_access_key: 'note_access_key',
+  note_date: 'note_date',
+  issuer_tax_id: 'issuer_tax_id',
+  store_name: 'store_name',
+  receipt: 'receipt',
+  receipt_access_key: 'receipt_access_key',
+  receipt_date: 'receipt_date',
+  value: 'value',
+  status: 'status',
+  is_duplicate: 'is_duplicate',
+  created_at: 'created_at'
+} as const
+
+export type Notes_rural_suppliersScalarFieldEnum = (typeof Notes_rural_suppliersScalarFieldEnum)[keyof typeof Notes_rural_suppliersScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -584,6 +681,27 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'String[]'
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime'
+ */
+export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime[]'
+ */
+export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -696,6 +814,7 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   suppliers?: Prisma.suppliersOmit
+  notes_rural_suppliers?: Prisma.notes_rural_suppliersOmit
 }
 
 /* Types for Logging */

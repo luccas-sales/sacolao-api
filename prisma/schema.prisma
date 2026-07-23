@@ -17,3 +17,23 @@ model suppliers {
   legal_description String? @db.VarChar
   sector            String  @db.VarChar
 }
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model notes_rural_suppliers {
+  id                 Int       @id @default(autoincrement())
+  supplier_tax_id    String    @db.VarChar
+  supplier_name      String?   @db.VarChar
+  sector             String?   @db.VarChar
+  note               String?   @db.VarChar
+  note_access_key    String?   @db.VarChar(44)
+  note_date          DateTime? @db.Timestamptz(6)
+  issuer_tax_id      String?   @db.VarChar
+  store_name         String?   @db.VarChar
+  receipt            String?   @db.VarChar
+  receipt_access_key String?   @db.VarChar(44)
+  receipt_date       DateTime? @db.Timestamptz(6)
+  value              String?   @db.VarChar
+  status             String?   @default("000") @db.VarChar
+  is_duplicate       Boolean?  @default(false)
+  created_at         DateTime? @default(now()) @db.Timestamptz(6)
+}

@@ -14,7 +14,9 @@ export class SuppliersService {
   }
 
   async getSuppliers() {
-    return await this.prismaService.suppliers.findMany();
+    return await this.prismaService.suppliers.findMany({
+      orderBy: { id: 'desc' },
+    });
   }
 
   async updateSuppliers(id: string, data: UpdateSuppliersDTO) {

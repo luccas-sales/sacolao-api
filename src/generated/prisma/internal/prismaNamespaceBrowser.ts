@@ -51,7 +51,8 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  suppliers: 'suppliers'
+  suppliers: 'suppliers',
+  notes_rural_suppliers: 'notes_rural_suppliers'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -80,6 +81,28 @@ export const SuppliersScalarFieldEnum = {
 } as const
 
 export type SuppliersScalarFieldEnum = (typeof SuppliersScalarFieldEnum)[keyof typeof SuppliersScalarFieldEnum]
+
+
+export const Notes_rural_suppliersScalarFieldEnum = {
+  id: 'id',
+  supplier_tax_id: 'supplier_tax_id',
+  supplier_name: 'supplier_name',
+  sector: 'sector',
+  note: 'note',
+  note_access_key: 'note_access_key',
+  note_date: 'note_date',
+  issuer_tax_id: 'issuer_tax_id',
+  store_name: 'store_name',
+  receipt: 'receipt',
+  receipt_access_key: 'receipt_access_key',
+  receipt_date: 'receipt_date',
+  value: 'value',
+  status: 'status',
+  is_duplicate: 'is_duplicate',
+  created_at: 'created_at'
+} as const
+
+export type Notes_rural_suppliersScalarFieldEnum = (typeof Notes_rural_suppliersScalarFieldEnum)[keyof typeof Notes_rural_suppliersScalarFieldEnum]
 
 
 export const SortOrder = {

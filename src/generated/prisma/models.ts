@@ -9,4 +9,5 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/suppliers.js'
+export type * from './models/notes_rural_suppliers.js'
 export type * from './commonInputTypes.js'
