@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateNotesRuralSuppliersListDTO } from 'src/dtos/notes-rural-suppliers';
 import { PrismaService } from 'src/prisma.service';
 
@@ -6,7 +6,7 @@ import { PrismaService } from 'src/prisma.service';
 export class NotesRuralSuppliersService {
   constructor(private prismaService: PrismaService) {}
 
-  async CreateNotesRuralSuppliers(payload: CreateNotesRuralSuppliersListDTO) {
+  async createNotesRuralSuppliers(payload: CreateNotesRuralSuppliersListDTO) {
     const suppliers = await this.prismaService.suppliers.findMany({
       select: {
         tax_id: true,
@@ -71,6 +71,22 @@ export class NotesRuralSuppliersService {
   async getNotes() {
     return await this.prismaService.notes_rural_suppliers.findMany({
       orderBy: { created_at: 'desc' },
+    });
+  }
+
+  async deleteNote(id: string) {
+    const numericId = parseInt(id, 10);
+
+    const note = await this.prismaService.notes_rural_suppliers.findUnique({
+      where: { id: numericId },
+    });
+
+    if (!note) {
+      throw new NotFoundException('Nota fiscal não encontrada no sistema.');
+    }
+
+    return await this.prismaService.notes_rural_suppliers.delete({
+      where: { id: numericId },
     });
   }
 }

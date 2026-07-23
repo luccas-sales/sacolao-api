@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Param, Delete } from '@nestjs/common';
 import { NotesRuralSuppliersService } from './notes-rural-suppliers.service';
 import { CreateNotesRuralSuppliersListDTO } from '../dtos/notes-rural-suppliers';
 
@@ -8,11 +8,16 @@ export class NotesRuralSuppliersController {
 
   @Post('import')
   async importNotes(@Body() body: CreateNotesRuralSuppliersListDTO) {
-    return await this.notesService.CreateNotesRuralSuppliers(body);
+    return await this.notesService.createNotesRuralSuppliers(body);
   }
 
   @Get()
   async getNotes() {
     return await this.notesService.getNotes();
+  }
+
+  @Delete(':id')
+  async deleteNote(@Param('id') id: string) {
+    return await this.notesService.deleteNote(id);
   }
 }
