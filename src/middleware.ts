@@ -3,10 +3,6 @@ import { Injectable, NestMiddleware } from '@nestjs/common';
 @Injectable()
 export class Middleware implements NestMiddleware {
   use(req: any, res: any, next: () => void) {
-    if (req.method === 'OPTIONS') {
-      return next();
-    }
-    
     const auth = req.headers.authorization;
 
     if (auth !== `Bearer ${process.env.API_SECRET}`) {
