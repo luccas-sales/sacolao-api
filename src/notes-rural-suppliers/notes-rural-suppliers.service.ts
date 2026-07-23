@@ -63,12 +63,16 @@ export class NotesRuralSuppliersService {
       };
     });
 
-    return await this.prismaService.notes_rural_suppliers.createMany({
+    await this.prismaService.notes_rural_suppliers.createMany({
       data: notes,
     });
+
+    await this.recalculateDuplicates();
+    return { message: 'Importado com sucesso' };
   }
 
   async getNotes() {
+    await this.recalculateDuplicates();
     return await this.prismaService.notes_rural_suppliers.findMany({
       orderBy: { created_at: 'desc' },
     });
@@ -85,8 +89,51 @@ export class NotesRuralSuppliersService {
       throw new NotFoundException('Nota fiscal não encontrada no sistema.');
     }
 
-    return await this.prismaService.notes_rural_suppliers.delete({
+    await this.prismaService.notes_rural_suppliers.delete({
       where: { id: numericId },
     });
+
+    await this.recalculateDuplicates();
+    return { message: 'Deletado com sucesso' };
+  }
+
+  private async recalculateDuplicates() {
+    const duplicates = await this.prismaService.notes_rural_suppliers.groupBy({
+      by: ['note_access_key'],
+      having: {
+        note_access_key: {
+          _count: {
+            gt: 1,
+          },
+        },
+      },
+      where: {
+        note_access_key: {
+          not: null,
+        },
+      },
+    });
+
+    const duplicateKeys = duplicates.map((d) => d.note_access_key as string);
+
+    if (duplicateKeys.length > 0) {
+      await this.prismaService.notes_rural_suppliers.updateMany({
+        where: { note_access_key: { in: duplicateKeys }, is_duplicate: false },
+        data: { is_duplicate: true },
+      });
+
+      await this.prismaService.notes_rural_suppliers.updateMany({
+        where: {
+          note_access_key: { notIn: duplicateKeys },
+          is_duplicate: true,
+        },
+        data: { is_duplicate: false },
+      });
+    } else {
+      await this.prismaService.notes_rural_suppliers.updateMany({
+        where: { is_duplicate: true },
+        data: { is_duplicate: false },
+      });
+    }
   }
 }
