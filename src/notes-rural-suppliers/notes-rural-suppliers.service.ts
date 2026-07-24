@@ -1,5 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateNotesRuralSuppliersListDTO } from 'src/dtos/notes-rural-suppliers';
+import {
+  CreateNotesRuralSuppliersListDTO,
+  UpdateNoteRuralSuppliersDTO,
+} from 'src/dtos/notes-rural-suppliers';
 import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
@@ -95,6 +98,32 @@ export class NotesRuralSuppliersService {
 
     await this.recalculateDuplicates();
     return { message: 'Deletado com sucesso' };
+  }
+
+  async updateNote(id: string, data: UpdateNoteRuralSuppliersDTO) {
+    const numericId = parseInt(id, 10);
+
+    const note = await this.prismaService.notes_rural_suppliers.findUnique({
+      where: { id: numericId },
+    });
+
+    if (!note) {
+      throw new NotFoundException('Nota não encontrada no sistema.');
+    }
+
+    const dataToUpdate = {
+      ...data,
+      ...(data.note_date && { note_date: new Date(data.note_date) }),
+      ...(data.receipt_date && { receipt_date: new Date(data.receipt_date) }),
+    };
+
+    const updatedNote = await this.prismaService.notes_rural_suppliers.update({
+      where: { id: numericId },
+      data: dataToUpdate,
+    });
+
+    await this.recalculateDuplicates();
+    return updatedNote;
   }
 
   private async recalculateDuplicates() {

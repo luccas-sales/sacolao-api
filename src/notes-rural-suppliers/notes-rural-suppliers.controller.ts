@@ -1,6 +1,17 @@
-import { Body, Controller, Get, Post, Param, Delete } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Param,
+  Delete,
+  Put,
+} from '@nestjs/common';
 import { NotesRuralSuppliersService } from './notes-rural-suppliers.service';
-import { CreateNotesRuralSuppliersListDTO } from '../dtos/notes-rural-suppliers';
+import {
+  CreateNotesRuralSuppliersListDTO,
+  UpdateNoteRuralSuppliersDTO,
+} from '../dtos/notes-rural-suppliers';
 
 @Controller('notes-rural-suppliers')
 export class NotesRuralSuppliersController {
@@ -19,5 +30,13 @@ export class NotesRuralSuppliersController {
   @Delete(':id')
   async deleteNote(@Param('id') id: string) {
     return await this.notesService.deleteNote(id);
+  }
+
+  @Put(':id')
+  async updateNote(
+    @Param('id') id: string,
+    @Body() body: UpdateNoteRuralSuppliersDTO,
+  ) {
+    return await this.notesService.updateNote(id, body);
   }
 }
