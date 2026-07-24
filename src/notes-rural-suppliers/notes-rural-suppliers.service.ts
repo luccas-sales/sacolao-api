@@ -127,6 +127,8 @@ export class NotesRuralSuppliersService {
   }
 
   private async recalculateDuplicates() {
+    const inactiveStatuses = ['101', '151', '110'];
+
     const duplicates = await this.prismaService.notes_rural_suppliers.groupBy({
       by: ['note_access_key'],
       having: {
@@ -140,20 +142,36 @@ export class NotesRuralSuppliersService {
         note_access_key: {
           not: null,
         },
+        status: {
+          notIn: inactiveStatuses,
+        },
       },
     });
 
     const duplicateKeys = duplicates.map((d) => d.note_access_key as string);
 
+    await this.prismaService.notes_rural_suppliers.updateMany({
+      where: {
+        status: { in: inactiveStatuses },
+        is_duplicate: true,
+      },
+      data: { is_duplicate: false },
+    });
+
     if (duplicateKeys.length > 0) {
       await this.prismaService.notes_rural_suppliers.updateMany({
-        where: { note_access_key: { in: duplicateKeys }, is_duplicate: false },
+        where: {
+          note_access_key: { in: duplicateKeys },
+          status: { notIn: inactiveStatuses },
+          is_duplicate: false,
+        },
         data: { is_duplicate: true },
       });
 
       await this.prismaService.notes_rural_suppliers.updateMany({
         where: {
           note_access_key: { notIn: duplicateKeys },
+          status: { notIn: inactiveStatuses },
           is_duplicate: true,
         },
         data: { is_duplicate: false },
