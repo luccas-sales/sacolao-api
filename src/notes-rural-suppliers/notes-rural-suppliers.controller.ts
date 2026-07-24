@@ -6,6 +6,8 @@ import {
   Param,
   Delete,
   Put,
+  Res,
+  StreamableFile,
 } from '@nestjs/common';
 import { NotesRuralSuppliersService } from './notes-rural-suppliers.service';
 import {
@@ -38,5 +40,15 @@ export class NotesRuralSuppliersController {
     @Body() body: UpdateNoteRuralSuppliersDTO,
   ) {
     return await this.notesService.updateNote(id, body);
+  }
+
+  @Post('danfe')
+  async getDanfe(@Body('receiptAccessKey') receiptAccessKey: string) {
+    const pdf = await this.notesService.getDanfe(receiptAccessKey);
+
+    return new StreamableFile(pdf, {
+      type: 'application/pdf',
+      disposition: 'inline; filename="danfe.pdf"',
+    });
   }
 }

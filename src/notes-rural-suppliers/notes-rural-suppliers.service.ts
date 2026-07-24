@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import {
   CreateNotesRuralSuppliersListDTO,
   UpdateNoteRuralSuppliersDTO,
@@ -124,6 +124,27 @@ export class NotesRuralSuppliersService {
 
     await this.recalculateDuplicates();
     return updatedNote;
+  }
+
+  async getDanfe(receiptAccessKey: string) {
+    const response = await fetch('https://consultadanfe.com/api/v1/consulta', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/pdf',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chave: receiptAccessKey,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new BadRequestException(
+        `Erro ao consultar DANFE (${response.status})`,
+      );
+    }
+
+    return Buffer.from(await response.arrayBuffer());
   }
 
   private async recalculateDuplicates() {
