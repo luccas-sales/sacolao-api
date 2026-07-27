@@ -131,16 +131,12 @@ export class NotesRuralSuppliersService {
   }
 
   async getDanfe(receiptAccessKey: string) {
-    const credentials = Buffer.from(`${process.env.FOCUS_NFE_TOKEN}`).toString(
-      'base64',
-    );
-
     const response = await fetch(
-      `https://api.focusnfe.com.br/v2/nfe/${receiptAccessKey}?completa=1`,
+      `https://api.focusnfe.com.br/v2/nfe/${receiptAccessKey}`,
       {
         method: 'GET',
         headers: {
-          Authorization: `Basic ${credentials}`,
+          Authorization: `Basic ${process.env.FOCUS_NFE_TOKEN}`,
           Accept: 'application/json',
         },
       },
@@ -148,19 +144,13 @@ export class NotesRuralSuppliersService {
 
     if (!response.ok) {
       throw new BadRequestException(
-        `Erro ao consultar DANFE no Focus NFe (${response.status})`,
+        `Erro ao consultar a nota no Focus NFe (${response.status})`,
       );
     }
 
     const data = await response.json();
 
-    if (!data.url_danfe) {
-      throw new BadRequestException(
-        'Link da DANFE não encontrado para esta chave no Focus NFe.',
-      );
-    }
-
-    return { url: data.url_danfe };
+    return data;
   }
 
   private async recalculateDuplicates() {
