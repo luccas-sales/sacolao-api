@@ -159,7 +159,7 @@ export class NotesRuralSuppliersService {
           method: 'GET',
           headers: {
             accept: 'application/json',
-            authorization: `Basic ${process.env.FOCUS_NFE_TOKEN}`,
+            authorization: `Basic ${Buffer.from(`${process.env.FOCUS_NFE_TOKEN}:`).toString('base64')}`,
           },
         },
       );
