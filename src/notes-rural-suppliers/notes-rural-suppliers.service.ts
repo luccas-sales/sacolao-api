@@ -1,4 +1,8 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import {
   CreateNotesRuralSuppliersListDTO,
   UpdateNoteRuralSuppliersDTO,
@@ -127,24 +131,36 @@ export class NotesRuralSuppliersService {
   }
 
   async getDanfe(receiptAccessKey: string) {
-    const response = await fetch('https://consultadanfe.com/api/v1/consulta', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/pdf',
-        'Content-Type': 'application/json',
+    const credentials = Buffer.from(`${process.env.FOCUS_NFE_TOKEN}`).toString(
+      'base64',
+    );
+
+    const response = await fetch(
+      `https://api.focusnfe.com.br/v2/nfe/${receiptAccessKey}?completa=1`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Basic ${credentials}`,
+          Accept: 'application/json',
+        },
       },
-      body: JSON.stringify({
-        chave: receiptAccessKey,
-      }),
-    });
+    );
 
     if (!response.ok) {
       throw new BadRequestException(
-        `Erro ao consultar DANFE (${response.status})`,
+        `Erro ao consultar DANFE no Focus NFe (${response.status})`,
       );
     }
 
-    return Buffer.from(await response.arrayBuffer());
+    const data = await response.json();
+
+    if (!data.url_danfe) {
+      throw new BadRequestException(
+        'Link da DANFE não encontrado para esta chave no Focus NFe.',
+      );
+    }
+
+    return { url: data.url_danfe };
   }
 
   private async recalculateDuplicates() {
