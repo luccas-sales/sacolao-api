@@ -131,28 +131,40 @@ export class NotesRuralSuppliersService {
   }
 
   async getDanfe(receiptAccessKey: string) {
-    const response = await fetch(
-      `https://api.focusnfe.com.br/v2/nfe/${receiptAccessKey}`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: `Basic ${process.env.FOCUS_NFE_TOKEN}`,
-          Accept: 'application/json',
-        },
+    const response = await fetch('https://consultadanfe.com/api/v1/consulta', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/pdf',
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify({
+        chave: receiptAccessKey,
+      }),
+    });
 
     if (!response.ok) {
       throw new BadRequestException(
-        `Erro ao consultar a nota no Focus NFe (${response.status})`,
+        `Erro ao consultar DANFE (${response.status})`,
       );
     }
 
-    const data = await response.json();
+    return Buffer.from(await response.arrayBuffer());
+  }
 
-    console.log(data);
+  async getNoteInformations(receiptAccessKey: string) {
+    const url = `https://api.focusnfe.com.br/v2/nfe/${receiptAccessKey}`;
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        authorization: `Basic ${process.env.FOCUS_NFE_TOKEN}`,
+      },
+    };
 
-    return data;
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.error(err));
   }
 
   private async recalculateDuplicates() {
