@@ -52,13 +52,10 @@ export class NotesRuralSuppliersController {
     });
   }
 
-  @Post('note')
+  @Get('note/:receiptAccessKey')
   async getNoteInformations(
-    @Body('receiptAccessKey') receiptAccessKey: string,
+    @Param('receiptAccessKey') receiptAccessKey: string,
   ) {
-    const informations =
-      await this.notesService.getNoteInformations(receiptAccessKey);
-
-    return informations;
+    return await this.notesService.getNoteInformations(receiptAccessKey);
   }
 }

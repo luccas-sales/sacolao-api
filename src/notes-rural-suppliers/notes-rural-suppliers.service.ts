@@ -152,19 +152,24 @@ export class NotesRuralSuppliersService {
   }
 
   async getNoteInformations(receiptAccessKey: string) {
-    const url = `https://api.focusnfe.com.br/v2/nfe/${receiptAccessKey}`;
-    const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        authorization: `Basic ${process.env.FOCUS_NFE_TOKEN}`,
-      },
-    };
+    try {
+      const res = await fetch(
+        `https://api.focusnfe.com.br/v2/nfe/${receiptAccessKey}`,
+        {
+          method: 'GET',
+          headers: {
+            accept: 'application/json',
+            authorization: `Basic ${process.env.FOCUS_NFE_TOKEN}`,
+          },
+        },
+      );
 
-    fetch(url, options)
-      .then((res) => res.json())
-      .then((json) => console.log(json))
-      .catch((err) => console.error(err));
+      const json = await res.json();
+      return json;
+    } catch (err) {
+      console.error('Erro ao buscar nota:', err);
+      throw err;
+    }
   }
 
   private async recalculateDuplicates() {
