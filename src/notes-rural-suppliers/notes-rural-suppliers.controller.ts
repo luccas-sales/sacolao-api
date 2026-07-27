@@ -51,11 +51,4 @@ export class NotesRuralSuppliersController {
       disposition: 'inline; filename="danfe.pdf"',
     });
   }
-
-  @Get('note/:receiptAccessKey')
-  async getNoteInformations(
-    @Param('receiptAccessKey') receiptAccessKey: string,
-  ) {
-    return await this.notesService.getNoteInformations(receiptAccessKey);
-  }
 }
