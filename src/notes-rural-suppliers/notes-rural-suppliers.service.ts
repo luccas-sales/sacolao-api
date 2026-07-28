@@ -62,7 +62,7 @@ export class NotesRuralSuppliersService {
           item.status !== '888' &&
           item.status !== '000'
         ) {
-          sefazStatus = item.status || null;
+          sefazStatus = item.status || existingNote.status;
         } else if (
           existingNote.receipt_access_key &&
           existingNote.status !== '888' &&
@@ -70,7 +70,7 @@ export class NotesRuralSuppliersService {
         ) {
           sefazStatus = existingNote.status;
         } else if (item.status !== '000' && item.status !== '888') {
-          sefazStatus = item.status || null;
+          sefazStatus = item.status || existingNote.status;
         }
 
         await this.prismaService.notes_rural_suppliers.update({
@@ -227,6 +227,11 @@ export class NotesRuralSuppliersService {
         }
       }
 
+      const idsToDelete = otherNotes.map((n) => n.id);
+      await this.prismaService.notes_rural_suppliers.deleteMany({
+        where: { id: { in: idsToDelete } },
+      });
+
       await this.prismaService.notes_rural_suppliers.update({
         where: { id: baseNote.id },
         data: {
@@ -243,11 +248,6 @@ export class NotesRuralSuppliersService {
               ? counterNote.status
               : baseNote.status,
         },
-      });
-
-      const idsToDelete = otherNotes.map((n) => n.id);
-      await this.prismaService.notes_rural_suppliers.deleteMany({
-        where: { id: { in: idsToDelete } },
       });
     }
 
@@ -345,6 +345,10 @@ export class NotesRuralSuppliersService {
           sefazStatus = existingMatch.status;
         }
 
+        await this.prismaService.notes_rural_suppliers.delete({
+          where: { id: numericId },
+        });
+
         const mergedNote =
           await this.prismaService.notes_rural_suppliers.update({
             where: { id: existingMatch.id },
@@ -387,10 +391,6 @@ export class NotesRuralSuppliersService {
               status: sefazStatus,
             },
           });
-
-        await this.prismaService.notes_rural_suppliers.delete({
-          where: { id: numericId },
-        });
 
         await this.recalculateDuplicates();
         return mergedNote;
