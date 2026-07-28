@@ -53,26 +53,39 @@ export class NotesRuralSuppliersService {
         });
 
       if (existingNote) {
+        const isIncomingProducerNote =
+          !item.receipt_access_key && Boolean(item.note_access_key);
+
         await this.prismaService.notes_rural_suppliers.update({
           where: { id: existingNote.id },
           data: {
-            note: existingNote.note || item.note || null,
-            note_access_key:
-              existingNote.note_access_key || item.note_access_key || null,
-            note_date:
-              existingNote.note_date ||
-              (item.note_date ? new Date(item.note_date) : null),
-            receipt: existingNote.receipt || item.receipt || null,
+            note: isIncomingProducerNote
+              ? item.note || existingNote.note
+              : existingNote.note || item.note || null,
+
+            note_access_key: isIncomingProducerNote
+              ? item.note_access_key || existingNote.note_access_key
+              : existingNote.note_access_key || item.note_access_key || null,
+
+            note_date: isIncomingProducerNote
+              ? item.note_date
+                ? new Date(item.note_date)
+                : existingNote.note_date
+              : existingNote.note_date ||
+                (item.note_date ? new Date(item.note_date) : null),
+
+            receipt: item.receipt || existingNote.receipt || null,
             receipt_access_key:
-              existingNote.receipt_access_key ||
               item.receipt_access_key ||
+              existingNote.receipt_access_key ||
               null,
-            receipt_date:
-              existingNote.receipt_date ||
-              (item.receipt_date ? new Date(item.receipt_date) : null),
+            receipt_date: item.receipt_date
+              ? new Date(item.receipt_date)
+              : existingNote.receipt_date,
             issuer_tax_id:
-              existingNote.issuer_tax_id || item.issuer_tax_id || null,
-            store_name: existingNote.store_name || item.store_name || null,
+              item.issuer_tax_id || existingNote.issuer_tax_id || null,
+            store_name: item.store_name || existingNote.store_name || null,
+
             status:
               (existingNote.receipt_access_key || item.receipt_access_key) &&
               (existingNote.note_access_key || item.note_access_key)
