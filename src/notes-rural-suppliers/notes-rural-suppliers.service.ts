@@ -29,50 +29,81 @@ export class NotesRuralSuppliersService {
       ]),
     );
 
-    const incomingAccessKeys = payload.notes
-      .map((n) => n.note_access_key)
-      .filter((key): key is string => Boolean(key));
-
-    const existingNotes =
-      await this.prismaService.notes_rural_suppliers.findMany({
-        where: {
-          note_access_key: { in: incomingAccessKeys },
-        },
-        select: { note_access_key: true },
-      });
-
-    const existingKeysSet = new Set(
-      existingNotes.map((n) => n.note_access_key),
-    );
-
-    const notes = payload.notes.map((item) => {
+    for (const item of payload.notes) {
       const supplierInfo = suppliersMap.get(item.supplier_tax_id);
+      const supplierName = supplierInfo ? supplierInfo.name : null;
+      const sector = supplierInfo ? supplierInfo.sector : null;
 
-      const isDuplicate = item.note_access_key
-        ? existingKeysSet.has(item.note_access_key)
-        : false;
+      const existingNote =
+        await this.prismaService.notes_rural_suppliers.findFirst({
+          where: {
+            OR: [
+              {
+                note_access_key: item.note_access_key
+                  ? item.note_access_key
+                  : undefined,
+              },
+              {
+                receipt_access_key: item.receipt_access_key
+                  ? item.receipt_access_key
+                  : undefined,
+              },
+            ].filter((condition) => Object.values(condition)[0] !== undefined),
+          },
+        });
 
-      return {
-        supplier_tax_id: item.supplier_tax_id,
-        supplier_name: supplierInfo ? supplierInfo.name : null,
-        sector: supplierInfo ? supplierInfo.sector : null,
-        note: item.note || null,
-        note_access_key: item.note_access_key || null,
-        note_date: item.note_date ? new Date(item.note_date) : null,
-        issuer_tax_id: item.issuer_tax_id || null,
-        store_name: item.store_name || null,
-        receipt: item.receipt || null,
-        receipt_access_key: item.receipt_access_key || null,
-        receipt_date: item.receipt_date ? new Date(item.receipt_date) : null,
-        value: item.value || null,
-        status: item.status || '000',
-        is_duplicate: isDuplicate,
-      };
-    });
+      if (existingNote) {
+        await this.prismaService.notes_rural_suppliers.update({
+          where: { id: existingNote.id },
+          data: {
+            note: existingNote.note || item.note || null,
+            note_access_key:
+              existingNote.note_access_key || item.note_access_key || null,
+            note_date:
+              existingNote.note_date ||
+              (item.note_date ? new Date(item.note_date) : null),
+            receipt: existingNote.receipt || item.receipt || null,
+            receipt_access_key:
+              existingNote.receipt_access_key ||
+              item.receipt_access_key ||
+              null,
+            receipt_date:
+              existingNote.receipt_date ||
+              (item.receipt_date ? new Date(item.receipt_date) : null),
+            issuer_tax_id:
+              existingNote.issuer_tax_id || item.issuer_tax_id || null,
+            store_name: existingNote.store_name || item.store_name || null,
+            status:
+              (existingNote.receipt_access_key || item.receipt_access_key) &&
+              (existingNote.note_access_key || item.note_access_key)
+                ? '100'
+                : item.status !== '000'
+                  ? item.status
+                  : existingNote.status,
+          },
+        });
+        continue;
+      }
 
-    await this.prismaService.notes_rural_suppliers.createMany({
-      data: notes,
-    });
+      await this.prismaService.notes_rural_suppliers.create({
+        data: {
+          supplier_tax_id: item.supplier_tax_id,
+          supplier_name: supplierName,
+          sector: sector,
+          note: item.note || null,
+          note_access_key: item.note_access_key || null,
+          note_date: item.note_date ? new Date(item.note_date) : null,
+          issuer_tax_id: item.issuer_tax_id || null,
+          store_name: item.store_name || null,
+          receipt: item.receipt || null,
+          receipt_access_key: item.receipt_access_key || null,
+          receipt_date: item.receipt_date ? new Date(item.receipt_date) : null,
+          value: item.value || null,
+          status: item.status || '000',
+          is_duplicate: false,
+        },
+      });
+    }
 
     await this.recalculateDuplicates();
     return { message: 'Importado com sucesso' };
