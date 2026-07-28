@@ -44,11 +44,10 @@ export class NotesRuralSuppliersController {
 
   @Post('danfe')
   async getDanfe(@Body('receiptAccessKey') receiptAccessKey: string) {
-    const pdf = await this.notesService.getDanfe(receiptAccessKey);
+    const pdfBase64 = await this.notesService.getDanfe(receiptAccessKey);
 
-    return new StreamableFile(pdf, {
-      type: 'application/pdf',
-      disposition: 'inline; filename="danfe.pdf"',
-    });
+    return {
+      pdf_base64: pdfBase64,
+    };
   }
 }
