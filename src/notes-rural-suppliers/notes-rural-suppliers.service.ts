@@ -131,24 +131,92 @@ export class NotesRuralSuppliersService {
   }
 
   async getDanfe(receiptAccessKey: string) {
-    const response = await fetch('https://consultadanfe.com/api/v1/consulta', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/pdf',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        chave: receiptAccessKey,
-      }),
-    });
-
-    if (!response.ok) {
-      throw new BadRequestException(
-        `Erro ao consultar DANFE (${response.status})`,
+    try {
+      const response = await fetch(
+        'https://consultadanfe.com/api/v1/consulta',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            chave: receiptAccessKey,
+          }),
+        },
       );
-    }
 
-    return Buffer.from(await response.arrayBuffer());
+      if (response.ok) {
+        const data = await response.json();
+
+        if (data.status === 'ok' && data.pdf_base64) {
+          return data.pdf_base64;
+        }
+      }
+    } catch (error) {}
+
+    try {
+      const response = await fetch(
+        `https://api.meudanfe.com.br/v2/fd/get/da/${receiptAccessKey}`,
+        {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+          },
+        },
+      );
+
+      if (response.ok) {
+        const result = await response.json();
+
+        if (result.data) {
+          return result.data;
+        }
+      }
+    } catch (error) {}
+
+    try {
+      const response = await fetch(
+        `https://api.meudanfe.com.br/v2/fd/add/${receiptAccessKey}`,
+        {
+          method: 'PUT',
+          headers: {
+            Accept: 'application/json',
+          },
+        },
+      );
+
+      if (response.ok) {
+        const result = await response.json();
+
+        if (result.status === 'OK') {
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+        }
+      }
+    } catch (error) {}
+
+    try {
+      const response = await fetch(
+        `https://api.meudanfe.com.br/v2/fd/get/da/${receiptAccessKey}`,
+        {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+          },
+        },
+      );
+
+      if (response.ok) {
+        const result = await response.json();
+
+        if (result.data) {
+          return result.data;
+        }
+      }
+    } catch (error) {}
+
+    throw new BadRequestException(
+      `Não foi possível resgatar o DANFE para a chave ${receiptAccessKey}. Verifique se a nota foi autorizada pela SEFAZ ou se há pendências no serviço.`,
+    );
   }
 
   private async recalculateDuplicates() {
