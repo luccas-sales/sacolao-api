@@ -56,6 +56,23 @@ export class NotesRuralSuppliersService {
         const isIncomingProducerNote =
           !item.receipt_access_key && Boolean(item.note_access_key);
 
+        let sefazStatus = existingNote.status;
+        if (
+          item.receipt_access_key &&
+          item.status !== '888' &&
+          item.status !== '000'
+        ) {
+          sefazStatus = item.status || null;
+        } else if (
+          existingNote.receipt_access_key &&
+          existingNote.status !== '888' &&
+          existingNote.status !== '000'
+        ) {
+          sefazStatus = existingNote.status;
+        } else if (item.status !== '000' && item.status !== '888') {
+          sefazStatus = item.status || null;
+        }
+
         await this.prismaService.notes_rural_suppliers.update({
           where: { id: existingNote.id },
           data: {
@@ -86,13 +103,7 @@ export class NotesRuralSuppliersService {
               item.issuer_tax_id || existingNote.issuer_tax_id || null,
             store_name: item.store_name || existingNote.store_name || null,
 
-            status:
-              (existingNote.receipt_access_key || item.receipt_access_key) &&
-              (existingNote.note_access_key || item.note_access_key)
-                ? '100'
-                : item.status !== '000'
-                  ? item.status
-                  : existingNote.status,
+            status: sefazStatus,
           },
         });
         continue;
@@ -123,7 +134,9 @@ export class NotesRuralSuppliersService {
   }
 
   async getNotes() {
+    await this.autoMergeOrphanNotes();
     await this.recalculateDuplicates();
+
     return await this.prismaService.notes_rural_suppliers.findMany({
       orderBy: { created_at: 'desc' },
     });
@@ -148,22 +161,241 @@ export class NotesRuralSuppliersService {
     return { message: 'Deletado com sucesso' };
   }
 
+  private async autoMergeOrphanNotes() {
+    const duplicates = await this.prismaService.notes_rural_suppliers.groupBy({
+      by: ['note_access_key'],
+      having: {
+        note_access_key: {
+          _count: {
+            gt: 1,
+          },
+        },
+      },
+      where: {
+        note_access_key: {
+          not: null,
+        },
+      },
+    });
+
+    for (const dup of duplicates) {
+      const key = dup.note_access_key as string;
+      if (!key) continue;
+
+      const notes = await this.prismaService.notes_rural_suppliers.findMany({
+        where: { note_access_key: key },
+        orderBy: { created_at: 'asc' },
+      });
+
+      if (notes.length <= 1) continue;
+
+      const counterNote =
+        notes.find(
+          (n) =>
+            n.receipt_access_key && n.status !== '888' && n.status !== '000',
+        ) || notes[0];
+      const baseNote = counterNote;
+      const otherNotes = notes.filter((n) => n.id !== baseNote.id);
+
+      let mergedReceipt = baseNote.receipt;
+      let mergedReceiptKey = baseNote.receipt_access_key;
+      let mergedReceiptDate = baseNote.receipt_date;
+      let mergedNoteNum = baseNote.note;
+      let mergedNoteDate = baseNote.note_date;
+      let mergedIssuer = baseNote.issuer_tax_id;
+      let mergedStore = baseNote.store_name;
+      let mergedValue = baseNote.value;
+
+      for (const other of otherNotes) {
+        if (!mergedReceipt) mergedReceipt = other.receipt;
+        if (!mergedReceiptKey) mergedReceiptKey = other.receipt_access_key;
+        if (!mergedReceiptDate) mergedReceiptDate = other.receipt_date;
+        if (!mergedNoteNum) mergedNoteNum = other.note;
+        if (!mergedNoteDate) mergedNoteDate = other.note_date;
+        if (!mergedIssuer) mergedIssuer = other.issuer_tax_id;
+        if (!mergedStore) mergedStore = other.store_name;
+        if (!mergedValue) mergedValue = other.value;
+      }
+
+      if (key.length === 44) {
+        if (!mergedNoteNum)
+          mergedNoteNum = parseInt(key.substring(25, 34), 10).toString();
+        if (!mergedNoteDate) {
+          const year = `20${key.substring(2, 4)}`;
+          const month = key.substring(4, 6);
+          mergedNoteDate = new Date(`${year}-${month}-01T00:00:00.000Z`);
+        }
+      }
+
+      await this.prismaService.notes_rural_suppliers.update({
+        where: { id: baseNote.id },
+        data: {
+          receipt: mergedReceipt,
+          receipt_access_key: mergedReceiptKey,
+          receipt_date: mergedReceiptDate,
+          note: mergedNoteNum,
+          note_date: mergedNoteDate,
+          issuer_tax_id: mergedIssuer,
+          store_name: mergedStore,
+          value: mergedValue,
+          status:
+            counterNote.status !== '888' && counterNote.status !== '000'
+              ? counterNote.status
+              : baseNote.status,
+        },
+      });
+
+      const idsToDelete = otherNotes.map((n) => n.id);
+      await this.prismaService.notes_rural_suppliers.deleteMany({
+        where: { id: { in: idsToDelete } },
+      });
+    }
+
+    const incompleteNotes =
+      await this.prismaService.notes_rural_suppliers.findMany({
+        where: {
+          note_access_key: { not: null },
+          OR: [{ note: null }, { note_date: null }],
+        },
+      });
+
+    for (const n of incompleteNotes) {
+      const key = n.note_access_key?.replace(/\D/g, '') || '';
+      if (key.length === 44) {
+        const noteNum =
+          n.note || parseInt(key.substring(25, 34), 10).toString();
+        const noteDate =
+          n.note_date ||
+          new Date(
+            `20${key.substring(2, 4)}-${key.substring(4, 6)}-01T00:00:00.000Z`,
+          );
+        await this.prismaService.notes_rural_suppliers.update({
+          where: { id: n.id },
+          data: { note: noteNum, note_date: noteDate },
+        });
+      }
+    }
+  }
+
   async updateNote(id: string, data: UpdateNoteRuralSuppliersDTO) {
     const numericId = parseInt(id, 10);
 
-    const note = await this.prismaService.notes_rural_suppliers.findUnique({
-      where: { id: numericId },
-    });
+    const currentNote =
+      await this.prismaService.notes_rural_suppliers.findUnique({
+        where: { id: numericId },
+      });
 
-    if (!note) {
+    if (!currentNote) {
       throw new NotFoundException('Nota não encontrada no sistema.');
     }
 
-    const dataToUpdate = {
+    let dataToUpdate: any = {
       ...data,
       ...(data.note_date && { note_date: new Date(data.note_date) }),
       ...(data.receipt_date && { receipt_date: new Date(data.receipt_date) }),
     };
+
+    if (
+      data.note_access_key &&
+      data.note_access_key !== currentNote.note_access_key
+    ) {
+      const cleanKey = data.note_access_key.replace(/\D/g, '');
+      dataToUpdate.note_access_key = cleanKey;
+
+      if (cleanKey.length === 44) {
+        if (!dataToUpdate.note && !currentNote.note) {
+          dataToUpdate.note = parseInt(
+            cleanKey.substring(25, 34),
+            10,
+          ).toString();
+        }
+        if (!dataToUpdate.note_date && !currentNote.note_date) {
+          const year = `20${cleanKey.substring(2, 4)}`;
+          const month = cleanKey.substring(4, 6);
+          dataToUpdate.note_date = new Date(
+            `${year}-${month}-01T00:00:00.000Z`,
+          );
+        }
+      }
+
+      const existingMatch =
+        await this.prismaService.notes_rural_suppliers.findFirst({
+          where: {
+            note_access_key: cleanKey,
+            id: { not: numericId },
+          },
+        });
+
+      if (existingMatch) {
+        let sefazStatus = currentNote.status;
+
+        if (dataToUpdate.status && dataToUpdate.status !== '888') {
+          sefazStatus = dataToUpdate.status;
+        } else if (
+          currentNote.receipt_access_key &&
+          currentNote.status !== '888' &&
+          currentNote.status !== '000'
+        ) {
+          sefazStatus = currentNote.status;
+        } else if (
+          existingMatch.receipt_access_key &&
+          existingMatch.status !== '888' &&
+          existingMatch.status !== '000'
+        ) {
+          sefazStatus = existingMatch.status;
+        }
+
+        const mergedNote =
+          await this.prismaService.notes_rural_suppliers.update({
+            where: { id: existingMatch.id },
+            data: {
+              receipt:
+                currentNote.receipt ||
+                existingMatch.receipt ||
+                dataToUpdate.receipt ||
+                null,
+              receipt_access_key:
+                currentNote.receipt_access_key ||
+                existingMatch.receipt_access_key ||
+                dataToUpdate.receipt_access_key ||
+                null,
+              receipt_date:
+                dataToUpdate.receipt_date ||
+                currentNote.receipt_date ||
+                existingMatch.receipt_date ||
+                null,
+
+              issuer_tax_id:
+                currentNote.issuer_tax_id ||
+                existingMatch.issuer_tax_id ||
+                null,
+              store_name:
+                currentNote.store_name || existingMatch.store_name || null,
+              value: currentNote.value || existingMatch.value || null,
+
+              note:
+                existingMatch.note ||
+                dataToUpdate.note ||
+                currentNote.note ||
+                null,
+              note_date:
+                existingMatch.note_date ||
+                dataToUpdate.note_date ||
+                currentNote.note_date ||
+                null,
+
+              status: sefazStatus,
+            },
+          });
+
+        await this.prismaService.notes_rural_suppliers.delete({
+          where: { id: numericId },
+        });
+
+        await this.recalculateDuplicates();
+        return mergedNote;
+      }
+    }
 
     const updatedNote = await this.prismaService.notes_rural_suppliers.update({
       where: { id: numericId },
