@@ -191,6 +191,7 @@ export class NotesRuralSuppliersService {
           method: 'PUT',
           headers: {
             Accept: 'application/json',
+            'api-key': process.env.MEU_DANFE_TOKEN || '',
           },
         },
       );
@@ -217,6 +218,7 @@ export class NotesRuralSuppliersService {
             method: 'GET',
             headers: {
               Accept: 'application/json',
+              'api-key': process.env.MEU_DANFE_TOKEN || '',
             },
           },
         );
