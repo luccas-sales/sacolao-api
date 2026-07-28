@@ -152,7 +152,12 @@ export class NotesRuralSuppliersService {
           return data.pdf_base64;
         }
       }
-    } catch (error) {}
+    } catch (error) {
+      console.warn(
+        `(consultadanfe.com) Falha na consultando para a chave ${receiptAccessKey}:`,
+        error,
+      );
+    }
 
     try {
       const response = await fetch(
@@ -172,7 +177,12 @@ export class NotesRuralSuppliersService {
           return result.data;
         }
       }
-    } catch (error) {}
+    } catch (error) {
+      console.warn(
+        `(meudanfe.com) Falha na consultando para a chave ${receiptAccessKey}:`,
+        error,
+      );
+    }
 
     try {
       const response = await fetch(
@@ -185,37 +195,48 @@ export class NotesRuralSuppliersService {
         },
       );
 
-      if (response.ok) {
-        const result = await response.json();
-
-        if (result.status === 'OK') {
-          await new Promise((resolve) => setTimeout(resolve, 2000));
-        }
+      if (!response.ok) {
+        console.warn(
+          `(meudanfe.com) Falha ao adicionar a nota com chave ${receiptAccessKey}: ${response.status}`,
+        );
       }
-    } catch (error) {}
-
-    try {
-      const response = await fetch(
-        `https://api.meudanfe.com.br/v2/fd/get/da/${receiptAccessKey}`,
-        {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-          },
-        },
+    } catch (error) {
+      console.warn(
+        `(meudanfe.com) Falha ao adicionar a nota com chave ${receiptAccessKey}:`,
+        error,
       );
+    }
 
-      if (response.ok) {
-        const result = await response.json();
+    for (let attempt = 1; attempt <= 4; attempt++) {
+      await new Promise((resolve) => setTimeout(resolve, 3000));
 
-        if (result.data) {
-          return result.data;
+      try {
+        const response = await fetch(
+          `https://api.meudanfe.com.br/v2/fd/get/da/${receiptAccessKey}`,
+          {
+            method: 'GET',
+            headers: {
+              Accept: 'application/json',
+            },
+          },
+        );
+
+        if (response.ok) {
+          const result = await response.json();
+          if (result.data) {
+            return result.data;
+          }
         }
+      } catch (error) {
+        console.warn(
+          `(meudanfe.com) Tentativa de consultar ${attempt}/4 falhou:`,
+          error,
+        );
       }
-    } catch (error) {}
+    }
 
     throw new BadRequestException(
-      `Não foi possível resgatar o DANFE para a chave ${receiptAccessKey}. Verifique se a nota foi autorizada pela SEFAZ ou se há pendências no serviço.`,
+      `Não foi possível resgatar o DANFE para a chave ${receiptAccessKey}. Verifique se o status do SEFAZ ou se há pendências no serviço.`,
     );
   }
 
