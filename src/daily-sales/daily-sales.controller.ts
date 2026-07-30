@@ -3,7 +3,7 @@ import { DailySalesService } from './daily-sales.service';
 import {
   CreateDailySalesListDTO,
   UpdateDailySaleDTO,
-} from 'src/dtos/daily-sales';
+} from '../dtos/daily-sales';
 
 @Controller('daily-sales')
 export class DailySalesController {
