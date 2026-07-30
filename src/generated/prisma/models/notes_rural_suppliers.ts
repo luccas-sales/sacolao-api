@@ -327,6 +327,7 @@ export type notes_rural_suppliersOrderByWithRelationInput = {
 
 export type notes_rural_suppliersWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  receipt_access_key?: string
   AND?: Prisma.notes_rural_suppliersWhereInput | Prisma.notes_rural_suppliersWhereInput[]
   OR?: Prisma.notes_rural_suppliersWhereInput[]
   NOT?: Prisma.notes_rural_suppliersWhereInput | Prisma.notes_rural_suppliersWhereInput[]
@@ -339,13 +340,12 @@ export type notes_rural_suppliersWhereUniqueInput = Prisma.AtLeast<{
   issuer_tax_id?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   store_name?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   receipt?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
-  receipt_access_key?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   receipt_date?: Prisma.DateTimeNullableFilter<"notes_rural_suppliers"> | Date | string | null
   value?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   status?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   is_duplicate?: Prisma.BoolNullableFilter<"notes_rural_suppliers"> | boolean | null
   created_at?: Prisma.DateTimeNullableFilter<"notes_rural_suppliers"> | Date | string | null
-}, "id">
+}, "id" | "receipt_access_key">
 
 export type notes_rural_suppliersOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

@@ -4,9 +4,10 @@ import { SuppliersModule } from './suppliers/suppliers.module';
 import { SuppliersService } from './suppliers/suppliers.service';
 import { Middleware } from './middleware';
 import { NotesRuralSuppliersModule } from './notes-rural-suppliers/notes-rural-suppliers.module';
+import { DailySalesModule } from './daily-sales/daily-sales.module';
 
 @Module({
-  imports: [SuppliersModule, NotesRuralSuppliersModule],
+  imports: [SuppliersModule, NotesRuralSuppliersModule, DailySalesModule],
   controllers: [],
   providers: [SuppliersService, PrismaService],
 })

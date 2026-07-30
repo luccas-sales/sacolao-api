@@ -52,7 +52,10 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   suppliers: 'suppliers',
-  notes_rural_suppliers: 'notes_rural_suppliers'
+  notes_rural_suppliers: 'notes_rural_suppliers',
+  cash_registers: 'cash_registers',
+  daily_sales: 'daily_sales',
+  stores: 'stores'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -103,6 +106,42 @@ export const Notes_rural_suppliersScalarFieldEnum = {
 } as const
 
 export type Notes_rural_suppliersScalarFieldEnum = (typeof Notes_rural_suppliersScalarFieldEnum)[keyof typeof Notes_rural_suppliersScalarFieldEnum]
+
+
+export const Cash_registersScalarFieldEnum = {
+  id: 'id',
+  store_id: 'store_id',
+  number: 'number',
+  nfce_series: 'nfce_series',
+  nfe_series: 'nfe_series',
+  description: 'description',
+  created_at: 'created_at'
+} as const
+
+export type Cash_registersScalarFieldEnum = (typeof Cash_registersScalarFieldEnum)[keyof typeof Cash_registersScalarFieldEnum]
+
+
+export const Daily_salesScalarFieldEnum = {
+  id: 'id',
+  cash_register_id: 'cash_register_id',
+  report_date: 'report_date',
+  total_nfce: 'total_nfce',
+  total_nfe: 'total_nfe',
+  total_summary_map: 'total_summary_map',
+  created_at: 'created_at'
+} as const
+
+export type Daily_salesScalarFieldEnum = (typeof Daily_salesScalarFieldEnum)[keyof typeof Daily_salesScalarFieldEnum]
+
+
+export const StoresScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  tax_id: 'tax_id',
+  created_at: 'created_at'
+} as const
+
+export type StoresScalarFieldEnum = (typeof StoresScalarFieldEnum)[keyof typeof StoresScalarFieldEnum]
 
 
 export const SortOrder = {
