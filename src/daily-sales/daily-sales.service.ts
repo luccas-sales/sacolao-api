@@ -86,7 +86,7 @@ export class DailySalesService {
     const where: any = {};
 
     if (storeId) {
-      where.cash_register = { store_id: storeId };
+      where.cash_registers = { store_id: storeId };
     }
 
     if (startDate || endDate) {
