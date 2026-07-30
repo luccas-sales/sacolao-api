@@ -89,18 +89,60 @@ export class DailySalesService {
       where.cash_registers = { store_id: storeId };
     }
 
+    // O filtro de data da tela atua apenas nas vendas listadas,
+    // mas a busca de última venda será independente.
     if (startDate || endDate) {
       where.report_date = {};
       if (startDate) where.report_date.gte = new Date(startDate);
       if (endDate) where.report_date.lte = new Date(endDate);
     }
 
-    return await this.prismaService.daily_sales.findMany({
+    // 1. Pega as vendas filtradas pelo período da tela
+    const sales = await this.prismaService.daily_sales.findMany({
       where,
       include: {
         cash_registers: true,
       },
       orderBy: { report_date: 'desc' },
+    });
+
+    if (!storeId) return sales;
+
+    const allStoreSales = await this.prismaService.daily_sales.findMany({
+      where: {
+        cash_registers: { store_id: storeId },
+      },
+      select: {
+        cash_register_id: true,
+        report_date: true,
+      },
+      orderBy: { report_date: 'desc' },
+    });
+
+    const lastOverallDateMap = new Map<string, Date>();
+    for (const s of allStoreSales) {
+      if (!lastOverallDateMap.has(s.cash_register_id)) {
+        lastOverallDateMap.set(s.cash_register_id, s.report_date);
+      }
+    }
+
+    const today = new Date();
+
+    return sales.map((sale) => {
+      const absoluteLastDate =
+        lastOverallDateMap.get(sale.cash_register_id) || sale.report_date;
+
+      const diffTime = Math.abs(
+        today.getTime() - new Date(absoluteLastDate).getTime(),
+      );
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const isOutdated = diffDays > 5;
+
+      return {
+        ...sale,
+        absolute_last_date: absoluteLastDate,
+        is_outdated: isOutdated,
+      };
     });
   }
 
