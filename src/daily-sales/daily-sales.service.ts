@@ -28,20 +28,24 @@ export class DailySalesService {
       let cashRegister = await this.prismaService.cash_registers.findFirst({
         where: {
           store_id: storeId,
-          nfce_series: item.series,
+          OR: [
+            { nfce_series: item.series },
+            { nfe_series: item.series }
+          ]
         },
       });
 
       if (!cashRegister) {
-        const nfeSeriesCalculated = 100 + item.series;
-
+        const isNfeSeries = item.series > 100;
+        const baseNumber = isNfeSeries ? item.series - 100 : item.series;
+        
         cashRegister = await this.prismaService.cash_registers.create({
           data: {
             store_id: storeId,
-            number: item.series,
-            nfce_series: item.series,
-            nfe_series: nfeSeriesCalculated,
-            description: `Caixa ${item.series}`,
+            number: baseNumber,
+            nfce_series: baseNumber,
+            nfe_series: baseNumber + 100,
+            description: `Caixa ${baseNumber}`,
           },
         });
       }
