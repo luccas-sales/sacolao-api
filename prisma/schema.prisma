@@ -75,5 +75,6 @@ model stores {
   name           String
   tax_id         String?
   created_at     DateTime?        @default(now()) @db.Timestamptz(6)
+  number         Int?
   cash_registers cash_registers[]
 }

@@ -881,7 +881,8 @@ export const StoresScalarFieldEnum = {
   id: 'id',
   name: 'name',
   tax_id: 'tax_id',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  number: 'number'
 } as const
 
 export type StoresScalarFieldEnum = (typeof StoresScalarFieldEnum)[keyof typeof StoresScalarFieldEnum]

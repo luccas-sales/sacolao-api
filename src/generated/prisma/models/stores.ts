@@ -20,8 +20,18 @@ export type storesModel = runtime.Types.Result.DefaultSelection<Prisma.$storesPa
 
 export type AggregateStores = {
   _count: StoresCountAggregateOutputType | null
+  _avg: StoresAvgAggregateOutputType | null
+  _sum: StoresSumAggregateOutputType | null
   _min: StoresMinAggregateOutputType | null
   _max: StoresMaxAggregateOutputType | null
+}
+
+export type StoresAvgAggregateOutputType = {
+  number: number | null
+}
+
+export type StoresSumAggregateOutputType = {
+  number: number | null
 }
 
 export type StoresMinAggregateOutputType = {
@@ -29,6 +39,7 @@ export type StoresMinAggregateOutputType = {
   name: string | null
   tax_id: string | null
   created_at: Date | null
+  number: number | null
 }
 
 export type StoresMaxAggregateOutputType = {
@@ -36,6 +47,7 @@ export type StoresMaxAggregateOutputType = {
   name: string | null
   tax_id: string | null
   created_at: Date | null
+  number: number | null
 }
 
 export type StoresCountAggregateOutputType = {
@@ -43,15 +55,25 @@ export type StoresCountAggregateOutputType = {
   name: number
   tax_id: number
   created_at: number
+  number: number
   _all: number
 }
 
+
+export type StoresAvgAggregateInputType = {
+  number?: true
+}
+
+export type StoresSumAggregateInputType = {
+  number?: true
+}
 
 export type StoresMinAggregateInputType = {
   id?: true
   name?: true
   tax_id?: true
   created_at?: true
+  number?: true
 }
 
 export type StoresMaxAggregateInputType = {
@@ -59,6 +81,7 @@ export type StoresMaxAggregateInputType = {
   name?: true
   tax_id?: true
   created_at?: true
+  number?: true
 }
 
 export type StoresCountAggregateInputType = {
@@ -66,6 +89,7 @@ export type StoresCountAggregateInputType = {
   name?: true
   tax_id?: true
   created_at?: true
+  number?: true
   _all?: true
 }
 
@@ -107,6 +131,18 @@ export type StoresAggregateArgs<ExtArgs extends runtime.Types.Extensions.Interna
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: StoresAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: StoresSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: StoresMinAggregateInputType
@@ -137,6 +173,8 @@ export type storesGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   _count?: StoresCountAggregateInputType | true
+  _avg?: StoresAvgAggregateInputType
+  _sum?: StoresSumAggregateInputType
   _min?: StoresMinAggregateInputType
   _max?: StoresMaxAggregateInputType
 }
@@ -146,7 +184,10 @@ export type StoresGroupByOutputType = {
   name: string
   tax_id: string | null
   created_at: Date | null
+  number: number | null
   _count: StoresCountAggregateOutputType | null
+  _avg: StoresAvgAggregateOutputType | null
+  _sum: StoresSumAggregateOutputType | null
   _min: StoresMinAggregateOutputType | null
   _max: StoresMaxAggregateOutputType | null
 }
@@ -174,6 +215,7 @@ export type storesWhereInput = {
   name?: Prisma.StringFilter<"stores"> | string
   tax_id?: Prisma.StringNullableFilter<"stores"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"stores"> | Date | string | null
+  number?: Prisma.IntNullableFilter<"stores"> | number | null
   cash_registers?: Prisma.Cash_registersListRelationFilter
 }
 
@@ -182,6 +224,7 @@ export type storesOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   tax_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  number?: Prisma.SortOrderInput | Prisma.SortOrder
   cash_registers?: Prisma.cash_registersOrderByRelationAggregateInput
 }
 
@@ -193,6 +236,7 @@ export type storesWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"stores"> | string
   tax_id?: Prisma.StringNullableFilter<"stores"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"stores"> | Date | string | null
+  number?: Prisma.IntNullableFilter<"stores"> | number | null
   cash_registers?: Prisma.Cash_registersListRelationFilter
 }, "id">
 
@@ -201,9 +245,12 @@ export type storesOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   tax_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  number?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.storesCountOrderByAggregateInput
+  _avg?: Prisma.storesAvgOrderByAggregateInput
   _max?: Prisma.storesMaxOrderByAggregateInput
   _min?: Prisma.storesMinOrderByAggregateInput
+  _sum?: Prisma.storesSumOrderByAggregateInput
 }
 
 export type storesScalarWhereWithAggregatesInput = {
@@ -214,6 +261,7 @@ export type storesScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"stores"> | string
   tax_id?: Prisma.StringNullableWithAggregatesFilter<"stores"> | string | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"stores"> | Date | string | null
+  number?: Prisma.IntNullableWithAggregatesFilter<"stores"> | number | null
 }
 
 export type storesCreateInput = {
@@ -221,6 +269,7 @@ export type storesCreateInput = {
   name: string
   tax_id?: string | null
   created_at?: Date | string | null
+  number?: number | null
   cash_registers?: Prisma.cash_registersCreateNestedManyWithoutStoresInput
 }
 
@@ -229,6 +278,7 @@ export type storesUncheckedCreateInput = {
   name: string
   tax_id?: string | null
   created_at?: Date | string | null
+  number?: number | null
   cash_registers?: Prisma.cash_registersUncheckedCreateNestedManyWithoutStoresInput
 }
 
@@ -237,6 +287,7 @@ export type storesUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   cash_registers?: Prisma.cash_registersUpdateManyWithoutStoresNestedInput
 }
 
@@ -245,6 +296,7 @@ export type storesUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   cash_registers?: Prisma.cash_registersUncheckedUpdateManyWithoutStoresNestedInput
 }
 
@@ -253,6 +305,7 @@ export type storesCreateManyInput = {
   name: string
   tax_id?: string | null
   created_at?: Date | string | null
+  number?: number | null
 }
 
 export type storesUpdateManyMutationInput = {
@@ -260,6 +313,7 @@ export type storesUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type storesUncheckedUpdateManyInput = {
@@ -267,6 +321,7 @@ export type storesUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type StoresScalarRelationFilter = {
@@ -279,6 +334,11 @@ export type storesCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   tax_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  number?: Prisma.SortOrder
+}
+
+export type storesAvgOrderByAggregateInput = {
+  number?: Prisma.SortOrder
 }
 
 export type storesMaxOrderByAggregateInput = {
@@ -286,6 +346,7 @@ export type storesMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   tax_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  number?: Prisma.SortOrder
 }
 
 export type storesMinOrderByAggregateInput = {
@@ -293,6 +354,11 @@ export type storesMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   tax_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  number?: Prisma.SortOrder
+}
+
+export type storesSumOrderByAggregateInput = {
+  number?: Prisma.SortOrder
 }
 
 export type storesCreateNestedOneWithoutCash_registersInput = {
@@ -309,11 +375,20 @@ export type storesUpdateOneRequiredWithoutCash_registersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.storesUpdateToOneWithWhereWithoutCash_registersInput, Prisma.storesUpdateWithoutCash_registersInput>, Prisma.storesUncheckedUpdateWithoutCash_registersInput>
 }
 
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type storesCreateWithoutCash_registersInput = {
   id?: string
   name: string
   tax_id?: string | null
   created_at?: Date | string | null
+  number?: number | null
 }
 
 export type storesUncheckedCreateWithoutCash_registersInput = {
@@ -321,6 +396,7 @@ export type storesUncheckedCreateWithoutCash_registersInput = {
   name: string
   tax_id?: string | null
   created_at?: Date | string | null
+  number?: number | null
 }
 
 export type storesCreateOrConnectWithoutCash_registersInput = {
@@ -344,6 +420,7 @@ export type storesUpdateWithoutCash_registersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type storesUncheckedUpdateWithoutCash_registersInput = {
@@ -351,6 +428,7 @@ export type storesUncheckedUpdateWithoutCash_registersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 
@@ -389,6 +467,7 @@ export type storesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name?: boolean
   tax_id?: boolean
   created_at?: boolean
+  number?: boolean
   cash_registers?: boolean | Prisma.stores$cash_registersArgs<ExtArgs>
   _count?: boolean | Prisma.StoresCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["stores"]>
@@ -398,6 +477,7 @@ export type storesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   name?: boolean
   tax_id?: boolean
   created_at?: boolean
+  number?: boolean
 }, ExtArgs["result"]["stores"]>
 
 export type storesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -405,6 +485,7 @@ export type storesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   name?: boolean
   tax_id?: boolean
   created_at?: boolean
+  number?: boolean
 }, ExtArgs["result"]["stores"]>
 
 export type storesSelectScalar = {
@@ -412,9 +493,10 @@ export type storesSelectScalar = {
   name?: boolean
   tax_id?: boolean
   created_at?: boolean
+  number?: boolean
 }
 
-export type storesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "tax_id" | "created_at", ExtArgs["result"]["stores"]>
+export type storesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "tax_id" | "created_at" | "number", ExtArgs["result"]["stores"]>
 export type storesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   cash_registers?: boolean | Prisma.stores$cash_registersArgs<ExtArgs>
   _count?: boolean | Prisma.StoresCountOutputTypeDefaultArgs<ExtArgs>
@@ -432,6 +514,7 @@ export type $storesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     name: string
     tax_id: string | null
     created_at: Date | null
+    number: number | null
   }, ExtArgs["result"]["stores"]>
   composites: {}
 }
@@ -860,6 +943,7 @@ export interface storesFieldRefs {
   readonly name: Prisma.FieldRef<"stores", 'String'>
   readonly tax_id: Prisma.FieldRef<"stores", 'String'>
   readonly created_at: Prisma.FieldRef<"stores", 'DateTime'>
+  readonly number: Prisma.FieldRef<"stores", 'Int'>
 }
     
 
