@@ -28,17 +28,14 @@ export class DailySalesService {
       let cashRegister = await this.prismaService.cash_registers.findFirst({
         where: {
           store_id: storeId,
-          OR: [
-            { nfce_series: item.series },
-            { nfe_series: item.series }
-          ]
+          OR: [{ nfce_series: item.series }, { nfe_series: item.series }],
         },
       });
 
       if (!cashRegister) {
         const isNfeSeries = item.series > 100;
         const baseNumber = isNfeSeries ? item.series - 100 : item.series;
-        
+
         cashRegister = await this.prismaService.cash_registers.create({
           data: {
             store_id: storeId,
@@ -112,21 +109,32 @@ export class DailySalesService {
 
     if (!storeId) return sales;
 
-    const allStoreSales = await this.prismaService.daily_sales.findMany({
+    // 2. Busca a última venda ABSOLUTA de cada caixa de forma otimizada
+    const registers = await this.prismaService.cash_registers.findMany({
+      where: { store_id: storeId },
+      select: { id: true },
+    });
+    const registerIds = registers.map((r) => r.id);
+
+    const groupedDates = await this.prismaService.daily_sales.groupBy({
+      by: ['cash_register_id'],
       where: {
-        cash_registers: { store_id: storeId },
+        cash_register_id: { in: registerIds },
+        OR: [
+          { total_nfce: { gt: 0 } },
+          { total_nfe: { gt: 0 } },
+          { total_summary_map: { gt: 0 } },
+        ],
       },
-      select: {
-        cash_register_id: true,
+      _max: {
         report_date: true,
       },
-      orderBy: { report_date: 'desc' },
     });
 
     const lastOverallDateMap = new Map<string, Date>();
-    for (const s of allStoreSales) {
-      if (!lastOverallDateMap.has(s.cash_register_id)) {
-        lastOverallDateMap.set(s.cash_register_id, s.report_date);
+    for (const g of groupedDates) {
+      if (g._max.report_date) {
+        lastOverallDateMap.set(g.cash_register_id, g._max.report_date);
       }
     }
 
