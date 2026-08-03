@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
 import { PrismaService } from './prisma.service';
 import { SuppliersModule } from './suppliers/suppliers.module';
 import { SuppliersService } from './suppliers/suppliers.service';
@@ -21,6 +21,9 @@ import { ReleasesModule } from './releases/releases.module';
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(Middleware).forRoutes('*');
+    consumer
+      .apply(Middleware)
+      .exclude({ path: 'updates/(.*)', method: RequestMethod.ALL })
+      .forRoutes('*');
   }
 }
