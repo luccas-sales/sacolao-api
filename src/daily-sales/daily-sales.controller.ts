@@ -1,10 +1,21 @@
-import { Body, Controller, Get, Post, Param, Put, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Param,
+  Put,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { DailySalesService } from './daily-sales.service';
 import {
   CreateDailySalesListDTO,
   UpdateDailySaleDTO,
 } from '../dtos/daily-sales';
+import { AuthGuard } from '../auth/auth.guard';
 
+@UseGuards(AuthGuard)
 @Controller('daily-sales')
 export class DailySalesController {
   constructor(private dailySalesService: DailySalesService) {}

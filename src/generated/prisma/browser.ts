@@ -42,3 +42,8 @@ export type daily_sales = Prisma.daily_salesModel
  * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
  */
 export type stores = Prisma.storesModel
+/**
+ * Model users
+ * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ */
+export type users = Prisma.usersModel

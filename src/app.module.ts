@@ -7,6 +7,8 @@ import { NotesRuralSuppliersModule } from './notes-rural-suppliers/notes-rural-s
 import { DailySalesModule } from './daily-sales/daily-sales.module';
 import { StoresModule } from './stores/stores.module';
 import { ReleasesModule } from './releases/releases.module';
+import { AuthController } from './auth/auth.controller';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -15,8 +17,9 @@ import { ReleasesModule } from './releases/releases.module';
     DailySalesModule,
     StoresModule,
     ReleasesModule,
+    AuthModule,
   ],
-  controllers: [],
+  controllers: [AuthController],
   providers: [SuppliersService, PrismaService],
 })
 export class AppModule {

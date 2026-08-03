@@ -6,10 +6,13 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateSuppliersListDTO, UpdateSuppliersDTO } from '../dtos/suppliers';
 import { SuppliersService } from './suppliers.service';
+import { AuthGuard } from '../auth/auth.guard';
 
+@UseGuards(AuthGuard)
 @Controller('suppliers')
 export class SuppliersController {
   constructor(private suppliersService: SuppliersService) {}

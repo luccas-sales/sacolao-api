@@ -6,15 +6,16 @@ import {
   Param,
   Delete,
   Put,
-  Res,
-  StreamableFile,
+  UseGuards,
 } from '@nestjs/common';
 import { NotesRuralSuppliersService } from './notes-rural-suppliers.service';
 import {
   CreateNotesRuralSuppliersListDTO,
   UpdateNoteRuralSuppliersDTO,
 } from '../dtos/notes-rural-suppliers';
+import { AuthGuard } from '../auth/auth.guard';
 
+@UseGuards(AuthGuard)
 @Controller('notes-rural-suppliers')
 export class NotesRuralSuppliersController {
   constructor(private notesService: NotesRuralSuppliersService) {}

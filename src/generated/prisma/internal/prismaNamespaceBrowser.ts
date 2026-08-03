@@ -55,7 +55,8 @@ export const ModelName = {
   notes_rural_suppliers: 'notes_rural_suppliers',
   cash_registers: 'cash_registers',
   daily_sales: 'daily_sales',
-  stores: 'stores'
+  stores: 'stores',
+  users: 'users'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -143,6 +144,17 @@ export const StoresScalarFieldEnum = {
 } as const
 
 export type StoresScalarFieldEnum = (typeof StoresScalarFieldEnum)[keyof typeof StoresScalarFieldEnum]
+
+
+export const UsersScalarFieldEnum = {
+  id: 'id',
+  username: 'username',
+  password_hash: 'password_hash',
+  role: 'role',
+  created_at: 'created_at'
+} as const
+
+export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
 
 
 export const SortOrder = {
