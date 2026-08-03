@@ -2,11 +2,11 @@ import { Controller, Get, Param, Query, Res } from '@nestjs/common';
 import { ReleasesService } from './releases.service';
 import type { Response } from 'express';
 
-@Controller('updates')
-export class UpdatesController {
+@Controller('Releases')
+export class ReleasesController {
   constructor(private readonly releasesService: ReleasesService) {}
 
-  @Get('win32/:version/:file?')
+  @Get(['win32/:version', 'win32/:version/:file'])
   async getUpdate(
     @Param('version') version: string,
     @Param('file') file: string,
