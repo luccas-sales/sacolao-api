@@ -6,6 +6,7 @@ import { Middleware } from './middleware';
 import { NotesRuralSuppliersModule } from './notes-rural-suppliers/notes-rural-suppliers.module';
 import { DailySalesModule } from './daily-sales/daily-sales.module';
 import { StoresModule } from './stores/stores.module';
+import { ReleasesModule } from './releases/releases.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { StoresModule } from './stores/stores.module';
     NotesRuralSuppliersModule,
     DailySalesModule,
     StoresModule,
+    ReleasesModule,
   ],
   controllers: [],
   providers: [SuppliersService, PrismaService],
