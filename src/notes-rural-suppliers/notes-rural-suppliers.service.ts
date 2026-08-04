@@ -433,6 +433,7 @@ export class NotesRuralSuppliersService {
           body: JSON.stringify({
             chave: receiptAccessKey,
           }),
+          signal: AbortSignal.timeout(10000),
         },
       );
 
@@ -458,6 +459,7 @@ export class NotesRuralSuppliersService {
           headers: {
             Accept: 'application/json',
           },
+          signal: AbortSignal.timeout(10000),
         },
       );
 
@@ -484,6 +486,7 @@ export class NotesRuralSuppliersService {
             Accept: 'application/json',
             'api-key': process.env.MEU_DANFE_TOKEN || '',
           },
+          signal: AbortSignal.timeout(10000),
         },
       );
 
@@ -511,6 +514,7 @@ export class NotesRuralSuppliersService {
               Accept: 'application/json',
               'api-key': process.env.MEU_DANFE_TOKEN || '',
             },
+            signal: AbortSignal.timeout(10000),
           },
         );
 
