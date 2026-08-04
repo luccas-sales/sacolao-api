@@ -7,6 +7,7 @@ import {
   Delete,
   Put,
   UseGuards,
+  HttpCode,
 } from '@nestjs/common';
 import { NotesRuralSuppliersService } from './notes-rural-suppliers.service';
 import {
@@ -44,8 +45,13 @@ export class NotesRuralSuppliersController {
   }
 
   @Post('danfe')
+  @HttpCode(200)
   async getDanfe(@Body('receiptAccessKey') receiptAccessKey: string) {
-    const pdfBase64 = await this.notesService.getDanfe(receiptAccessKey);
+    let pdfBase64 = await this.notesService.getDanfe(receiptAccessKey);
+
+    if (pdfBase64 && pdfBase64.includes('base64,')) {
+      pdfBase64 = pdfBase64.split('base64,')[1];
+    }
 
     return {
       pdf_base64: pdfBase64,
