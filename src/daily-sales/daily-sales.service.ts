@@ -90,15 +90,12 @@ export class DailySalesService {
       where.cash_registers = { store_id: storeId };
     }
 
-    // O filtro de data da tela atua apenas nas vendas listadas,
-    // mas a busca de última venda será independente.
     if (startDate || endDate) {
       where.report_date = {};
       if (startDate) where.report_date.gte = new Date(startDate);
       if (endDate) where.report_date.lte = new Date(endDate);
     }
 
-    // 1. Pega as vendas filtradas pelo período da tela
     const sales = await this.prismaService.daily_sales.findMany({
       where,
       include: {
@@ -109,7 +106,6 @@ export class DailySalesService {
 
     if (!storeId) return sales;
 
-    // 2. Busca a última venda ABSOLUTA de cada caixa de forma otimizada
     const registers = await this.prismaService.cash_registers.findMany({
       where: { store_id: storeId },
       select: { id: true },

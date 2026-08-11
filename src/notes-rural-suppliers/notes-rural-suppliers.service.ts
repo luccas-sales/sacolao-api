@@ -538,7 +538,7 @@ export class NotesRuralSuppliersService {
   }
 
   private async recalculateDuplicates() {
-    const inactiveStatuses = ['101', '151', '110'];
+    const inactiveStatuses = ['135'];
 
     const duplicates = await this.prismaService.notes_rural_suppliers.groupBy({
       by: ['note_access_key'],
