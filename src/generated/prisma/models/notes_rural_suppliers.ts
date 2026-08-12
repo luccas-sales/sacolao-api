@@ -43,7 +43,6 @@ export type Notes_rural_suppliersMinAggregateOutputType = {
   note_access_key: string | null
   note_date: Date | null
   issuer_tax_id: string | null
-  store_name: string | null
   receipt: string | null
   receipt_access_key: string | null
   receipt_date: Date | null
@@ -62,7 +61,6 @@ export type Notes_rural_suppliersMaxAggregateOutputType = {
   note_access_key: string | null
   note_date: Date | null
   issuer_tax_id: string | null
-  store_name: string | null
   receipt: string | null
   receipt_access_key: string | null
   receipt_date: Date | null
@@ -81,7 +79,6 @@ export type Notes_rural_suppliersCountAggregateOutputType = {
   note_access_key: number
   note_date: number
   issuer_tax_id: number
-  store_name: number
   receipt: number
   receipt_access_key: number
   receipt_date: number
@@ -110,7 +107,6 @@ export type Notes_rural_suppliersMinAggregateInputType = {
   note_access_key?: true
   note_date?: true
   issuer_tax_id?: true
-  store_name?: true
   receipt?: true
   receipt_access_key?: true
   receipt_date?: true
@@ -129,7 +125,6 @@ export type Notes_rural_suppliersMaxAggregateInputType = {
   note_access_key?: true
   note_date?: true
   issuer_tax_id?: true
-  store_name?: true
   receipt?: true
   receipt_access_key?: true
   receipt_date?: true
@@ -148,7 +143,6 @@ export type Notes_rural_suppliersCountAggregateInputType = {
   note_access_key?: true
   note_date?: true
   issuer_tax_id?: true
-  store_name?: true
   receipt?: true
   receipt_access_key?: true
   receipt_date?: true
@@ -254,7 +248,6 @@ export type Notes_rural_suppliersGroupByOutputType = {
   note_access_key: string | null
   note_date: Date | null
   issuer_tax_id: string | null
-  store_name: string | null
   receipt: string | null
   receipt_access_key: string | null
   receipt_date: Date | null
@@ -296,7 +289,6 @@ export type notes_rural_suppliersWhereInput = {
   note_access_key?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   note_date?: Prisma.DateTimeNullableFilter<"notes_rural_suppliers"> | Date | string | null
   issuer_tax_id?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
-  store_name?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   receipt?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   receipt_access_key?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   receipt_date?: Prisma.DateTimeNullableFilter<"notes_rural_suppliers"> | Date | string | null
@@ -315,7 +307,6 @@ export type notes_rural_suppliersOrderByWithRelationInput = {
   note_access_key?: Prisma.SortOrderInput | Prisma.SortOrder
   note_date?: Prisma.SortOrderInput | Prisma.SortOrder
   issuer_tax_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  store_name?: Prisma.SortOrderInput | Prisma.SortOrder
   receipt?: Prisma.SortOrderInput | Prisma.SortOrder
   receipt_access_key?: Prisma.SortOrderInput | Prisma.SortOrder
   receipt_date?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -338,7 +329,6 @@ export type notes_rural_suppliersWhereUniqueInput = Prisma.AtLeast<{
   note_access_key?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   note_date?: Prisma.DateTimeNullableFilter<"notes_rural_suppliers"> | Date | string | null
   issuer_tax_id?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
-  store_name?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   receipt?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   receipt_date?: Prisma.DateTimeNullableFilter<"notes_rural_suppliers"> | Date | string | null
   value?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
@@ -356,7 +346,6 @@ export type notes_rural_suppliersOrderByWithAggregationInput = {
   note_access_key?: Prisma.SortOrderInput | Prisma.SortOrder
   note_date?: Prisma.SortOrderInput | Prisma.SortOrder
   issuer_tax_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  store_name?: Prisma.SortOrderInput | Prisma.SortOrder
   receipt?: Prisma.SortOrderInput | Prisma.SortOrder
   receipt_access_key?: Prisma.SortOrderInput | Prisma.SortOrder
   receipt_date?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -383,7 +372,6 @@ export type notes_rural_suppliersScalarWhereWithAggregatesInput = {
   note_access_key?: Prisma.StringNullableWithAggregatesFilter<"notes_rural_suppliers"> | string | null
   note_date?: Prisma.DateTimeNullableWithAggregatesFilter<"notes_rural_suppliers"> | Date | string | null
   issuer_tax_id?: Prisma.StringNullableWithAggregatesFilter<"notes_rural_suppliers"> | string | null
-  store_name?: Prisma.StringNullableWithAggregatesFilter<"notes_rural_suppliers"> | string | null
   receipt?: Prisma.StringNullableWithAggregatesFilter<"notes_rural_suppliers"> | string | null
   receipt_access_key?: Prisma.StringNullableWithAggregatesFilter<"notes_rural_suppliers"> | string | null
   receipt_date?: Prisma.DateTimeNullableWithAggregatesFilter<"notes_rural_suppliers"> | Date | string | null
@@ -401,7 +389,6 @@ export type notes_rural_suppliersCreateInput = {
   note_access_key?: string | null
   note_date?: Date | string | null
   issuer_tax_id?: string | null
-  store_name?: string | null
   receipt?: string | null
   receipt_access_key?: string | null
   receipt_date?: Date | string | null
@@ -420,7 +407,6 @@ export type notes_rural_suppliersUncheckedCreateInput = {
   note_access_key?: string | null
   note_date?: Date | string | null
   issuer_tax_id?: string | null
-  store_name?: string | null
   receipt?: string | null
   receipt_access_key?: string | null
   receipt_date?: Date | string | null
@@ -438,7 +424,6 @@ export type notes_rural_suppliersUpdateInput = {
   note_access_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   issuer_tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  store_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt_access_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -457,7 +442,6 @@ export type notes_rural_suppliersUncheckedUpdateInput = {
   note_access_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   issuer_tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  store_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt_access_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -476,7 +460,6 @@ export type notes_rural_suppliersCreateManyInput = {
   note_access_key?: string | null
   note_date?: Date | string | null
   issuer_tax_id?: string | null
-  store_name?: string | null
   receipt?: string | null
   receipt_access_key?: string | null
   receipt_date?: Date | string | null
@@ -494,7 +477,6 @@ export type notes_rural_suppliersUpdateManyMutationInput = {
   note_access_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   issuer_tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  store_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt_access_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -513,7 +495,6 @@ export type notes_rural_suppliersUncheckedUpdateManyInput = {
   note_access_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   issuer_tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  store_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt_access_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   receipt_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -532,7 +513,6 @@ export type notes_rural_suppliersCountOrderByAggregateInput = {
   note_access_key?: Prisma.SortOrder
   note_date?: Prisma.SortOrder
   issuer_tax_id?: Prisma.SortOrder
-  store_name?: Prisma.SortOrder
   receipt?: Prisma.SortOrder
   receipt_access_key?: Prisma.SortOrder
   receipt_date?: Prisma.SortOrder
@@ -555,7 +535,6 @@ export type notes_rural_suppliersMaxOrderByAggregateInput = {
   note_access_key?: Prisma.SortOrder
   note_date?: Prisma.SortOrder
   issuer_tax_id?: Prisma.SortOrder
-  store_name?: Prisma.SortOrder
   receipt?: Prisma.SortOrder
   receipt_access_key?: Prisma.SortOrder
   receipt_date?: Prisma.SortOrder
@@ -574,7 +553,6 @@ export type notes_rural_suppliersMinOrderByAggregateInput = {
   note_access_key?: Prisma.SortOrder
   note_date?: Prisma.SortOrder
   issuer_tax_id?: Prisma.SortOrder
-  store_name?: Prisma.SortOrder
   receipt?: Prisma.SortOrder
   receipt_access_key?: Prisma.SortOrder
   receipt_date?: Prisma.SortOrder
@@ -607,7 +585,6 @@ export type notes_rural_suppliersSelect<ExtArgs extends runtime.Types.Extensions
   note_access_key?: boolean
   note_date?: boolean
   issuer_tax_id?: boolean
-  store_name?: boolean
   receipt?: boolean
   receipt_access_key?: boolean
   receipt_date?: boolean
@@ -626,7 +603,6 @@ export type notes_rural_suppliersSelectCreateManyAndReturn<ExtArgs extends runti
   note_access_key?: boolean
   note_date?: boolean
   issuer_tax_id?: boolean
-  store_name?: boolean
   receipt?: boolean
   receipt_access_key?: boolean
   receipt_date?: boolean
@@ -645,7 +621,6 @@ export type notes_rural_suppliersSelectUpdateManyAndReturn<ExtArgs extends runti
   note_access_key?: boolean
   note_date?: boolean
   issuer_tax_id?: boolean
-  store_name?: boolean
   receipt?: boolean
   receipt_access_key?: boolean
   receipt_date?: boolean
@@ -664,7 +639,6 @@ export type notes_rural_suppliersSelectScalar = {
   note_access_key?: boolean
   note_date?: boolean
   issuer_tax_id?: boolean
-  store_name?: boolean
   receipt?: boolean
   receipt_access_key?: boolean
   receipt_date?: boolean
@@ -674,7 +648,7 @@ export type notes_rural_suppliersSelectScalar = {
   created_at?: boolean
 }
 
-export type notes_rural_suppliersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "supplier_tax_id" | "supplier_name" | "sector" | "note" | "note_access_key" | "note_date" | "issuer_tax_id" | "store_name" | "receipt" | "receipt_access_key" | "receipt_date" | "value" | "status" | "is_duplicate" | "created_at", ExtArgs["result"]["notes_rural_suppliers"]>
+export type notes_rural_suppliersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "supplier_tax_id" | "supplier_name" | "sector" | "note" | "note_access_key" | "note_date" | "issuer_tax_id" | "receipt" | "receipt_access_key" | "receipt_date" | "value" | "status" | "is_duplicate" | "created_at", ExtArgs["result"]["notes_rural_suppliers"]>
 
 export type $notes_rural_suppliersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "notes_rural_suppliers"
@@ -688,7 +662,6 @@ export type $notes_rural_suppliersPayload<ExtArgs extends runtime.Types.Extensio
     note_access_key: string | null
     note_date: Date | null
     issuer_tax_id: string | null
-    store_name: string | null
     receipt: string | null
     receipt_access_key: string | null
     receipt_date: Date | null
@@ -1127,7 +1100,6 @@ export interface notes_rural_suppliersFieldRefs {
   readonly note_access_key: Prisma.FieldRef<"notes_rural_suppliers", 'String'>
   readonly note_date: Prisma.FieldRef<"notes_rural_suppliers", 'DateTime'>
   readonly issuer_tax_id: Prisma.FieldRef<"notes_rural_suppliers", 'String'>
-  readonly store_name: Prisma.FieldRef<"notes_rural_suppliers", 'String'>
   readonly receipt: Prisma.FieldRef<"notes_rural_suppliers", 'String'>
   readonly receipt_access_key: Prisma.FieldRef<"notes_rural_suppliers", 'String'>
   readonly receipt_date: Prisma.FieldRef<"notes_rural_suppliers", 'DateTime'>

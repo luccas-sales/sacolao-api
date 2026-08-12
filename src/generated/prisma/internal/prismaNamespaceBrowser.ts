@@ -53,7 +53,6 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   suppliers: 'suppliers',
   notes_rural_suppliers: 'notes_rural_suppliers',
-  cash_registers: 'cash_registers',
   daily_sales: 'daily_sales',
   stores: 'stores',
   users: 'users'
@@ -96,7 +95,6 @@ export const Notes_rural_suppliersScalarFieldEnum = {
   note_access_key: 'note_access_key',
   note_date: 'note_date',
   issuer_tax_id: 'issuer_tax_id',
-  store_name: 'store_name',
   receipt: 'receipt',
   receipt_access_key: 'receipt_access_key',
   receipt_date: 'receipt_date',
@@ -107,19 +105,6 @@ export const Notes_rural_suppliersScalarFieldEnum = {
 } as const
 
 export type Notes_rural_suppliersScalarFieldEnum = (typeof Notes_rural_suppliersScalarFieldEnum)[keyof typeof Notes_rural_suppliersScalarFieldEnum]
-
-
-export const Cash_registersScalarFieldEnum = {
-  id: 'id',
-  store_id: 'store_id',
-  number: 'number',
-  nfce_series: 'nfce_series',
-  nfe_series: 'nfe_series',
-  description: 'description',
-  created_at: 'created_at'
-} as const
-
-export type Cash_registersScalarFieldEnum = (typeof Cash_registersScalarFieldEnum)[keyof typeof Cash_registersScalarFieldEnum]
 
 
 export const Daily_salesScalarFieldEnum = {

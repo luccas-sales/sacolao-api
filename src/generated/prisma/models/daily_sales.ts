@@ -240,7 +240,6 @@ export type daily_salesWhereInput = {
   total_nfe?: Prisma.DecimalFilter<"daily_sales"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_summary_map?: Prisma.DecimalFilter<"daily_sales"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   created_at?: Prisma.DateTimeNullableFilter<"daily_sales"> | Date | string | null
-  cash_registers?: Prisma.XOR<Prisma.Cash_registersScalarRelationFilter, Prisma.cash_registersWhereInput>
 }
 
 export type daily_salesOrderByWithRelationInput = {
@@ -251,7 +250,6 @@ export type daily_salesOrderByWithRelationInput = {
   total_nfe?: Prisma.SortOrder
   total_summary_map?: Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  cash_registers?: Prisma.cash_registersOrderByWithRelationInput
 }
 
 export type daily_salesWhereUniqueInput = Prisma.AtLeast<{
@@ -266,7 +264,6 @@ export type daily_salesWhereUniqueInput = Prisma.AtLeast<{
   total_nfe?: Prisma.DecimalFilter<"daily_sales"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_summary_map?: Prisma.DecimalFilter<"daily_sales"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   created_at?: Prisma.DateTimeNullableFilter<"daily_sales"> | Date | string | null
-  cash_registers?: Prisma.XOR<Prisma.Cash_registersScalarRelationFilter, Prisma.cash_registersWhereInput>
 }, "id" | "cash_register_id_report_date">
 
 export type daily_salesOrderByWithAggregationInput = {
@@ -299,12 +296,12 @@ export type daily_salesScalarWhereWithAggregatesInput = {
 
 export type daily_salesCreateInput = {
   id?: string
+  cash_register_id: string
   report_date: Date | string
   total_nfce?: runtime.Decimal | runtime.DecimalJsLike | number | string
   total_nfe?: runtime.Decimal | runtime.DecimalJsLike | number | string
   total_summary_map?: runtime.Decimal | runtime.DecimalJsLike | number | string
   created_at?: Date | string | null
-  cash_registers: Prisma.cash_registersCreateNestedOneWithoutDaily_salesInput
 }
 
 export type daily_salesUncheckedCreateInput = {
@@ -319,12 +316,12 @@ export type daily_salesUncheckedCreateInput = {
 
 export type daily_salesUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  cash_register_id?: Prisma.StringFieldUpdateOperationsInput | string
   report_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   total_nfce?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_nfe?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_summary_map?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  cash_registers?: Prisma.cash_registersUpdateOneRequiredWithoutDaily_salesNestedInput
 }
 
 export type daily_salesUncheckedUpdateInput = {
@@ -349,6 +346,7 @@ export type daily_salesCreateManyInput = {
 
 export type daily_salesUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  cash_register_id?: Prisma.StringFieldUpdateOperationsInput | string
   report_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   total_nfce?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_nfe?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
@@ -364,16 +362,6 @@ export type daily_salesUncheckedUpdateManyInput = {
   total_nfe?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   total_summary_map?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-}
-
-export type Daily_salesListRelationFilter = {
-  every?: Prisma.daily_salesWhereInput
-  some?: Prisma.daily_salesWhereInput
-  none?: Prisma.daily_salesWhereInput
-}
-
-export type daily_salesOrderByRelationAggregateInput = {
-  _count?: Prisma.SortOrder
 }
 
 export type daily_salesCash_register_idReport_dateCompoundUniqueInput = {
@@ -423,48 +411,6 @@ export type daily_salesSumOrderByAggregateInput = {
   total_summary_map?: Prisma.SortOrder
 }
 
-export type daily_salesCreateNestedManyWithoutCash_registersInput = {
-  create?: Prisma.XOR<Prisma.daily_salesCreateWithoutCash_registersInput, Prisma.daily_salesUncheckedCreateWithoutCash_registersInput> | Prisma.daily_salesCreateWithoutCash_registersInput[] | Prisma.daily_salesUncheckedCreateWithoutCash_registersInput[]
-  connectOrCreate?: Prisma.daily_salesCreateOrConnectWithoutCash_registersInput | Prisma.daily_salesCreateOrConnectWithoutCash_registersInput[]
-  createMany?: Prisma.daily_salesCreateManyCash_registersInputEnvelope
-  connect?: Prisma.daily_salesWhereUniqueInput | Prisma.daily_salesWhereUniqueInput[]
-}
-
-export type daily_salesUncheckedCreateNestedManyWithoutCash_registersInput = {
-  create?: Prisma.XOR<Prisma.daily_salesCreateWithoutCash_registersInput, Prisma.daily_salesUncheckedCreateWithoutCash_registersInput> | Prisma.daily_salesCreateWithoutCash_registersInput[] | Prisma.daily_salesUncheckedCreateWithoutCash_registersInput[]
-  connectOrCreate?: Prisma.daily_salesCreateOrConnectWithoutCash_registersInput | Prisma.daily_salesCreateOrConnectWithoutCash_registersInput[]
-  createMany?: Prisma.daily_salesCreateManyCash_registersInputEnvelope
-  connect?: Prisma.daily_salesWhereUniqueInput | Prisma.daily_salesWhereUniqueInput[]
-}
-
-export type daily_salesUpdateManyWithoutCash_registersNestedInput = {
-  create?: Prisma.XOR<Prisma.daily_salesCreateWithoutCash_registersInput, Prisma.daily_salesUncheckedCreateWithoutCash_registersInput> | Prisma.daily_salesCreateWithoutCash_registersInput[] | Prisma.daily_salesUncheckedCreateWithoutCash_registersInput[]
-  connectOrCreate?: Prisma.daily_salesCreateOrConnectWithoutCash_registersInput | Prisma.daily_salesCreateOrConnectWithoutCash_registersInput[]
-  upsert?: Prisma.daily_salesUpsertWithWhereUniqueWithoutCash_registersInput | Prisma.daily_salesUpsertWithWhereUniqueWithoutCash_registersInput[]
-  createMany?: Prisma.daily_salesCreateManyCash_registersInputEnvelope
-  set?: Prisma.daily_salesWhereUniqueInput | Prisma.daily_salesWhereUniqueInput[]
-  disconnect?: Prisma.daily_salesWhereUniqueInput | Prisma.daily_salesWhereUniqueInput[]
-  delete?: Prisma.daily_salesWhereUniqueInput | Prisma.daily_salesWhereUniqueInput[]
-  connect?: Prisma.daily_salesWhereUniqueInput | Prisma.daily_salesWhereUniqueInput[]
-  update?: Prisma.daily_salesUpdateWithWhereUniqueWithoutCash_registersInput | Prisma.daily_salesUpdateWithWhereUniqueWithoutCash_registersInput[]
-  updateMany?: Prisma.daily_salesUpdateManyWithWhereWithoutCash_registersInput | Prisma.daily_salesUpdateManyWithWhereWithoutCash_registersInput[]
-  deleteMany?: Prisma.daily_salesScalarWhereInput | Prisma.daily_salesScalarWhereInput[]
-}
-
-export type daily_salesUncheckedUpdateManyWithoutCash_registersNestedInput = {
-  create?: Prisma.XOR<Prisma.daily_salesCreateWithoutCash_registersInput, Prisma.daily_salesUncheckedCreateWithoutCash_registersInput> | Prisma.daily_salesCreateWithoutCash_registersInput[] | Prisma.daily_salesUncheckedCreateWithoutCash_registersInput[]
-  connectOrCreate?: Prisma.daily_salesCreateOrConnectWithoutCash_registersInput | Prisma.daily_salesCreateOrConnectWithoutCash_registersInput[]
-  upsert?: Prisma.daily_salesUpsertWithWhereUniqueWithoutCash_registersInput | Prisma.daily_salesUpsertWithWhereUniqueWithoutCash_registersInput[]
-  createMany?: Prisma.daily_salesCreateManyCash_registersInputEnvelope
-  set?: Prisma.daily_salesWhereUniqueInput | Prisma.daily_salesWhereUniqueInput[]
-  disconnect?: Prisma.daily_salesWhereUniqueInput | Prisma.daily_salesWhereUniqueInput[]
-  delete?: Prisma.daily_salesWhereUniqueInput | Prisma.daily_salesWhereUniqueInput[]
-  connect?: Prisma.daily_salesWhereUniqueInput | Prisma.daily_salesWhereUniqueInput[]
-  update?: Prisma.daily_salesUpdateWithWhereUniqueWithoutCash_registersInput | Prisma.daily_salesUpdateWithWhereUniqueWithoutCash_registersInput[]
-  updateMany?: Prisma.daily_salesUpdateManyWithWhereWithoutCash_registersInput | Prisma.daily_salesUpdateManyWithWhereWithoutCash_registersInput[]
-  deleteMany?: Prisma.daily_salesScalarWhereInput | Prisma.daily_salesScalarWhereInput[]
-}
-
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
@@ -477,99 +423,6 @@ export type DecimalFieldUpdateOperationsInput = {
   divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-export type daily_salesCreateWithoutCash_registersInput = {
-  id?: string
-  report_date: Date | string
-  total_nfce?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_nfe?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_summary_map?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-}
-
-export type daily_salesUncheckedCreateWithoutCash_registersInput = {
-  id?: string
-  report_date: Date | string
-  total_nfce?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_nfe?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_summary_map?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-}
-
-export type daily_salesCreateOrConnectWithoutCash_registersInput = {
-  where: Prisma.daily_salesWhereUniqueInput
-  create: Prisma.XOR<Prisma.daily_salesCreateWithoutCash_registersInput, Prisma.daily_salesUncheckedCreateWithoutCash_registersInput>
-}
-
-export type daily_salesCreateManyCash_registersInputEnvelope = {
-  data: Prisma.daily_salesCreateManyCash_registersInput | Prisma.daily_salesCreateManyCash_registersInput[]
-  skipDuplicates?: boolean
-}
-
-export type daily_salesUpsertWithWhereUniqueWithoutCash_registersInput = {
-  where: Prisma.daily_salesWhereUniqueInput
-  update: Prisma.XOR<Prisma.daily_salesUpdateWithoutCash_registersInput, Prisma.daily_salesUncheckedUpdateWithoutCash_registersInput>
-  create: Prisma.XOR<Prisma.daily_salesCreateWithoutCash_registersInput, Prisma.daily_salesUncheckedCreateWithoutCash_registersInput>
-}
-
-export type daily_salesUpdateWithWhereUniqueWithoutCash_registersInput = {
-  where: Prisma.daily_salesWhereUniqueInput
-  data: Prisma.XOR<Prisma.daily_salesUpdateWithoutCash_registersInput, Prisma.daily_salesUncheckedUpdateWithoutCash_registersInput>
-}
-
-export type daily_salesUpdateManyWithWhereWithoutCash_registersInput = {
-  where: Prisma.daily_salesScalarWhereInput
-  data: Prisma.XOR<Prisma.daily_salesUpdateManyMutationInput, Prisma.daily_salesUncheckedUpdateManyWithoutCash_registersInput>
-}
-
-export type daily_salesScalarWhereInput = {
-  AND?: Prisma.daily_salesScalarWhereInput | Prisma.daily_salesScalarWhereInput[]
-  OR?: Prisma.daily_salesScalarWhereInput[]
-  NOT?: Prisma.daily_salesScalarWhereInput | Prisma.daily_salesScalarWhereInput[]
-  id?: Prisma.UuidFilter<"daily_sales"> | string
-  cash_register_id?: Prisma.UuidFilter<"daily_sales"> | string
-  report_date?: Prisma.DateTimeFilter<"daily_sales"> | Date | string
-  total_nfce?: Prisma.DecimalFilter<"daily_sales"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_nfe?: Prisma.DecimalFilter<"daily_sales"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_summary_map?: Prisma.DecimalFilter<"daily_sales"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.DateTimeNullableFilter<"daily_sales"> | Date | string | null
-}
-
-export type daily_salesCreateManyCash_registersInput = {
-  id?: string
-  report_date: Date | string
-  total_nfce?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_nfe?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_summary_map?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Date | string | null
-}
-
-export type daily_salesUpdateWithoutCash_registersInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  report_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  total_nfce?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_nfe?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_summary_map?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-}
-
-export type daily_salesUncheckedUpdateWithoutCash_registersInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  report_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  total_nfce?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_nfe?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_summary_map?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-}
-
-export type daily_salesUncheckedUpdateManyWithoutCash_registersInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  report_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  total_nfce?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_nfe?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  total_summary_map?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-}
-
 
 
 export type daily_salesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -580,7 +433,6 @@ export type daily_salesSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   total_nfe?: boolean
   total_summary_map?: boolean
   created_at?: boolean
-  cash_registers?: boolean | Prisma.cash_registersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["daily_sales"]>
 
 export type daily_salesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -591,7 +443,6 @@ export type daily_salesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   total_nfe?: boolean
   total_summary_map?: boolean
   created_at?: boolean
-  cash_registers?: boolean | Prisma.cash_registersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["daily_sales"]>
 
 export type daily_salesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -602,7 +453,6 @@ export type daily_salesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   total_nfe?: boolean
   total_summary_map?: boolean
   created_at?: boolean
-  cash_registers?: boolean | Prisma.cash_registersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["daily_sales"]>
 
 export type daily_salesSelectScalar = {
@@ -616,21 +466,10 @@ export type daily_salesSelectScalar = {
 }
 
 export type daily_salesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "cash_register_id" | "report_date" | "total_nfce" | "total_nfe" | "total_summary_map" | "created_at", ExtArgs["result"]["daily_sales"]>
-export type daily_salesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cash_registers?: boolean | Prisma.cash_registersDefaultArgs<ExtArgs>
-}
-export type daily_salesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cash_registers?: boolean | Prisma.cash_registersDefaultArgs<ExtArgs>
-}
-export type daily_salesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cash_registers?: boolean | Prisma.cash_registersDefaultArgs<ExtArgs>
-}
 
 export type $daily_salesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "daily_sales"
-  objects: {
-    cash_registers: Prisma.$cash_registersPayload<ExtArgs>
-  }
+  objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     cash_register_id: string
@@ -1033,7 +872,6 @@ readonly fields: daily_salesFieldRefs;
  */
 export interface Prisma__daily_salesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  cash_registers<T extends Prisma.cash_registersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.cash_registersDefaultArgs<ExtArgs>>): Prisma.Prisma__cash_registersClient<runtime.Types.Result.GetResult<Prisma.$cash_registersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1087,10 +925,6 @@ export type daily_salesFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.I
    */
   omit?: Prisma.daily_salesOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesInclude<ExtArgs> | null
-  /**
    * Filter, which daily_sales to fetch.
    */
   where: Prisma.daily_salesWhereUniqueInput
@@ -1109,10 +943,6 @@ export type daily_salesFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Exten
    */
   omit?: Prisma.daily_salesOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesInclude<ExtArgs> | null
-  /**
    * Filter, which daily_sales to fetch.
    */
   where: Prisma.daily_salesWhereUniqueInput
@@ -1130,10 +960,6 @@ export type daily_salesFindFirstArgs<ExtArgs extends runtime.Types.Extensions.In
    * Omit specific fields from the daily_sales
    */
   omit?: Prisma.daily_salesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesInclude<ExtArgs> | null
   /**
    * Filter, which daily_sales to fetch.
    */
@@ -1183,10 +1009,6 @@ export type daily_salesFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extens
    */
   omit?: Prisma.daily_salesOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesInclude<ExtArgs> | null
-  /**
    * Filter, which daily_sales to fetch.
    */
   where?: Prisma.daily_salesWhereInput
@@ -1234,10 +1056,6 @@ export type daily_salesFindManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Omit specific fields from the daily_sales
    */
   omit?: Prisma.daily_salesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesInclude<ExtArgs> | null
   /**
    * Filter, which daily_sales to fetch.
    */
@@ -1287,10 +1105,6 @@ export type daily_salesCreateArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   omit?: Prisma.daily_salesOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesInclude<ExtArgs> | null
-  /**
    * The data needed to create a daily_sales.
    */
   data: Prisma.XOR<Prisma.daily_salesCreateInput, Prisma.daily_salesUncheckedCreateInput>
@@ -1324,10 +1138,6 @@ export type daily_salesCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Ext
    */
   data: Prisma.daily_salesCreateManyInput | Prisma.daily_salesCreateManyInput[]
   skipDuplicates?: boolean
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1342,10 +1152,6 @@ export type daily_salesUpdateArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Omit specific fields from the daily_sales
    */
   omit?: Prisma.daily_salesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesInclude<ExtArgs> | null
   /**
    * The data needed to update a daily_sales.
    */
@@ -1398,10 +1204,6 @@ export type daily_salesUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Ext
    * Limit how many daily_sales to update.
    */
   limit?: number
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1416,10 +1218,6 @@ export type daily_salesUpsertArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Omit specific fields from the daily_sales
    */
   omit?: Prisma.daily_salesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesInclude<ExtArgs> | null
   /**
    * The filter to search for the daily_sales to update in case it exists.
    */
@@ -1446,10 +1244,6 @@ export type daily_salesDeleteArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Omit specific fields from the daily_sales
    */
   omit?: Prisma.daily_salesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesInclude<ExtArgs> | null
   /**
    * Filter which daily_sales to delete.
    */
@@ -1482,8 +1276,4 @@ export type daily_salesDefaultArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Omit specific fields from the daily_sales
    */
   omit?: Prisma.daily_salesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.daily_salesInclude<ExtArgs> | null
 }

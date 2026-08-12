@@ -216,7 +216,6 @@ export type storesWhereInput = {
   tax_id?: Prisma.StringNullableFilter<"stores"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"stores"> | Date | string | null
   number?: Prisma.IntNullableFilter<"stores"> | number | null
-  cash_registers?: Prisma.Cash_registersListRelationFilter
 }
 
 export type storesOrderByWithRelationInput = {
@@ -225,7 +224,6 @@ export type storesOrderByWithRelationInput = {
   tax_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   number?: Prisma.SortOrderInput | Prisma.SortOrder
-  cash_registers?: Prisma.cash_registersOrderByRelationAggregateInput
 }
 
 export type storesWhereUniqueInput = Prisma.AtLeast<{
@@ -237,7 +235,6 @@ export type storesWhereUniqueInput = Prisma.AtLeast<{
   tax_id?: Prisma.StringNullableFilter<"stores"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"stores"> | Date | string | null
   number?: Prisma.IntNullableFilter<"stores"> | number | null
-  cash_registers?: Prisma.Cash_registersListRelationFilter
 }, "id">
 
 export type storesOrderByWithAggregationInput = {
@@ -270,7 +267,6 @@ export type storesCreateInput = {
   tax_id?: string | null
   created_at?: Date | string | null
   number?: number | null
-  cash_registers?: Prisma.cash_registersCreateNestedManyWithoutStoresInput
 }
 
 export type storesUncheckedCreateInput = {
@@ -279,7 +275,6 @@ export type storesUncheckedCreateInput = {
   tax_id?: string | null
   created_at?: Date | string | null
   number?: number | null
-  cash_registers?: Prisma.cash_registersUncheckedCreateNestedManyWithoutStoresInput
 }
 
 export type storesUpdateInput = {
@@ -288,7 +283,6 @@ export type storesUpdateInput = {
   tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  cash_registers?: Prisma.cash_registersUpdateManyWithoutStoresNestedInput
 }
 
 export type storesUncheckedUpdateInput = {
@@ -297,7 +291,6 @@ export type storesUncheckedUpdateInput = {
   tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  cash_registers?: Prisma.cash_registersUncheckedUpdateManyWithoutStoresNestedInput
 }
 
 export type storesCreateManyInput = {
@@ -322,11 +315,6 @@ export type storesUncheckedUpdateManyInput = {
   tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-}
-
-export type StoresScalarRelationFilter = {
-  is?: Prisma.storesWhereInput
-  isNot?: Prisma.storesWhereInput
 }
 
 export type storesCountOrderByAggregateInput = {
@@ -361,20 +349,6 @@ export type storesSumOrderByAggregateInput = {
   number?: Prisma.SortOrder
 }
 
-export type storesCreateNestedOneWithoutCash_registersInput = {
-  create?: Prisma.XOR<Prisma.storesCreateWithoutCash_registersInput, Prisma.storesUncheckedCreateWithoutCash_registersInput>
-  connectOrCreate?: Prisma.storesCreateOrConnectWithoutCash_registersInput
-  connect?: Prisma.storesWhereUniqueInput
-}
-
-export type storesUpdateOneRequiredWithoutCash_registersNestedInput = {
-  create?: Prisma.XOR<Prisma.storesCreateWithoutCash_registersInput, Prisma.storesUncheckedCreateWithoutCash_registersInput>
-  connectOrCreate?: Prisma.storesCreateOrConnectWithoutCash_registersInput
-  upsert?: Prisma.storesUpsertWithoutCash_registersInput
-  connect?: Prisma.storesWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.storesUpdateToOneWithWhereWithoutCash_registersInput, Prisma.storesUpdateWithoutCash_registersInput>, Prisma.storesUncheckedUpdateWithoutCash_registersInput>
-}
-
 export type NullableIntFieldUpdateOperationsInput = {
   set?: number | null
   increment?: number
@@ -383,83 +357,6 @@ export type NullableIntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type storesCreateWithoutCash_registersInput = {
-  id?: string
-  name: string
-  tax_id?: string | null
-  created_at?: Date | string | null
-  number?: number | null
-}
-
-export type storesUncheckedCreateWithoutCash_registersInput = {
-  id?: string
-  name: string
-  tax_id?: string | null
-  created_at?: Date | string | null
-  number?: number | null
-}
-
-export type storesCreateOrConnectWithoutCash_registersInput = {
-  where: Prisma.storesWhereUniqueInput
-  create: Prisma.XOR<Prisma.storesCreateWithoutCash_registersInput, Prisma.storesUncheckedCreateWithoutCash_registersInput>
-}
-
-export type storesUpsertWithoutCash_registersInput = {
-  update: Prisma.XOR<Prisma.storesUpdateWithoutCash_registersInput, Prisma.storesUncheckedUpdateWithoutCash_registersInput>
-  create: Prisma.XOR<Prisma.storesCreateWithoutCash_registersInput, Prisma.storesUncheckedCreateWithoutCash_registersInput>
-  where?: Prisma.storesWhereInput
-}
-
-export type storesUpdateToOneWithWhereWithoutCash_registersInput = {
-  where?: Prisma.storesWhereInput
-  data: Prisma.XOR<Prisma.storesUpdateWithoutCash_registersInput, Prisma.storesUncheckedUpdateWithoutCash_registersInput>
-}
-
-export type storesUpdateWithoutCash_registersInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-}
-
-export type storesUncheckedUpdateWithoutCash_registersInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-}
-
-
-/**
- * Count Type StoresCountOutputType
- */
-
-export type StoresCountOutputType = {
-  cash_registers: number
-}
-
-export type StoresCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cash_registers?: boolean | StoresCountOutputTypeCountCash_registersArgs
-}
-
-/**
- * StoresCountOutputType without action
- */
-export type StoresCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the StoresCountOutputType
-   */
-  select?: Prisma.StoresCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * StoresCountOutputType without action
- */
-export type StoresCountOutputTypeCountCash_registersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.cash_registersWhereInput
-}
 
 
 export type storesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -468,8 +365,6 @@ export type storesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   tax_id?: boolean
   created_at?: boolean
   number?: boolean
-  cash_registers?: boolean | Prisma.stores$cash_registersArgs<ExtArgs>
-  _count?: boolean | Prisma.StoresCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["stores"]>
 
 export type storesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -497,18 +392,10 @@ export type storesSelectScalar = {
 }
 
 export type storesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "tax_id" | "created_at" | "number", ExtArgs["result"]["stores"]>
-export type storesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cash_registers?: boolean | Prisma.stores$cash_registersArgs<ExtArgs>
-  _count?: boolean | Prisma.StoresCountOutputTypeDefaultArgs<ExtArgs>
-}
-export type storesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
-export type storesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $storesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "stores"
-  objects: {
-    cash_registers: Prisma.$cash_registersPayload<ExtArgs>[]
-  }
+  objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
@@ -909,7 +796,6 @@ readonly fields: storesFieldRefs;
  */
 export interface Prisma__storesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  cash_registers<T extends Prisma.stores$cash_registersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.stores$cash_registersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$cash_registersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -961,10 +847,6 @@ export type storesFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Intern
    */
   omit?: Prisma.storesOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.storesInclude<ExtArgs> | null
-  /**
    * Filter, which stores to fetch.
    */
   where: Prisma.storesWhereUniqueInput
@@ -983,10 +865,6 @@ export type storesFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions
    */
   omit?: Prisma.storesOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.storesInclude<ExtArgs> | null
-  /**
    * Filter, which stores to fetch.
    */
   where: Prisma.storesWhereUniqueInput
@@ -1004,10 +882,6 @@ export type storesFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the stores
    */
   omit?: Prisma.storesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.storesInclude<ExtArgs> | null
   /**
    * Filter, which stores to fetch.
    */
@@ -1057,10 +931,6 @@ export type storesFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.
    */
   omit?: Prisma.storesOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.storesInclude<ExtArgs> | null
-  /**
    * Filter, which stores to fetch.
    */
   where?: Prisma.storesWhereInput
@@ -1108,10 +978,6 @@ export type storesFindManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the stores
    */
   omit?: Prisma.storesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.storesInclude<ExtArgs> | null
   /**
    * Filter, which stores to fetch.
    */
@@ -1161,10 +1027,6 @@ export type storesCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    */
   omit?: Prisma.storesOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.storesInclude<ExtArgs> | null
-  /**
    * The data needed to create a stores.
    */
   data: Prisma.XOR<Prisma.storesCreateInput, Prisma.storesUncheckedCreateInput>
@@ -1212,10 +1074,6 @@ export type storesUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    * Omit specific fields from the stores
    */
   omit?: Prisma.storesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.storesInclude<ExtArgs> | null
   /**
    * The data needed to update a stores.
    */
@@ -1283,10 +1141,6 @@ export type storesUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    */
   omit?: Prisma.storesOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.storesInclude<ExtArgs> | null
-  /**
    * The filter to search for the stores to update in case it exists.
    */
   where: Prisma.storesWhereUniqueInput
@@ -1313,10 +1167,6 @@ export type storesDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    */
   omit?: Prisma.storesOmit<ExtArgs> | null
   /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.storesInclude<ExtArgs> | null
-  /**
    * Filter which stores to delete.
    */
   where: Prisma.storesWhereUniqueInput
@@ -1337,30 +1187,6 @@ export type storesDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 /**
- * stores.cash_registers
- */
-export type stores$cash_registersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the cash_registers
-   */
-  select?: Prisma.cash_registersSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the cash_registers
-   */
-  omit?: Prisma.cash_registersOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.cash_registersInclude<ExtArgs> | null
-  where?: Prisma.cash_registersWhereInput
-  orderBy?: Prisma.cash_registersOrderByWithRelationInput | Prisma.cash_registersOrderByWithRelationInput[]
-  cursor?: Prisma.cash_registersWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.Cash_registersScalarFieldEnum | Prisma.Cash_registersScalarFieldEnum[]
-}
-
-/**
  * stores without action
  */
 export type storesDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1372,8 +1198,4 @@ export type storesDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the stores
    */
   omit?: Prisma.storesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.storesInclude<ExtArgs> | null
 }

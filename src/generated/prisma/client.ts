@@ -50,11 +50,6 @@ export type suppliers = Prisma.suppliersModel
  */
 export type notes_rural_suppliers = Prisma.notes_rural_suppliersModel
 /**
- * Model cash_registers
- * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
- */
-export type cash_registers = Prisma.cash_registersModel
-/**
  * Model daily_sales
  * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
  */

@@ -107,7 +107,6 @@ export class NotesRuralSuppliersService {
                 : existingNote.receipt_date,
               issuer_tax_id:
                 item.issuer_tax_id || existingNote.issuer_tax_id || null,
-              store_name: item.store_name || existingNote.store_name || null,
 
               status: sefazStatus,
             },
@@ -125,7 +124,6 @@ export class NotesRuralSuppliersService {
           note_access_key: item.note_access_key || null,
           note_date: item.note_date ? new Date(item.note_date) : null,
           issuer_tax_id: item.issuer_tax_id || null,
-          store_name: item.store_name || null,
           receipt: item.receipt || null,
           receipt_access_key: item.receipt_access_key || null,
           receipt_date: item.receipt_date ? new Date(item.receipt_date) : null,
@@ -215,7 +213,6 @@ export class NotesRuralSuppliersService {
       let mergedNoteNum = baseNote.note;
       let mergedNoteDate = baseNote.note_date;
       let mergedIssuer = baseNote.issuer_tax_id;
-      let mergedStore = baseNote.store_name;
       let mergedValue = baseNote.value;
 
       for (const other of otherNotes) {
@@ -225,7 +222,6 @@ export class NotesRuralSuppliersService {
         if (!mergedNoteNum) mergedNoteNum = other.note;
         if (!mergedNoteDate) mergedNoteDate = other.note_date;
         if (!mergedIssuer) mergedIssuer = other.issuer_tax_id;
-        if (!mergedStore) mergedStore = other.store_name;
         if (!mergedValue) mergedValue = other.value;
       }
 
@@ -253,7 +249,6 @@ export class NotesRuralSuppliersService {
           note: mergedNoteNum,
           note_date: mergedNoteDate,
           issuer_tax_id: mergedIssuer,
-          store_name: mergedStore,
           value: mergedValue,
           status:
             counterNote.status !== '888' && counterNote.status !== '000'
@@ -388,8 +383,6 @@ export class NotesRuralSuppliersService {
                 currentNote.issuer_tax_id ||
                 existingMatch.issuer_tax_id ||
                 null,
-              store_name:
-                currentNote.store_name || existingMatch.store_name || null,
               value: currentNote.value || existingMatch.value || null,
 
               note:

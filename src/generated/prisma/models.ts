@@ -10,7 +10,6 @@
  */
 export type * from './models/suppliers.js'
 export type * from './models/notes_rural_suppliers.js'
-export type * from './models/cash_registers.js'
 export type * from './models/daily_sales.js'
 export type * from './models/stores.js'
 export type * from './models/users.js'
