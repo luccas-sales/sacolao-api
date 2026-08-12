@@ -39,24 +39,26 @@ model notes_rural_suppliers {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model daily_sales {
-  id                String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  cash_register_id  String    @db.Uuid
-  report_date       DateTime  @db.Date
-  total_nfce        Decimal   @default(0) @db.Decimal(12, 2)
-  total_nfe         Decimal   @default(0) @db.Decimal(12, 2)
-  total_summary_map Decimal   @default(0) @db.Decimal(12, 2)
-  created_at        DateTime? @default(now()) @db.Timestamptz(6)
+  id                String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  cash_register_id  String         @db.Uuid
+  report_date       DateTime       @db.Date
+  total_nfce        Decimal        @default(0) @db.Decimal(12, 2)
+  total_nfe         Decimal        @default(0) @db.Decimal(12, 2)
+  total_summary_map Decimal        @default(0) @db.Decimal(12, 2)
+  created_at        DateTime?      @default(now()) @db.Timestamptz(6)
+  cash_registers    cash_registers @relation(fields: [cash_register_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([cash_register_id, report_date])
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model stores {
-  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name       String
-  tax_id     String?
-  created_at DateTime? @default(now()) @db.Timestamptz(6)
-  number     Int?
+  id             String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name           String
+  tax_id         String?
+  created_at     DateTime?        @default(now()) @db.Timestamptz(6)
+  number         Int?
+  cash_registers cash_registers[]
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -66,4 +68,21 @@ model users {
   password_hash String
   role          String    @default("comum")
   created_at    DateTime? @default(dbgenerated("timezone('utc'::text, now())")) @db.Timestamptz(6)
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model cash_registers {
+  id          String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  store_id    String        @db.Uuid
+  number      Int
+  nfce_series Int
+  nfe_series  Int
+  description String?
+  created_at  DateTime?     @default(now()) @db.Timestamptz(6)
+  stores      stores        @relation(fields: [store_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  daily_sales daily_sales[]
+
+  @@unique([store_id, nfce_series])
+  @@unique([store_id, nfe_series])
+  @@unique([store_id, number])
 }

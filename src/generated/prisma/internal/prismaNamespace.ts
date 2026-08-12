@@ -388,7 +388,8 @@ export const ModelName = {
   notes_rural_suppliers: 'notes_rural_suppliers',
   daily_sales: 'daily_sales',
   stores: 'stores',
-  users: 'users'
+  users: 'users',
+  cash_registers: 'cash_registers'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -404,7 +405,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "suppliers" | "notes_rural_suppliers" | "daily_sales" | "stores" | "users"
+    modelProps: "suppliers" | "notes_rural_suppliers" | "daily_sales" | "stores" | "users" | "cash_registers"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -778,6 +779,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    cash_registers: {
+      payload: Prisma.$cash_registersPayload<ExtArgs>
+      fields: Prisma.cash_registersFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.cash_registersFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cash_registersPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.cash_registersFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cash_registersPayload>
+        }
+        findFirst: {
+          args: Prisma.cash_registersFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cash_registersPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.cash_registersFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cash_registersPayload>
+        }
+        findMany: {
+          args: Prisma.cash_registersFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cash_registersPayload>[]
+        }
+        create: {
+          args: Prisma.cash_registersCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cash_registersPayload>
+        }
+        createMany: {
+          args: Prisma.cash_registersCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.cash_registersCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cash_registersPayload>[]
+        }
+        delete: {
+          args: Prisma.cash_registersDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cash_registersPayload>
+        }
+        update: {
+          args: Prisma.cash_registersUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cash_registersPayload>
+        }
+        deleteMany: {
+          args: Prisma.cash_registersDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.cash_registersUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.cash_registersUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cash_registersPayload>[]
+        }
+        upsert: {
+          args: Prisma.cash_registersUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$cash_registersPayload>
+        }
+        aggregate: {
+          args: Prisma.Cash_registersAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCash_registers>
+        }
+        groupBy: {
+          args: Prisma.cash_registersGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Cash_registersGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.cash_registersCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Cash_registersCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -883,6 +958,19 @@ export const UsersScalarFieldEnum = {
 } as const
 
 export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+
+
+export const Cash_registersScalarFieldEnum = {
+  id: 'id',
+  store_id: 'store_id',
+  number: 'number',
+  nfce_series: 'nfce_series',
+  nfe_series: 'nfe_series',
+  description: 'description',
+  created_at: 'created_at'
+} as const
+
+export type Cash_registersScalarFieldEnum = (typeof Cash_registersScalarFieldEnum)[keyof typeof Cash_registersScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1091,6 +1179,7 @@ export type GlobalOmitConfig = {
   daily_sales?: Prisma.daily_salesOmit
   stores?: Prisma.storesOmit
   users?: Prisma.usersOmit
+  cash_registers?: Prisma.cash_registersOmit
 }
 
 /* Types for Logging */
