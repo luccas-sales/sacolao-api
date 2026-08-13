@@ -138,11 +138,20 @@ export class NotesRuralSuppliersService {
     return { message: 'Importado com sucesso' };
   }
 
-  async getNotes() {
+  async getNotes(startDate?: string, endDate?: string) {
     await this.autoMergeOrphanNotes();
     await this.recalculateDuplicates();
 
+    const where: any = {};
+
+    if (startDate || endDate) {
+      where.receipt_date = {};
+      if (startDate) where.receipt_date.gte = new Date(startDate);
+      if (endDate) where.receipt_date.lte = new Date(endDate);
+    }
+
     return await this.prismaService.notes_rural_suppliers.findMany({
+      where,
       orderBy: { created_at: 'desc' },
     });
   }

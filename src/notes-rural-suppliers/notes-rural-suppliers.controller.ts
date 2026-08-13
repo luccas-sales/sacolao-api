@@ -8,6 +8,7 @@ import {
   Put,
   UseGuards,
   HttpCode,
+  Query,
 } from '@nestjs/common';
 import { NotesRuralSuppliersService } from './notes-rural-suppliers.service';
 import {
@@ -27,8 +28,11 @@ export class NotesRuralSuppliersController {
   }
 
   @Get()
-  async getNotes() {
-    return await this.notesService.getNotes();
+  async getNotes(
+    @Query('startDate') startDate?: string,
+    @Query('endDate') endDate?: string,
+  ) {
+    return await this.notesService.getNotes(startDate, endDate);
   }
 
   @Delete(':id')
