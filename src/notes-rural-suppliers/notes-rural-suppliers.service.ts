@@ -145,9 +145,11 @@ export class NotesRuralSuppliersService {
     const where: any = {};
 
     if (startDate || endDate) {
-      where.receipt_date = {};
-      if (startDate) where.receipt_date.gte = new Date(startDate);
-      if (endDate) where.receipt_date.lte = new Date(endDate);
+      const dateFilter: any = {};
+      if (startDate) dateFilter.gte = new Date(startDate);
+      if (endDate) dateFilter.lte = new Date(endDate);
+
+      where.OR = [{ receipt_date: dateFilter }, { note_date: dateFilter }];
     }
 
     return await this.prismaService.notes_rural_suppliers.findMany({
