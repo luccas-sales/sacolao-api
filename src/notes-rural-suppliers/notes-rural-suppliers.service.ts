@@ -146,8 +146,14 @@ export class NotesRuralSuppliersService {
 
     if (startDate || endDate) {
       const dateFilter: any = {};
+
       if (startDate) dateFilter.gte = new Date(startDate);
-      if (endDate) dateFilter.lte = new Date(endDate);
+
+      if (endDate) {
+        const end = new Date(endDate);
+        end.setUTCHours(23, 59, 59, 999);
+        dateFilter.lte = end;
+      }
 
       where.OR = [{ receipt_date: dateFilter }, { note_date: dateFilter }];
     }
