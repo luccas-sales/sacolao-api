@@ -319,6 +319,8 @@ export class NotesRuralSuppliersService {
       ...(data.receipt_date && { receipt_date: new Date(data.receipt_date) }),
     };
 
+    delete dataToUpdate.store_name;
+
     if (
       data.note_access_key &&
       data.note_access_key !== currentNote.note_access_key
