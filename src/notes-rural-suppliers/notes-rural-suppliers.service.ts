@@ -245,11 +245,6 @@ export class NotesRuralSuppliersService {
       if (key.length === 44) {
         if (!mergedNoteNum)
           mergedNoteNum = parseInt(key.substring(25, 34), 10).toString();
-        if (!mergedNoteDate) {
-          const year = `20${key.substring(2, 4)}`;
-          const month = key.substring(4, 6);
-          mergedNoteDate = new Date(`${year}-${month}-01T00:00:00.000Z`);
-        }
       }
 
       const idsToDelete = otherNotes.map((n) => n.id);
@@ -288,11 +283,7 @@ export class NotesRuralSuppliersService {
       if (key.length === 44) {
         const noteNum =
           n.note || parseInt(key.substring(25, 34), 10).toString();
-        const noteDate =
-          n.note_date ||
-          new Date(
-            `20${key.substring(2, 4)}-${key.substring(4, 6)}-01T00:00:00.000Z`,
-          );
+        const noteDate = n.note_date;
         await this.prismaService.notes_rural_suppliers.update({
           where: { id: n.id },
           data: { note: noteNum, note_date: noteDate },
@@ -334,13 +325,6 @@ export class NotesRuralSuppliersService {
             cleanKey.substring(25, 34),
             10,
           ).toString();
-        }
-        if (!dataToUpdate.note_date && !currentNote.note_date) {
-          const year = `20${cleanKey.substring(2, 4)}`;
-          const month = cleanKey.substring(4, 6);
-          dataToUpdate.note_date = new Date(
-            `${year}-${month}-01T00:00:00.000Z`,
-          );
         }
       }
 
