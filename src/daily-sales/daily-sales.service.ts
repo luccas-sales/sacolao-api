@@ -104,10 +104,9 @@ export class DailySalesService {
       orderBy: { report_date: 'desc' },
     });
 
-    if (!storeId) return sales;
-
+    const registersWhere = storeId ? { store_id: storeId } : {};
     const registers = await this.prismaService.cash_registers.findMany({
-      where: { store_id: storeId },
+      where: registersWhere,
       select: { id: true },
     });
     const registerIds = registers.map((r) => r.id);
