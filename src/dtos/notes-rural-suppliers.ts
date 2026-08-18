@@ -1,5 +1,6 @@
 import {
   IsArray,
+  IsBoolean,
   IsNotEmpty,
   IsOptional,
   IsString,
@@ -49,6 +50,10 @@ export class CreateNoteRuralSuppliersDTO {
   @IsString()
   @IsOptional()
   status?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  goods_received?: boolean;
 }
 
 export class CreateNotesRuralSuppliersListDTO {
@@ -96,4 +101,8 @@ export class UpdateNoteRuralSuppliersDTO {
   @IsString()
   @IsOptional()
   status?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  goods_received?: boolean;
 }

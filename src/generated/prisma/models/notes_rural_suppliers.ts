@@ -50,6 +50,7 @@ export type Notes_rural_suppliersMinAggregateOutputType = {
   status: string | null
   is_duplicate: boolean | null
   created_at: Date | null
+  goods_received: boolean | null
 }
 
 export type Notes_rural_suppliersMaxAggregateOutputType = {
@@ -68,6 +69,7 @@ export type Notes_rural_suppliersMaxAggregateOutputType = {
   status: string | null
   is_duplicate: boolean | null
   created_at: Date | null
+  goods_received: boolean | null
 }
 
 export type Notes_rural_suppliersCountAggregateOutputType = {
@@ -86,6 +88,7 @@ export type Notes_rural_suppliersCountAggregateOutputType = {
   status: number
   is_duplicate: number
   created_at: number
+  goods_received: number
   _all: number
 }
 
@@ -114,6 +117,7 @@ export type Notes_rural_suppliersMinAggregateInputType = {
   status?: true
   is_duplicate?: true
   created_at?: true
+  goods_received?: true
 }
 
 export type Notes_rural_suppliersMaxAggregateInputType = {
@@ -132,6 +136,7 @@ export type Notes_rural_suppliersMaxAggregateInputType = {
   status?: true
   is_duplicate?: true
   created_at?: true
+  goods_received?: true
 }
 
 export type Notes_rural_suppliersCountAggregateInputType = {
@@ -150,6 +155,7 @@ export type Notes_rural_suppliersCountAggregateInputType = {
   status?: true
   is_duplicate?: true
   created_at?: true
+  goods_received?: true
   _all?: true
 }
 
@@ -255,6 +261,7 @@ export type Notes_rural_suppliersGroupByOutputType = {
   status: string | null
   is_duplicate: boolean | null
   created_at: Date | null
+  goods_received: boolean | null
   _count: Notes_rural_suppliersCountAggregateOutputType | null
   _avg: Notes_rural_suppliersAvgAggregateOutputType | null
   _sum: Notes_rural_suppliersSumAggregateOutputType | null
@@ -296,6 +303,7 @@ export type notes_rural_suppliersWhereInput = {
   status?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   is_duplicate?: Prisma.BoolNullableFilter<"notes_rural_suppliers"> | boolean | null
   created_at?: Prisma.DateTimeNullableFilter<"notes_rural_suppliers"> | Date | string | null
+  goods_received?: Prisma.BoolNullableFilter<"notes_rural_suppliers"> | boolean | null
 }
 
 export type notes_rural_suppliersOrderByWithRelationInput = {
@@ -314,6 +322,7 @@ export type notes_rural_suppliersOrderByWithRelationInput = {
   status?: Prisma.SortOrderInput | Prisma.SortOrder
   is_duplicate?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  goods_received?: Prisma.SortOrderInput | Prisma.SortOrder
 }
 
 export type notes_rural_suppliersWhereUniqueInput = Prisma.AtLeast<{
@@ -335,6 +344,7 @@ export type notes_rural_suppliersWhereUniqueInput = Prisma.AtLeast<{
   status?: Prisma.StringNullableFilter<"notes_rural_suppliers"> | string | null
   is_duplicate?: Prisma.BoolNullableFilter<"notes_rural_suppliers"> | boolean | null
   created_at?: Prisma.DateTimeNullableFilter<"notes_rural_suppliers"> | Date | string | null
+  goods_received?: Prisma.BoolNullableFilter<"notes_rural_suppliers"> | boolean | null
 }, "id" | "receipt_access_key">
 
 export type notes_rural_suppliersOrderByWithAggregationInput = {
@@ -353,6 +363,7 @@ export type notes_rural_suppliersOrderByWithAggregationInput = {
   status?: Prisma.SortOrderInput | Prisma.SortOrder
   is_duplicate?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  goods_received?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.notes_rural_suppliersCountOrderByAggregateInput
   _avg?: Prisma.notes_rural_suppliersAvgOrderByAggregateInput
   _max?: Prisma.notes_rural_suppliersMaxOrderByAggregateInput
@@ -379,6 +390,7 @@ export type notes_rural_suppliersScalarWhereWithAggregatesInput = {
   status?: Prisma.StringNullableWithAggregatesFilter<"notes_rural_suppliers"> | string | null
   is_duplicate?: Prisma.BoolNullableWithAggregatesFilter<"notes_rural_suppliers"> | boolean | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"notes_rural_suppliers"> | Date | string | null
+  goods_received?: Prisma.BoolNullableWithAggregatesFilter<"notes_rural_suppliers"> | boolean | null
 }
 
 export type notes_rural_suppliersCreateInput = {
@@ -396,6 +408,7 @@ export type notes_rural_suppliersCreateInput = {
   status?: string | null
   is_duplicate?: boolean | null
   created_at?: Date | string | null
+  goods_received?: boolean | null
 }
 
 export type notes_rural_suppliersUncheckedCreateInput = {
@@ -414,6 +427,7 @@ export type notes_rural_suppliersUncheckedCreateInput = {
   status?: string | null
   is_duplicate?: boolean | null
   created_at?: Date | string | null
+  goods_received?: boolean | null
 }
 
 export type notes_rural_suppliersUpdateInput = {
@@ -431,6 +445,7 @@ export type notes_rural_suppliersUpdateInput = {
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_duplicate?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  goods_received?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type notes_rural_suppliersUncheckedUpdateInput = {
@@ -449,6 +464,7 @@ export type notes_rural_suppliersUncheckedUpdateInput = {
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_duplicate?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  goods_received?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type notes_rural_suppliersCreateManyInput = {
@@ -467,6 +483,7 @@ export type notes_rural_suppliersCreateManyInput = {
   status?: string | null
   is_duplicate?: boolean | null
   created_at?: Date | string | null
+  goods_received?: boolean | null
 }
 
 export type notes_rural_suppliersUpdateManyMutationInput = {
@@ -484,6 +501,7 @@ export type notes_rural_suppliersUpdateManyMutationInput = {
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_duplicate?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  goods_received?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type notes_rural_suppliersUncheckedUpdateManyInput = {
@@ -502,6 +520,7 @@ export type notes_rural_suppliersUncheckedUpdateManyInput = {
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   is_duplicate?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  goods_received?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type notes_rural_suppliersCountOrderByAggregateInput = {
@@ -520,6 +539,7 @@ export type notes_rural_suppliersCountOrderByAggregateInput = {
   status?: Prisma.SortOrder
   is_duplicate?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  goods_received?: Prisma.SortOrder
 }
 
 export type notes_rural_suppliersAvgOrderByAggregateInput = {
@@ -542,6 +562,7 @@ export type notes_rural_suppliersMaxOrderByAggregateInput = {
   status?: Prisma.SortOrder
   is_duplicate?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  goods_received?: Prisma.SortOrder
 }
 
 export type notes_rural_suppliersMinOrderByAggregateInput = {
@@ -560,6 +581,7 @@ export type notes_rural_suppliersMinOrderByAggregateInput = {
   status?: Prisma.SortOrder
   is_duplicate?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  goods_received?: Prisma.SortOrder
 }
 
 export type notes_rural_suppliersSumOrderByAggregateInput = {
@@ -592,6 +614,7 @@ export type notes_rural_suppliersSelect<ExtArgs extends runtime.Types.Extensions
   status?: boolean
   is_duplicate?: boolean
   created_at?: boolean
+  goods_received?: boolean
 }, ExtArgs["result"]["notes_rural_suppliers"]>
 
 export type notes_rural_suppliersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -610,6 +633,7 @@ export type notes_rural_suppliersSelectCreateManyAndReturn<ExtArgs extends runti
   status?: boolean
   is_duplicate?: boolean
   created_at?: boolean
+  goods_received?: boolean
 }, ExtArgs["result"]["notes_rural_suppliers"]>
 
 export type notes_rural_suppliersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -628,6 +652,7 @@ export type notes_rural_suppliersSelectUpdateManyAndReturn<ExtArgs extends runti
   status?: boolean
   is_duplicate?: boolean
   created_at?: boolean
+  goods_received?: boolean
 }, ExtArgs["result"]["notes_rural_suppliers"]>
 
 export type notes_rural_suppliersSelectScalar = {
@@ -646,9 +671,10 @@ export type notes_rural_suppliersSelectScalar = {
   status?: boolean
   is_duplicate?: boolean
   created_at?: boolean
+  goods_received?: boolean
 }
 
-export type notes_rural_suppliersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "supplier_tax_id" | "supplier_name" | "sector" | "note" | "note_access_key" | "note_date" | "issuer_tax_id" | "receipt" | "receipt_access_key" | "receipt_date" | "value" | "status" | "is_duplicate" | "created_at", ExtArgs["result"]["notes_rural_suppliers"]>
+export type notes_rural_suppliersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "supplier_tax_id" | "supplier_name" | "sector" | "note" | "note_access_key" | "note_date" | "issuer_tax_id" | "receipt" | "receipt_access_key" | "receipt_date" | "value" | "status" | "is_duplicate" | "created_at" | "goods_received", ExtArgs["result"]["notes_rural_suppliers"]>
 
 export type $notes_rural_suppliersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "notes_rural_suppliers"
@@ -669,6 +695,7 @@ export type $notes_rural_suppliersPayload<ExtArgs extends runtime.Types.Extensio
     status: string | null
     is_duplicate: boolean | null
     created_at: Date | null
+    goods_received: boolean | null
   }, ExtArgs["result"]["notes_rural_suppliers"]>
   composites: {}
 }
@@ -1107,6 +1134,7 @@ export interface notes_rural_suppliersFieldRefs {
   readonly status: Prisma.FieldRef<"notes_rural_suppliers", 'String'>
   readonly is_duplicate: Prisma.FieldRef<"notes_rural_suppliers", 'Boolean'>
   readonly created_at: Prisma.FieldRef<"notes_rural_suppliers", 'DateTime'>
+  readonly goods_received: Prisma.FieldRef<"notes_rural_suppliers", 'Boolean'>
 }
     
 

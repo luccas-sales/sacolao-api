@@ -306,6 +306,9 @@ export class NotesRuralSuppliersService {
 
     let dataToUpdate: any = {
       ...data,
+      ...(data.goods_received !== undefined && {
+        goods_received: data.goods_received,
+      }),
       ...(data.note_date && { note_date: new Date(data.note_date) }),
       ...(data.receipt_date && { receipt_date: new Date(data.receipt_date) }),
     };

@@ -919,7 +919,8 @@ export const Notes_rural_suppliersScalarFieldEnum = {
   value: 'value',
   status: 'status',
   is_duplicate: 'is_duplicate',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  goods_received: 'goods_received'
 } as const
 
 export type Notes_rural_suppliersScalarFieldEnum = (typeof Notes_rural_suppliersScalarFieldEnum)[keyof typeof Notes_rural_suppliersScalarFieldEnum]
