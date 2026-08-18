@@ -36,13 +36,13 @@ export class AuthService {
     const accessToken = await this.jwtService.sign({
       id: user.id,
       username: user.username,
-      role: user.role,
+      permissions: user.permissions,
     });
 
     return {
       id: user.id,
       username: user.username,
-      role: user.role,
+      permissions: user.permissions,
       accessToken,
     };
   }
