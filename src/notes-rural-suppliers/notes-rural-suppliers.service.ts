@@ -134,14 +134,12 @@ export class NotesRuralSuppliersService {
       });
     }
 
+    await this.autoMergeOrphanNotes();
     await this.recalculateDuplicates();
     return { message: 'Importado com sucesso' };
   }
 
   async getNotes(startDate?: string, endDate?: string) {
-    await this.autoMergeOrphanNotes();
-    await this.recalculateDuplicates();
-
     const where: any = {};
 
     if (startDate || endDate) {
