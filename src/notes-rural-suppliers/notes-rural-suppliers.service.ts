@@ -34,8 +34,8 @@ export class NotesRuralSuppliersService {
       const supplierName = supplierInfo ? supplierInfo.name : null;
       const sector = supplierInfo ? supplierInfo.sector : null;
 
-      const existingNote =
-        await this.prismaService.notes_rural_suppliers.findFirst({
+      const existingNotes =
+        await this.prismaService.notes_rural_suppliers.findMany({
           where: {
             OR: [
               {
@@ -52,65 +52,72 @@ export class NotesRuralSuppliersService {
           },
         });
 
-      if (existingNote) {
-        const isDifferentContraNota =
-          Boolean(existingNote.receipt_access_key) &&
-          Boolean(item.receipt_access_key) &&
-          existingNote.receipt_access_key !== item.receipt_access_key;
+      if (existingNotes.length > 0) {
+        const isDifferentContraNota = existingNotes.some(
+          (existingNote) =>
+            Boolean(existingNote.receipt_access_key) &&
+            Boolean(item.receipt_access_key) &&
+            existingNote.receipt_access_key !== item.receipt_access_key,
+        );
 
         if (!isDifferentContraNota) {
           const isIncomingProducerNote =
             !item.receipt_access_key && Boolean(item.note_access_key);
 
-          let sefazStatus = existingNote.status;
-          if (
-            item.receipt_access_key &&
-            item.status !== '888' &&
-            item.status !== '000'
-          ) {
-            sefazStatus = item.status || existingNote.status;
-          } else if (
-            existingNote.receipt_access_key &&
-            existingNote.status !== '888' &&
-            existingNote.status !== '000'
-          ) {
-            sefazStatus = existingNote.status;
-          } else if (item.status !== '000' && item.status !== '888') {
-            sefazStatus = item.status || existingNote.status;
+          for (const existingNote of existingNotes) {
+            let sefazStatus = existingNote.status;
+
+            if (
+              item.receipt_access_key &&
+              item.status !== '888' &&
+              item.status !== '000'
+            ) {
+              sefazStatus = item.status || existingNote.status;
+            } else if (
+              existingNote.receipt_access_key &&
+              existingNote.status !== '888' &&
+              existingNote.status !== '000'
+            ) {
+              sefazStatus = existingNote.status;
+            } else if (item.status !== '000' && item.status !== '888') {
+              sefazStatus = item.status || existingNote.status;
+            }
+
+            await this.prismaService.notes_rural_suppliers.update({
+              where: { id: existingNote.id },
+              data: {
+                note: isIncomingProducerNote
+                  ? item.note || existingNote.note
+                  : existingNote.note || item.note || null,
+
+                note_access_key: isIncomingProducerNote
+                  ? item.note_access_key || existingNote.note_access_key
+                  : existingNote.note_access_key ||
+                    item.note_access_key ||
+                    null,
+
+                note_date: isIncomingProducerNote
+                  ? item.note_date
+                    ? new Date(item.note_date)
+                    : existingNote.note_date
+                  : existingNote.note_date ||
+                    (item.note_date ? new Date(item.note_date) : null),
+
+                receipt: item.receipt || existingNote.receipt || null,
+                receipt_access_key:
+                  item.receipt_access_key ||
+                  existingNote.receipt_access_key ||
+                  null,
+                receipt_date: item.receipt_date
+                  ? new Date(item.receipt_date)
+                  : existingNote.receipt_date,
+                issuer_tax_id:
+                  item.issuer_tax_id || existingNote.issuer_tax_id || null,
+
+                status: sefazStatus,
+              },
+            });
           }
-
-          await this.prismaService.notes_rural_suppliers.update({
-            where: { id: existingNote.id },
-            data: {
-              note: isIncomingProducerNote
-                ? item.note || existingNote.note
-                : existingNote.note || item.note || null,
-
-              note_access_key: isIncomingProducerNote
-                ? item.note_access_key || existingNote.note_access_key
-                : existingNote.note_access_key || item.note_access_key || null,
-
-              note_date: isIncomingProducerNote
-                ? item.note_date
-                  ? new Date(item.note_date)
-                  : existingNote.note_date
-                : existingNote.note_date ||
-                  (item.note_date ? new Date(item.note_date) : null),
-
-              receipt: item.receipt || existingNote.receipt || null,
-              receipt_access_key:
-                item.receipt_access_key ||
-                existingNote.receipt_access_key ||
-                null,
-              receipt_date: item.receipt_date
-                ? new Date(item.receipt_date)
-                : existingNote.receipt_date,
-              issuer_tax_id:
-                item.issuer_tax_id || existingNote.issuer_tax_id || null,
-
-              status: sefazStatus,
-            },
-          });
           continue;
         }
       }
