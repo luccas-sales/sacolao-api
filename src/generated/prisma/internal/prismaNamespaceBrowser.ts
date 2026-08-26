@@ -56,7 +56,9 @@ export const ModelName = {
   daily_sales: 'daily_sales',
   stores: 'stores',
   users: 'users',
-  cash_registers: 'cash_registers'
+  cash_registers: 'cash_registers',
+  product_monthly_data: 'product_monthly_data',
+  products: 'products'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -155,6 +157,59 @@ export const Cash_registersScalarFieldEnum = {
 } as const
 
 export type Cash_registersScalarFieldEnum = (typeof Cash_registersScalarFieldEnum)[keyof typeof Cash_registersScalarFieldEnum]
+
+
+export const Product_monthly_dataScalarFieldEnum = {
+  id: 'id',
+  product_id: 'product_id',
+  store_id: 'store_id',
+  reference_month: 'reference_month',
+  obs: 'obs',
+  is_new: 'is_new',
+  correct_icms_office: 'correct_icms_office',
+  was_st: 'was_st',
+  made_in_store: 'made_in_store',
+  monitored: 'monitored',
+  department: 'department',
+  section: 'section',
+  category_group: 'category_group',
+  icms_main: 'icms_main',
+  barcode: 'barcode',
+  plucode: 'plucode',
+  description: 'description',
+  billing: 'billing',
+  icms: 'icms',
+  icms_aliquot: 'icms_aliquot',
+  icms_aliquot_last_sale: 'icms_aliquot_last_sale',
+  icms_aliquot_mix_fiscal: 'icms_aliquot_mix_fiscal',
+  cest: 'cest',
+  cest_mix_fiscal: 'cest_mix_fiscal',
+  cest_last_sale: 'cest_last_sale',
+  cbenef: 'cbenef',
+  cbenef_mix_fiscal: 'cbenef_mix_fiscal',
+  cbenef_last_sale: 'cbenef_last_sale',
+  ncm: 'ncm',
+  ncm_mix_fiscal: 'ncm_mix_fiscal',
+  ncm_last_sale: 'ncm_last_sale',
+  pis_cofins: 'pis_cofins',
+  pis_cofins_mix_fiscal: 'pis_cofins_mix_fiscal',
+  pis_cofins_last_sale: 'pis_cofins_last_sale',
+  c_class: 'c_class',
+  c_class_mix_fiscal: 'c_class_mix_fiscal',
+  c_class_last_sale: 'c_class_last_sale',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Product_monthly_dataScalarFieldEnum = (typeof Product_monthly_dataScalarFieldEnum)[keyof typeof Product_monthly_dataScalarFieldEnum]
+
+
+export const ProductsScalarFieldEnum = {
+  id: 'id',
+  created_at: 'created_at'
+} as const
+
+export type ProductsScalarFieldEnum = (typeof ProductsScalarFieldEnum)[keyof typeof ProductsScalarFieldEnum]
 
 
 export const SortOrder = {

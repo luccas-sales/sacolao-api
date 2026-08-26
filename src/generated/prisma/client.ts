@@ -69,3 +69,13 @@ export type users = Prisma.usersModel
  * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
  */
 export type cash_registers = Prisma.cash_registersModel
+/**
+ * Model product_monthly_data
+ * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ */
+export type product_monthly_data = Prisma.product_monthly_dataModel
+/**
+ * Model products
+ * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ */
+export type products = Prisma.productsModel

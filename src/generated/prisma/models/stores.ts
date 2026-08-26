@@ -217,6 +217,7 @@ export type storesWhereInput = {
   created_at?: Prisma.DateTimeNullableFilter<"stores"> | Date | string | null
   number?: Prisma.IntNullableFilter<"stores"> | number | null
   cash_registers?: Prisma.Cash_registersListRelationFilter
+  product_monthly_data?: Prisma.Product_monthly_dataListRelationFilter
 }
 
 export type storesOrderByWithRelationInput = {
@@ -226,6 +227,7 @@ export type storesOrderByWithRelationInput = {
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   number?: Prisma.SortOrderInput | Prisma.SortOrder
   cash_registers?: Prisma.cash_registersOrderByRelationAggregateInput
+  product_monthly_data?: Prisma.product_monthly_dataOrderByRelationAggregateInput
 }
 
 export type storesWhereUniqueInput = Prisma.AtLeast<{
@@ -238,6 +240,7 @@ export type storesWhereUniqueInput = Prisma.AtLeast<{
   created_at?: Prisma.DateTimeNullableFilter<"stores"> | Date | string | null
   number?: Prisma.IntNullableFilter<"stores"> | number | null
   cash_registers?: Prisma.Cash_registersListRelationFilter
+  product_monthly_data?: Prisma.Product_monthly_dataListRelationFilter
 }, "id">
 
 export type storesOrderByWithAggregationInput = {
@@ -271,6 +274,7 @@ export type storesCreateInput = {
   created_at?: Date | string | null
   number?: number | null
   cash_registers?: Prisma.cash_registersCreateNestedManyWithoutStoresInput
+  product_monthly_data?: Prisma.product_monthly_dataCreateNestedManyWithoutStoresInput
 }
 
 export type storesUncheckedCreateInput = {
@@ -280,6 +284,7 @@ export type storesUncheckedCreateInput = {
   created_at?: Date | string | null
   number?: number | null
   cash_registers?: Prisma.cash_registersUncheckedCreateNestedManyWithoutStoresInput
+  product_monthly_data?: Prisma.product_monthly_dataUncheckedCreateNestedManyWithoutStoresInput
 }
 
 export type storesUpdateInput = {
@@ -289,6 +294,7 @@ export type storesUpdateInput = {
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   cash_registers?: Prisma.cash_registersUpdateManyWithoutStoresNestedInput
+  product_monthly_data?: Prisma.product_monthly_dataUpdateManyWithoutStoresNestedInput
 }
 
 export type storesUncheckedUpdateInput = {
@@ -298,6 +304,7 @@ export type storesUncheckedUpdateInput = {
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   cash_registers?: Prisma.cash_registersUncheckedUpdateManyWithoutStoresNestedInput
+  product_monthly_data?: Prisma.product_monthly_dataUncheckedUpdateManyWithoutStoresNestedInput
 }
 
 export type storesCreateManyInput = {
@@ -383,12 +390,27 @@ export type storesUpdateOneRequiredWithoutCash_registersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.storesUpdateToOneWithWhereWithoutCash_registersInput, Prisma.storesUpdateWithoutCash_registersInput>, Prisma.storesUncheckedUpdateWithoutCash_registersInput>
 }
 
+export type storesCreateNestedOneWithoutProduct_monthly_dataInput = {
+  create?: Prisma.XOR<Prisma.storesCreateWithoutProduct_monthly_dataInput, Prisma.storesUncheckedCreateWithoutProduct_monthly_dataInput>
+  connectOrCreate?: Prisma.storesCreateOrConnectWithoutProduct_monthly_dataInput
+  connect?: Prisma.storesWhereUniqueInput
+}
+
+export type storesUpdateOneRequiredWithoutProduct_monthly_dataNestedInput = {
+  create?: Prisma.XOR<Prisma.storesCreateWithoutProduct_monthly_dataInput, Prisma.storesUncheckedCreateWithoutProduct_monthly_dataInput>
+  connectOrCreate?: Prisma.storesCreateOrConnectWithoutProduct_monthly_dataInput
+  upsert?: Prisma.storesUpsertWithoutProduct_monthly_dataInput
+  connect?: Prisma.storesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.storesUpdateToOneWithWhereWithoutProduct_monthly_dataInput, Prisma.storesUpdateWithoutProduct_monthly_dataInput>, Prisma.storesUncheckedUpdateWithoutProduct_monthly_dataInput>
+}
+
 export type storesCreateWithoutCash_registersInput = {
   id?: string
   name: string
   tax_id?: string | null
   created_at?: Date | string | null
   number?: number | null
+  product_monthly_data?: Prisma.product_monthly_dataCreateNestedManyWithoutStoresInput
 }
 
 export type storesUncheckedCreateWithoutCash_registersInput = {
@@ -397,6 +419,7 @@ export type storesUncheckedCreateWithoutCash_registersInput = {
   tax_id?: string | null
   created_at?: Date | string | null
   number?: number | null
+  product_monthly_data?: Prisma.product_monthly_dataUncheckedCreateNestedManyWithoutStoresInput
 }
 
 export type storesCreateOrConnectWithoutCash_registersInput = {
@@ -421,6 +444,7 @@ export type storesUpdateWithoutCash_registersInput = {
   tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  product_monthly_data?: Prisma.product_monthly_dataUpdateManyWithoutStoresNestedInput
 }
 
 export type storesUncheckedUpdateWithoutCash_registersInput = {
@@ -429,6 +453,59 @@ export type storesUncheckedUpdateWithoutCash_registersInput = {
   tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  product_monthly_data?: Prisma.product_monthly_dataUncheckedUpdateManyWithoutStoresNestedInput
+}
+
+export type storesCreateWithoutProduct_monthly_dataInput = {
+  id?: string
+  name: string
+  tax_id?: string | null
+  created_at?: Date | string | null
+  number?: number | null
+  cash_registers?: Prisma.cash_registersCreateNestedManyWithoutStoresInput
+}
+
+export type storesUncheckedCreateWithoutProduct_monthly_dataInput = {
+  id?: string
+  name: string
+  tax_id?: string | null
+  created_at?: Date | string | null
+  number?: number | null
+  cash_registers?: Prisma.cash_registersUncheckedCreateNestedManyWithoutStoresInput
+}
+
+export type storesCreateOrConnectWithoutProduct_monthly_dataInput = {
+  where: Prisma.storesWhereUniqueInput
+  create: Prisma.XOR<Prisma.storesCreateWithoutProduct_monthly_dataInput, Prisma.storesUncheckedCreateWithoutProduct_monthly_dataInput>
+}
+
+export type storesUpsertWithoutProduct_monthly_dataInput = {
+  update: Prisma.XOR<Prisma.storesUpdateWithoutProduct_monthly_dataInput, Prisma.storesUncheckedUpdateWithoutProduct_monthly_dataInput>
+  create: Prisma.XOR<Prisma.storesCreateWithoutProduct_monthly_dataInput, Prisma.storesUncheckedCreateWithoutProduct_monthly_dataInput>
+  where?: Prisma.storesWhereInput
+}
+
+export type storesUpdateToOneWithWhereWithoutProduct_monthly_dataInput = {
+  where?: Prisma.storesWhereInput
+  data: Prisma.XOR<Prisma.storesUpdateWithoutProduct_monthly_dataInput, Prisma.storesUncheckedUpdateWithoutProduct_monthly_dataInput>
+}
+
+export type storesUpdateWithoutProduct_monthly_dataInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cash_registers?: Prisma.cash_registersUpdateManyWithoutStoresNestedInput
+}
+
+export type storesUncheckedUpdateWithoutProduct_monthly_dataInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  tax_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  number?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cash_registers?: Prisma.cash_registersUncheckedUpdateManyWithoutStoresNestedInput
 }
 
 
@@ -438,10 +515,12 @@ export type storesUncheckedUpdateWithoutCash_registersInput = {
 
 export type StoresCountOutputType = {
   cash_registers: number
+  product_monthly_data: number
 }
 
 export type StoresCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   cash_registers?: boolean | StoresCountOutputTypeCountCash_registersArgs
+  product_monthly_data?: boolean | StoresCountOutputTypeCountProduct_monthly_dataArgs
 }
 
 /**
@@ -461,6 +540,13 @@ export type StoresCountOutputTypeCountCash_registersArgs<ExtArgs extends runtime
   where?: Prisma.cash_registersWhereInput
 }
 
+/**
+ * StoresCountOutputType without action
+ */
+export type StoresCountOutputTypeCountProduct_monthly_dataArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.product_monthly_dataWhereInput
+}
+
 
 export type storesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -469,6 +555,7 @@ export type storesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   created_at?: boolean
   number?: boolean
   cash_registers?: boolean | Prisma.stores$cash_registersArgs<ExtArgs>
+  product_monthly_data?: boolean | Prisma.stores$product_monthly_dataArgs<ExtArgs>
   _count?: boolean | Prisma.StoresCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["stores"]>
 
@@ -499,6 +586,7 @@ export type storesSelectScalar = {
 export type storesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "tax_id" | "created_at" | "number", ExtArgs["result"]["stores"]>
 export type storesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   cash_registers?: boolean | Prisma.stores$cash_registersArgs<ExtArgs>
+  product_monthly_data?: boolean | Prisma.stores$product_monthly_dataArgs<ExtArgs>
   _count?: boolean | Prisma.StoresCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type storesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -508,6 +596,7 @@ export type $storesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   name: "stores"
   objects: {
     cash_registers: Prisma.$cash_registersPayload<ExtArgs>[]
+    product_monthly_data: Prisma.$product_monthly_dataPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -910,6 +999,7 @@ readonly fields: storesFieldRefs;
 export interface Prisma__storesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   cash_registers<T extends Prisma.stores$cash_registersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.stores$cash_registersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$cash_registersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  product_monthly_data<T extends Prisma.stores$product_monthly_dataArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.stores$product_monthly_dataArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$product_monthly_dataPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1358,6 +1448,30 @@ export type stores$cash_registersArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.Cash_registersScalarFieldEnum | Prisma.Cash_registersScalarFieldEnum[]
+}
+
+/**
+ * stores.product_monthly_data
+ */
+export type stores$product_monthly_dataArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the product_monthly_data
+   */
+  select?: Prisma.product_monthly_dataSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the product_monthly_data
+   */
+  omit?: Prisma.product_monthly_dataOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.product_monthly_dataInclude<ExtArgs> | null
+  where?: Prisma.product_monthly_dataWhereInput
+  orderBy?: Prisma.product_monthly_dataOrderByWithRelationInput | Prisma.product_monthly_dataOrderByWithRelationInput[]
+  cursor?: Prisma.product_monthly_dataWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Product_monthly_dataScalarFieldEnum | Prisma.Product_monthly_dataScalarFieldEnum[]
 }
 
 /**

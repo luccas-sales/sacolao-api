@@ -389,7 +389,9 @@ export const ModelName = {
   daily_sales: 'daily_sales',
   stores: 'stores',
   users: 'users',
-  cash_registers: 'cash_registers'
+  cash_registers: 'cash_registers',
+  product_monthly_data: 'product_monthly_data',
+  products: 'products'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -405,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "suppliers" | "notes_rural_suppliers" | "daily_sales" | "stores" | "users" | "cash_registers"
+    modelProps: "suppliers" | "notes_rural_suppliers" | "daily_sales" | "stores" | "users" | "cash_registers" | "product_monthly_data" | "products"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -853,6 +855,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    product_monthly_data: {
+      payload: Prisma.$product_monthly_dataPayload<ExtArgs>
+      fields: Prisma.product_monthly_dataFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.product_monthly_dataFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$product_monthly_dataPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.product_monthly_dataFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$product_monthly_dataPayload>
+        }
+        findFirst: {
+          args: Prisma.product_monthly_dataFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$product_monthly_dataPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.product_monthly_dataFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$product_monthly_dataPayload>
+        }
+        findMany: {
+          args: Prisma.product_monthly_dataFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$product_monthly_dataPayload>[]
+        }
+        create: {
+          args: Prisma.product_monthly_dataCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$product_monthly_dataPayload>
+        }
+        createMany: {
+          args: Prisma.product_monthly_dataCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.product_monthly_dataCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$product_monthly_dataPayload>[]
+        }
+        delete: {
+          args: Prisma.product_monthly_dataDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$product_monthly_dataPayload>
+        }
+        update: {
+          args: Prisma.product_monthly_dataUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$product_monthly_dataPayload>
+        }
+        deleteMany: {
+          args: Prisma.product_monthly_dataDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.product_monthly_dataUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.product_monthly_dataUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$product_monthly_dataPayload>[]
+        }
+        upsert: {
+          args: Prisma.product_monthly_dataUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$product_monthly_dataPayload>
+        }
+        aggregate: {
+          args: Prisma.Product_monthly_dataAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProduct_monthly_data>
+        }
+        groupBy: {
+          args: Prisma.product_monthly_dataGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Product_monthly_dataGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.product_monthly_dataCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Product_monthly_dataCountAggregateOutputType> | number
+        }
+      }
+    }
+    products: {
+      payload: Prisma.$productsPayload<ExtArgs>
+      fields: Prisma.productsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.productsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$productsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.productsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$productsPayload>
+        }
+        findFirst: {
+          args: Prisma.productsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$productsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.productsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$productsPayload>
+        }
+        findMany: {
+          args: Prisma.productsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$productsPayload>[]
+        }
+        create: {
+          args: Prisma.productsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$productsPayload>
+        }
+        createMany: {
+          args: Prisma.productsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.productsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$productsPayload>[]
+        }
+        delete: {
+          args: Prisma.productsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$productsPayload>
+        }
+        update: {
+          args: Prisma.productsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$productsPayload>
+        }
+        deleteMany: {
+          args: Prisma.productsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.productsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.productsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$productsPayload>[]
+        }
+        upsert: {
+          args: Prisma.productsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$productsPayload>
+        }
+        aggregate: {
+          args: Prisma.ProductsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProducts>
+        }
+        groupBy: {
+          args: Prisma.productsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProductsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.productsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProductsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -972,6 +1122,59 @@ export const Cash_registersScalarFieldEnum = {
 } as const
 
 export type Cash_registersScalarFieldEnum = (typeof Cash_registersScalarFieldEnum)[keyof typeof Cash_registersScalarFieldEnum]
+
+
+export const Product_monthly_dataScalarFieldEnum = {
+  id: 'id',
+  product_id: 'product_id',
+  store_id: 'store_id',
+  reference_month: 'reference_month',
+  obs: 'obs',
+  is_new: 'is_new',
+  correct_icms_office: 'correct_icms_office',
+  was_st: 'was_st',
+  made_in_store: 'made_in_store',
+  monitored: 'monitored',
+  department: 'department',
+  section: 'section',
+  category_group: 'category_group',
+  icms_main: 'icms_main',
+  barcode: 'barcode',
+  plucode: 'plucode',
+  description: 'description',
+  billing: 'billing',
+  icms: 'icms',
+  icms_aliquot: 'icms_aliquot',
+  icms_aliquot_last_sale: 'icms_aliquot_last_sale',
+  icms_aliquot_mix_fiscal: 'icms_aliquot_mix_fiscal',
+  cest: 'cest',
+  cest_mix_fiscal: 'cest_mix_fiscal',
+  cest_last_sale: 'cest_last_sale',
+  cbenef: 'cbenef',
+  cbenef_mix_fiscal: 'cbenef_mix_fiscal',
+  cbenef_last_sale: 'cbenef_last_sale',
+  ncm: 'ncm',
+  ncm_mix_fiscal: 'ncm_mix_fiscal',
+  ncm_last_sale: 'ncm_last_sale',
+  pis_cofins: 'pis_cofins',
+  pis_cofins_mix_fiscal: 'pis_cofins_mix_fiscal',
+  pis_cofins_last_sale: 'pis_cofins_last_sale',
+  c_class: 'c_class',
+  c_class_mix_fiscal: 'c_class_mix_fiscal',
+  c_class_last_sale: 'c_class_last_sale',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Product_monthly_dataScalarFieldEnum = (typeof Product_monthly_dataScalarFieldEnum)[keyof typeof Product_monthly_dataScalarFieldEnum]
+
+
+export const ProductsScalarFieldEnum = {
+  id: 'id',
+  created_at: 'created_at'
+} as const
+
+export type ProductsScalarFieldEnum = (typeof ProductsScalarFieldEnum)[keyof typeof ProductsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1211,6 +1414,8 @@ export type GlobalOmitConfig = {
   stores?: Prisma.storesOmit
   users?: Prisma.usersOmit
   cash_registers?: Prisma.cash_registersOmit
+  product_monthly_data?: Prisma.product_monthly_dataOmit
+  products?: Prisma.productsOmit
 }
 
 /* Types for Logging */
