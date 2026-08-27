@@ -42,40 +42,46 @@ export class ProductsService {
 
     return await this.prisma.$transaction(async (prisma) => {
       for (const prod of products) {
-        await prisma.products.update({
-          where: { id: prod.product_id },
-          data: prod.base_data,
-        });
-
         for (const monthData of prod.monthly_data) {
-          const records = await prisma.product_monthly_data.findMany({
+          await prisma.product_monthly_data.updateMany({
             where: {
               product_id: prod.product_id,
               store_id: monthData.store_id,
               reference_month: new Date(monthData.reference_month),
             },
-          });
+            data: {
+              barcode: prod.base_data.barcode,
+              obs: prod.base_data.obs,
+              is_new: prod.base_data.is_new,
+              correct_icms_office: prod.base_data.correct_icms_office,
+              was_st: prod.base_data.was_st,
+              made_in_store: prod.base_data.made_in_store,
+              monitored: prod.base_data.monitored,
+              department: prod.base_data.department,
+              section: prod.base_data.section,
+              category_group: prod.base_data.category_group,
+              plucode: prod.base_data.plucode,
+              description: prod.base_data.description,
 
-          if (records.length > 0) {
-            await prisma.product_monthly_data.update({
-              where: { id: records[0].id },
-              data: {
-                icms: monthData.icms,
-                icms_aliquot: monthData.icms_aliquot,
-                cest: monthData.cest,
-                cbenef: monthData.cbenef,
-                c_class: monthData.c_class,
-                ncm: monthData.ncm,
-                pis_cofins: monthData.pis_cofins,
-                billing: monthData.billing,
-                pis_cofins_last_sale: monthData.pis_cofins_last_sale,
-                icms_aliquot_last_sale: monthData.icms_aliquot_last_sale,
-                cest_last_sale: monthData.cest_last_sale,
-                c_class_last_sale: monthData.c_class_last_sale,
-                cbenef_last_sale: monthData.cbenef_last_sale,
-              },
-            });
-          }
+              icms: monthData.icms,
+              icms_aliquot: monthData.icms_aliquot,
+              cest: monthData.cest,
+              cbenef: monthData.cbenef,
+              c_class: monthData.c_class,
+              ncm: monthData.ncm,
+              pis_cofins: monthData.pis_cofins,
+
+              billing:
+                monthData.billing !== undefined && monthData.billing !== null
+                  ? String(monthData.billing)
+                  : null,
+              pis_cofins_last_sale: monthData.pis_cofins_last_sale,
+              icms_aliquot_last_sale: monthData.icms_aliquot_last_sale,
+              cest_last_sale: monthData.cest_last_sale,
+              c_class_last_sale: monthData.c_class_last_sale,
+              cbenef_last_sale: monthData.cbenef_last_sale,
+            },
+          });
         }
       }
       return { success: true, updatedCount: products.length };
