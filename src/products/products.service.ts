@@ -68,9 +68,9 @@ export class ProductsService {
                 ? String(monthData.billing)
                 : null,
             icms_mix_fiscal: monthData.icms_mix_fiscal,
-            invoice_number_last_sale: monthData.invoice_number_last_sale,
+            note_number_last_sale: monthData.note_number_last_sale,
             icms_last_sale: monthData.icms_last_sale,
-            invoice_key_last_sale: monthData.invoice_key_last_sale,
+            access_key_last_sale: monthData.access_key_last_sale,
             icms_aliquot_mix_fiscal_stores_lapa:
               monthData.icms_aliquot_mix_fiscal_stores_lapa,
             icms_aliquot_mix_fiscal_jasp_hortjasp_frutjasp:
