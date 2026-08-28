@@ -67,6 +67,14 @@ export class ProductsService {
               monthData.billing !== undefined && monthData.billing !== null
                 ? String(monthData.billing)
                 : null,
+            icms_mix_fiscal: monthData.icms_mix_fiscal,
+            invoice_number_last_sale: monthData.invoice_number_last_sale,
+            icms_last_sale: monthData.icms_last_sale,
+            invoice_key_last_sale: monthData.invoice_key_last_sale,
+            icms_aliquot_mix_fiscal_stores_lapa:
+              monthData.icms_aliquot_mix_fiscal_stores_lapa,
+            icms_aliquot_mix_fiscal_jasp_hortjasp_frutjasp:
+              monthData.icms_aliquot_mix_fiscal_jasp_hortjasp_frutjasp,
             pis_cofins_last_sale: monthData.pis_cofins_last_sale,
             icms_aliquot_last_sale: monthData.icms_aliquot_last_sale,
             cest_last_sale: monthData.cest_last_sale,

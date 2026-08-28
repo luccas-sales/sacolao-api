@@ -1138,7 +1138,7 @@ export const Product_monthly_dataScalarFieldEnum = {
   department: 'department',
   section: 'section',
   category_group: 'category_group',
-  icms_main: 'icms_main',
+  icms_mix_fiscal: 'icms_mix_fiscal',
   barcode: 'barcode',
   plucode: 'plucode',
   description: 'description',
@@ -1163,7 +1163,10 @@ export const Product_monthly_dataScalarFieldEnum = {
   c_class_mix_fiscal: 'c_class_mix_fiscal',
   c_class_last_sale: 'c_class_last_sale',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  note_number_last_sale: 'note_number_last_sale',
+  icms_last_sale: 'icms_last_sale',
+  access_key_last_sale: 'access_key_last_sale'
 } as const
 
 export type Product_monthly_dataScalarFieldEnum = (typeof Product_monthly_dataScalarFieldEnum)[keyof typeof Product_monthly_dataScalarFieldEnum]
