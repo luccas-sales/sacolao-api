@@ -56,6 +56,7 @@ export class ProductsService {
             category_group: monthData.category_group,
             plucode: monthData.plucode,
             description: monthData.description,
+
             icms: monthData.icms,
             icms_aliquot: monthData.icms_aliquot,
             cest: monthData.cest,
@@ -67,19 +68,28 @@ export class ProductsService {
               monthData.billing !== undefined && monthData.billing !== null
                 ? String(monthData.billing)
                 : null,
+
             icms_mix_fiscal: monthData.icms_mix_fiscal,
-            note_number_last_sale: monthData.note_number_last_sale,
-            icms_last_sale: monthData.icms_last_sale,
-            access_key_last_sale: monthData.access_key_last_sale,
+            ncm_mix_fiscal: monthData.ncm_mix_fiscal,
+            cest_mix_fiscal: monthData.cest_mix_fiscal,
+            c_class_mix_fiscal: monthData.c_class_mix_fiscal,
+            cbenef_mix_fiscal: monthData.cbenef_mix_fiscal,
+            pis_cofins_mix_fiscal: monthData.pis_cofins_mix_fiscal,
             icms_aliquot_mix_fiscal_stores_lapa:
               monthData.icms_aliquot_mix_fiscal_stores_lapa,
             icms_aliquot_mix_fiscal_jasp_hortjasp_frutjasp:
               monthData.icms_aliquot_mix_fiscal_jasp_hortjasp_frutjasp,
-            pis_cofins_last_sale: monthData.pis_cofins_last_sale,
-            icms_aliquot_last_sale: monthData.icms_aliquot_last_sale,
+
+            note_number_last_sale: monthData.note_number_last_sale,
+            access_key_last_sale: monthData.access_key_last_sale,
+            supplier_last_sale: monthData.supplier_last_sale,
+            date_last_sale: monthData.date_last_sale,
+            ncm_last_sale: monthData.ncm_last_sale,
             cest_last_sale: monthData.cest_last_sale,
             c_class_last_sale: monthData.c_class_last_sale,
             cbenef_last_sale: monthData.cbenef_last_sale,
+            pis_cofins_last_sale: monthData.pis_cofins_last_sale,
+            icms_aliquot_last_sale: monthData.icms_aliquot_last_sale,
           };
 
           const existingRecord = await prisma.product_monthly_data.findFirst({

@@ -1165,8 +1165,9 @@ export const Product_monthly_dataScalarFieldEnum = {
   created_at: 'created_at',
   updated_at: 'updated_at',
   note_number_last_sale: 'note_number_last_sale',
-  icms_last_sale: 'icms_last_sale',
-  access_key_last_sale: 'access_key_last_sale'
+  access_key_last_sale: 'access_key_last_sale',
+  supplier_last_sale: 'supplier_last_sale',
+  date_last_sale: 'date_last_sale'
 } as const
 
 export type Product_monthly_dataScalarFieldEnum = (typeof Product_monthly_dataScalarFieldEnum)[keyof typeof Product_monthly_dataScalarFieldEnum]
