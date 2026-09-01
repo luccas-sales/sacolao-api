@@ -114,9 +114,11 @@ export class ProductsService {
             icms_aliquot_mix_fiscal_jasps:
               monthData.icms_aliquot_mix_fiscal_jasps,
 
+            supplier_last_sale: monthData.supplier_last_sale,
+            supplier_intern_code_last_sale:
+              monthData.supplier_intern_code_last_sale,
             note_number_last_sale: monthData.note_number_last_sale,
             access_key_last_sale: monthData.access_key_last_sale,
-            supplier_last_sale: monthData.supplier_last_sale,
             date_last_sale: monthData.date_last_sale,
             ncm_last_sale: monthData.ncm_last_sale,
             cest_last_sale: monthData.cest_last_sale,

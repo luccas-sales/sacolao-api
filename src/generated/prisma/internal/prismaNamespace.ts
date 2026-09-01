@@ -1167,7 +1167,8 @@ export const Product_monthly_dataScalarFieldEnum = {
   supplier_last_sale: 'supplier_last_sale',
   date_last_sale: 'date_last_sale',
   icms_aliquot_mix_fiscal_stores: 'icms_aliquot_mix_fiscal_stores',
-  icms_aliquot_mix_fiscal_jasps: 'icms_aliquot_mix_fiscal_jasps'
+  icms_aliquot_mix_fiscal_jasps: 'icms_aliquot_mix_fiscal_jasps',
+  supplier_itern_code_last_sale: 'supplier_itern_code_last_sale'
 } as const
 
 export type Product_monthly_dataScalarFieldEnum = (typeof Product_monthly_dataScalarFieldEnum)[keyof typeof Product_monthly_dataScalarFieldEnum]

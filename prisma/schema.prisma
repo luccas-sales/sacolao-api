@@ -134,6 +134,7 @@ model product_monthly_data {
   date_last_sale                 String?
   icms_aliquot_mix_fiscal_stores String?
   icms_aliquot_mix_fiscal_jasps  String?
+  supplier_itern_code_last_sale  String?
   products                       products  @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   stores                         stores    @relation(fields: [store_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
