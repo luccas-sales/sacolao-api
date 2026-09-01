@@ -30,7 +30,7 @@ export type Product_monthly_dataMinAggregateOutputType = {
   store_id: string | null
   reference_month: Date | null
   obs: string | null
-  is_new: boolean | null
+  is_new: string | null
   correct_icms_office: string | null
   was_st: boolean | null
   made_in_store: boolean | null
@@ -76,7 +76,7 @@ export type Product_monthly_dataMaxAggregateOutputType = {
   store_id: string | null
   reference_month: Date | null
   obs: string | null
-  is_new: boolean | null
+  is_new: string | null
   correct_icms_office: string | null
   was_st: boolean | null
   made_in_store: boolean | null
@@ -381,7 +381,7 @@ export type Product_monthly_dataGroupByOutputType = {
   store_id: string
   reference_month: Date
   obs: string | null
-  is_new: boolean | null
+  is_new: string | null
   correct_icms_office: string | null
   was_st: boolean | null
   made_in_store: boolean | null
@@ -448,7 +448,7 @@ export type product_monthly_dataWhereInput = {
   store_id?: Prisma.UuidFilter<"product_monthly_data"> | string
   reference_month?: Prisma.DateTimeFilter<"product_monthly_data"> | Date | string
   obs?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  is_new?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
+  is_new?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   correct_icms_office?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   was_st?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
   made_in_store?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
@@ -548,7 +548,7 @@ export type product_monthly_dataWhereUniqueInput = Prisma.AtLeast<{
   store_id?: Prisma.UuidFilter<"product_monthly_data"> | string
   reference_month?: Prisma.DateTimeFilter<"product_monthly_data"> | Date | string
   obs?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  is_new?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
+  is_new?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   correct_icms_office?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   was_st?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
   made_in_store?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
@@ -648,7 +648,7 @@ export type product_monthly_dataScalarWhereWithAggregatesInput = {
   store_id?: Prisma.UuidWithAggregatesFilter<"product_monthly_data"> | string
   reference_month?: Prisma.DateTimeWithAggregatesFilter<"product_monthly_data"> | Date | string
   obs?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
-  is_new?: Prisma.BoolNullableWithAggregatesFilter<"product_monthly_data"> | boolean | null
+  is_new?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   correct_icms_office?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   was_st?: Prisma.BoolNullableWithAggregatesFilter<"product_monthly_data"> | boolean | null
   made_in_store?: Prisma.BoolNullableWithAggregatesFilter<"product_monthly_data"> | boolean | null
@@ -692,7 +692,7 @@ export type product_monthly_dataCreateInput = {
   id?: string
   reference_month: Date | string
   obs?: string | null
-  is_new?: boolean | null
+  is_new?: string | null
   correct_icms_office?: string | null
   was_st?: boolean | null
   made_in_store?: boolean | null
@@ -740,7 +740,7 @@ export type product_monthly_dataUncheckedCreateInput = {
   store_id: string
   reference_month: Date | string
   obs?: string | null
-  is_new?: boolean | null
+  is_new?: string | null
   correct_icms_office?: string | null
   was_st?: boolean | null
   made_in_store?: boolean | null
@@ -784,7 +784,7 @@ export type product_monthly_dataUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   reference_month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_new?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  is_new?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   correct_icms_office?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   was_st?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   made_in_store?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -832,7 +832,7 @@ export type product_monthly_dataUncheckedUpdateInput = {
   store_id?: Prisma.StringFieldUpdateOperationsInput | string
   reference_month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_new?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  is_new?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   correct_icms_office?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   was_st?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   made_in_store?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -878,7 +878,7 @@ export type product_monthly_dataCreateManyInput = {
   store_id: string
   reference_month: Date | string
   obs?: string | null
-  is_new?: boolean | null
+  is_new?: string | null
   correct_icms_office?: string | null
   was_st?: boolean | null
   made_in_store?: boolean | null
@@ -922,7 +922,7 @@ export type product_monthly_dataUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   reference_month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_new?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  is_new?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   correct_icms_office?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   was_st?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   made_in_store?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -968,7 +968,7 @@ export type product_monthly_dataUncheckedUpdateManyInput = {
   store_id?: Prisma.StringFieldUpdateOperationsInput | string
   reference_month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_new?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  is_new?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   correct_icms_office?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   was_st?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   made_in_store?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -1250,7 +1250,7 @@ export type product_monthly_dataCreateWithoutStoresInput = {
   id?: string
   reference_month: Date | string
   obs?: string | null
-  is_new?: boolean | null
+  is_new?: string | null
   correct_icms_office?: string | null
   was_st?: boolean | null
   made_in_store?: boolean | null
@@ -1296,7 +1296,7 @@ export type product_monthly_dataUncheckedCreateWithoutStoresInput = {
   product_id: string
   reference_month: Date | string
   obs?: string | null
-  is_new?: boolean | null
+  is_new?: string | null
   correct_icms_office?: string | null
   was_st?: boolean | null
   made_in_store?: boolean | null
@@ -1371,7 +1371,7 @@ export type product_monthly_dataScalarWhereInput = {
   store_id?: Prisma.UuidFilter<"product_monthly_data"> | string
   reference_month?: Prisma.DateTimeFilter<"product_monthly_data"> | Date | string
   obs?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  is_new?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
+  is_new?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   correct_icms_office?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   was_st?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
   made_in_store?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
@@ -1415,7 +1415,7 @@ export type product_monthly_dataCreateWithoutProductsInput = {
   id?: string
   reference_month: Date | string
   obs?: string | null
-  is_new?: boolean | null
+  is_new?: string | null
   correct_icms_office?: string | null
   was_st?: boolean | null
   made_in_store?: boolean | null
@@ -1461,7 +1461,7 @@ export type product_monthly_dataUncheckedCreateWithoutProductsInput = {
   store_id: string
   reference_month: Date | string
   obs?: string | null
-  is_new?: boolean | null
+  is_new?: string | null
   correct_icms_office?: string | null
   was_st?: boolean | null
   made_in_store?: boolean | null
@@ -1532,7 +1532,7 @@ export type product_monthly_dataCreateManyStoresInput = {
   product_id: string
   reference_month: Date | string
   obs?: string | null
-  is_new?: boolean | null
+  is_new?: string | null
   correct_icms_office?: string | null
   was_st?: boolean | null
   made_in_store?: boolean | null
@@ -1576,7 +1576,7 @@ export type product_monthly_dataUpdateWithoutStoresInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   reference_month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_new?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  is_new?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   correct_icms_office?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   was_st?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   made_in_store?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -1622,7 +1622,7 @@ export type product_monthly_dataUncheckedUpdateWithoutStoresInput = {
   product_id?: Prisma.StringFieldUpdateOperationsInput | string
   reference_month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_new?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  is_new?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   correct_icms_office?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   was_st?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   made_in_store?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -1667,7 +1667,7 @@ export type product_monthly_dataUncheckedUpdateManyWithoutStoresInput = {
   product_id?: Prisma.StringFieldUpdateOperationsInput | string
   reference_month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_new?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  is_new?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   correct_icms_office?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   was_st?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   made_in_store?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -1712,7 +1712,7 @@ export type product_monthly_dataCreateManyProductsInput = {
   store_id: string
   reference_month: Date | string
   obs?: string | null
-  is_new?: boolean | null
+  is_new?: string | null
   correct_icms_office?: string | null
   was_st?: boolean | null
   made_in_store?: boolean | null
@@ -1756,7 +1756,7 @@ export type product_monthly_dataUpdateWithoutProductsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   reference_month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_new?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  is_new?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   correct_icms_office?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   was_st?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   made_in_store?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -1802,7 +1802,7 @@ export type product_monthly_dataUncheckedUpdateWithoutProductsInput = {
   store_id?: Prisma.StringFieldUpdateOperationsInput | string
   reference_month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_new?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  is_new?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   correct_icms_office?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   was_st?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   made_in_store?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -1847,7 +1847,7 @@ export type product_monthly_dataUncheckedUpdateManyWithoutProductsInput = {
   store_id?: Prisma.StringFieldUpdateOperationsInput | string
   reference_month?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_new?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  is_new?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   correct_icms_office?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   was_st?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   made_in_store?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -2105,7 +2105,7 @@ export type $product_monthly_dataPayload<ExtArgs extends runtime.Types.Extension
     store_id: string
     reference_month: Date
     obs: string | null
-    is_new: boolean | null
+    is_new: string | null
     correct_icms_office: string | null
     was_st: boolean | null
     made_in_store: boolean | null
@@ -2573,7 +2573,7 @@ export interface product_monthly_dataFieldRefs {
   readonly store_id: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly reference_month: Prisma.FieldRef<"product_monthly_data", 'DateTime'>
   readonly obs: Prisma.FieldRef<"product_monthly_data", 'String'>
-  readonly is_new: Prisma.FieldRef<"product_monthly_data", 'Boolean'>
+  readonly is_new: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly correct_icms_office: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly was_st: Prisma.FieldRef<"product_monthly_data", 'Boolean'>
   readonly made_in_store: Prisma.FieldRef<"product_monthly_data", 'Boolean'>

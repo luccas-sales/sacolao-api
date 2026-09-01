@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Put, Query, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Query, UseGuards } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { AuthGuard } from '../auth/auth.guard';
 
@@ -15,5 +15,10 @@ export class ProductsController {
   @Put('bulk-update')
   async bulkUpdateProducts(@Body('products') products: any[]) {
     return await this.productsService.bulkUpdate(products);
+  }
+
+  @Post('import')
+  async importExcel(@Body() payload: any) {
+    return await this.productsService.importFromExcel(payload);
   }
 }

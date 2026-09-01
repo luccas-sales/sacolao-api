@@ -96,10 +96,10 @@ model product_monthly_data {
   store_id                String    @db.Uuid
   reference_month         DateTime  @db.Date
   obs                     String?
-  is_new                  Boolean?  @default(false)
+  is_new                  String?
   correct_icms_office     String?
-  was_st                  Boolean?  @default(false)
-  made_in_store           Boolean?  @default(false)
+  was_st                  Boolean?
+  made_in_store           Boolean?
   monitored               String?
   department              String?
   section                 String?
@@ -122,9 +122,9 @@ model product_monthly_data {
   ncm                     String?
   ncm_mix_fiscal          String?
   ncm_last_sale           String?
-  pis_cofins              Boolean?  @default(false)
-  pis_cofins_mix_fiscal   Boolean?  @default(false)
-  pis_cofins_last_sale    Boolean?  @default(false)
+  pis_cofins              Boolean?
+  pis_cofins_mix_fiscal   Boolean?
+  pis_cofins_last_sale    Boolean?
   c_class                 String?
   c_class_mix_fiscal      String?
   c_class_last_sale       String?
