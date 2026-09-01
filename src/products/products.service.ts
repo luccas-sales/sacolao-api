@@ -104,16 +104,15 @@ export class ProductsService {
                 ? String(monthData.billing)
                 : null,
 
-            icms_mix_fiscal: monthData.icms_mix_fiscal,
             ncm_mix_fiscal: monthData.ncm_mix_fiscal,
             cest_mix_fiscal: monthData.cest_mix_fiscal,
             c_class_mix_fiscal: monthData.c_class_mix_fiscal,
             cbenef_mix_fiscal: monthData.cbenef_mix_fiscal,
             pis_cofins_mix_fiscal: monthData.pis_cofins_mix_fiscal,
-            icms_aliquot_mix_fiscal_stores_lapa:
-              monthData.icms_aliquot_mix_fiscal_stores_lapa,
-            icms_aliquot_mix_fiscal_jasp_hortjasp_frutjasp:
-              monthData.icms_aliquot_mix_fiscal_jasp_hortjasp_frutjasp,
+            icms_aliquot_mix_fiscal_stores:
+              monthData.icms_aliquot_mix_fiscal_stores,
+            icms_aliquot_mix_fiscal_jasps:
+              monthData.icms_aliquot_mix_fiscal_jasps,
 
             note_number_last_sale: monthData.note_number_last_sale,
             access_key_last_sale: monthData.access_key_last_sale,
