@@ -68,7 +68,7 @@ export type Product_monthly_dataMinAggregateOutputType = {
   date_last_sale: string | null
   icms_aliquot_mix_fiscal_stores: string | null
   icms_aliquot_mix_fiscal_jasps: string | null
-  supplier_itern_code_last_sale: string | null
+  supplier_intern_code_last_sale: string | null
 }
 
 export type Product_monthly_dataMaxAggregateOutputType = {
@@ -115,7 +115,7 @@ export type Product_monthly_dataMaxAggregateOutputType = {
   date_last_sale: string | null
   icms_aliquot_mix_fiscal_stores: string | null
   icms_aliquot_mix_fiscal_jasps: string | null
-  supplier_itern_code_last_sale: string | null
+  supplier_intern_code_last_sale: string | null
 }
 
 export type Product_monthly_dataCountAggregateOutputType = {
@@ -162,7 +162,7 @@ export type Product_monthly_dataCountAggregateOutputType = {
   date_last_sale: number
   icms_aliquot_mix_fiscal_stores: number
   icms_aliquot_mix_fiscal_jasps: number
-  supplier_itern_code_last_sale: number
+  supplier_intern_code_last_sale: number
   _all: number
 }
 
@@ -211,7 +211,7 @@ export type Product_monthly_dataMinAggregateInputType = {
   date_last_sale?: true
   icms_aliquot_mix_fiscal_stores?: true
   icms_aliquot_mix_fiscal_jasps?: true
-  supplier_itern_code_last_sale?: true
+  supplier_intern_code_last_sale?: true
 }
 
 export type Product_monthly_dataMaxAggregateInputType = {
@@ -258,7 +258,7 @@ export type Product_monthly_dataMaxAggregateInputType = {
   date_last_sale?: true
   icms_aliquot_mix_fiscal_stores?: true
   icms_aliquot_mix_fiscal_jasps?: true
-  supplier_itern_code_last_sale?: true
+  supplier_intern_code_last_sale?: true
 }
 
 export type Product_monthly_dataCountAggregateInputType = {
@@ -305,7 +305,7 @@ export type Product_monthly_dataCountAggregateInputType = {
   date_last_sale?: true
   icms_aliquot_mix_fiscal_stores?: true
   icms_aliquot_mix_fiscal_jasps?: true
-  supplier_itern_code_last_sale?: true
+  supplier_intern_code_last_sale?: true
   _all?: true
 }
 
@@ -425,7 +425,7 @@ export type Product_monthly_dataGroupByOutputType = {
   date_last_sale: string | null
   icms_aliquot_mix_fiscal_stores: string | null
   icms_aliquot_mix_fiscal_jasps: string | null
-  supplier_itern_code_last_sale: string | null
+  supplier_intern_code_last_sale: string | null
   _count: Product_monthly_dataCountAggregateOutputType | null
   _min: Product_monthly_dataMinAggregateOutputType | null
   _max: Product_monthly_dataMaxAggregateOutputType | null
@@ -493,7 +493,7 @@ export type product_monthly_dataWhereInput = {
   date_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  supplier_itern_code_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  supplier_intern_code_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   products?: Prisma.XOR<Prisma.ProductsScalarRelationFilter, Prisma.productsWhereInput>
   stores?: Prisma.XOR<Prisma.StoresScalarRelationFilter, Prisma.storesWhereInput>
 }
@@ -542,7 +542,7 @@ export type product_monthly_dataOrderByWithRelationInput = {
   date_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
   icms_aliquot_mix_fiscal_stores?: Prisma.SortOrderInput | Prisma.SortOrder
   icms_aliquot_mix_fiscal_jasps?: Prisma.SortOrderInput | Prisma.SortOrder
-  supplier_itern_code_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplier_intern_code_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
   products?: Prisma.productsOrderByWithRelationInput
   stores?: Prisma.storesOrderByWithRelationInput
 }
@@ -595,7 +595,7 @@ export type product_monthly_dataWhereUniqueInput = Prisma.AtLeast<{
   date_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  supplier_itern_code_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  supplier_intern_code_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   products?: Prisma.XOR<Prisma.ProductsScalarRelationFilter, Prisma.productsWhereInput>
   stores?: Prisma.XOR<Prisma.StoresScalarRelationFilter, Prisma.storesWhereInput>
 }, "id" | "product_id_store_id_reference_month">
@@ -644,7 +644,7 @@ export type product_monthly_dataOrderByWithAggregationInput = {
   date_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
   icms_aliquot_mix_fiscal_stores?: Prisma.SortOrderInput | Prisma.SortOrder
   icms_aliquot_mix_fiscal_jasps?: Prisma.SortOrderInput | Prisma.SortOrder
-  supplier_itern_code_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplier_intern_code_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.product_monthly_dataCountOrderByAggregateInput
   _max?: Prisma.product_monthly_dataMaxOrderByAggregateInput
   _min?: Prisma.product_monthly_dataMinOrderByAggregateInput
@@ -697,7 +697,7 @@ export type product_monthly_dataScalarWhereWithAggregatesInput = {
   date_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
-  supplier_itern_code_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
+  supplier_intern_code_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
 }
 
 export type product_monthly_dataCreateInput = {
@@ -742,7 +742,7 @@ export type product_monthly_dataCreateInput = {
   date_last_sale?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_itern_code_last_sale?: string | null
+  supplier_intern_code_last_sale?: string | null
   products: Prisma.productsCreateNestedOneWithoutProduct_monthly_dataInput
   stores: Prisma.storesCreateNestedOneWithoutProduct_monthly_dataInput
 }
@@ -791,7 +791,7 @@ export type product_monthly_dataUncheckedCreateInput = {
   date_last_sale?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_itern_code_last_sale?: string | null
+  supplier_intern_code_last_sale?: string | null
 }
 
 export type product_monthly_dataUpdateInput = {
@@ -836,7 +836,7 @@ export type product_monthly_dataUpdateInput = {
   date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_itern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   products?: Prisma.productsUpdateOneRequiredWithoutProduct_monthly_dataNestedInput
   stores?: Prisma.storesUpdateOneRequiredWithoutProduct_monthly_dataNestedInput
 }
@@ -885,7 +885,7 @@ export type product_monthly_dataUncheckedUpdateInput = {
   date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_itern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type product_monthly_dataCreateManyInput = {
@@ -932,7 +932,7 @@ export type product_monthly_dataCreateManyInput = {
   date_last_sale?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_itern_code_last_sale?: string | null
+  supplier_intern_code_last_sale?: string | null
 }
 
 export type product_monthly_dataUpdateManyMutationInput = {
@@ -977,7 +977,7 @@ export type product_monthly_dataUpdateManyMutationInput = {
   date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_itern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type product_monthly_dataUncheckedUpdateManyInput = {
@@ -1024,7 +1024,7 @@ export type product_monthly_dataUncheckedUpdateManyInput = {
   date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_itern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type Product_monthly_dataListRelationFilter = {
@@ -1087,7 +1087,7 @@ export type product_monthly_dataCountOrderByAggregateInput = {
   date_last_sale?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_stores?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_jasps?: Prisma.SortOrder
-  supplier_itern_code_last_sale?: Prisma.SortOrder
+  supplier_intern_code_last_sale?: Prisma.SortOrder
 }
 
 export type product_monthly_dataMaxOrderByAggregateInput = {
@@ -1134,7 +1134,7 @@ export type product_monthly_dataMaxOrderByAggregateInput = {
   date_last_sale?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_stores?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_jasps?: Prisma.SortOrder
-  supplier_itern_code_last_sale?: Prisma.SortOrder
+  supplier_intern_code_last_sale?: Prisma.SortOrder
 }
 
 export type product_monthly_dataMinOrderByAggregateInput = {
@@ -1181,7 +1181,7 @@ export type product_monthly_dataMinOrderByAggregateInput = {
   date_last_sale?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_stores?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_jasps?: Prisma.SortOrder
-  supplier_itern_code_last_sale?: Prisma.SortOrder
+  supplier_intern_code_last_sale?: Prisma.SortOrder
 }
 
 export type product_monthly_dataCreateNestedManyWithoutStoresInput = {
@@ -1310,7 +1310,7 @@ export type product_monthly_dataCreateWithoutStoresInput = {
   date_last_sale?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_itern_code_last_sale?: string | null
+  supplier_intern_code_last_sale?: string | null
   products: Prisma.productsCreateNestedOneWithoutProduct_monthly_dataInput
 }
 
@@ -1357,7 +1357,7 @@ export type product_monthly_dataUncheckedCreateWithoutStoresInput = {
   date_last_sale?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_itern_code_last_sale?: string | null
+  supplier_intern_code_last_sale?: string | null
 }
 
 export type product_monthly_dataCreateOrConnectWithoutStoresInput = {
@@ -1433,7 +1433,7 @@ export type product_monthly_dataScalarWhereInput = {
   date_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  supplier_itern_code_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  supplier_intern_code_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
 }
 
 export type product_monthly_dataCreateWithoutProductsInput = {
@@ -1478,7 +1478,7 @@ export type product_monthly_dataCreateWithoutProductsInput = {
   date_last_sale?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_itern_code_last_sale?: string | null
+  supplier_intern_code_last_sale?: string | null
   stores: Prisma.storesCreateNestedOneWithoutProduct_monthly_dataInput
 }
 
@@ -1525,7 +1525,7 @@ export type product_monthly_dataUncheckedCreateWithoutProductsInput = {
   date_last_sale?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_itern_code_last_sale?: string | null
+  supplier_intern_code_last_sale?: string | null
 }
 
 export type product_monthly_dataCreateOrConnectWithoutProductsInput = {
@@ -1597,7 +1597,7 @@ export type product_monthly_dataCreateManyStoresInput = {
   date_last_sale?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_itern_code_last_sale?: string | null
+  supplier_intern_code_last_sale?: string | null
 }
 
 export type product_monthly_dataUpdateWithoutStoresInput = {
@@ -1642,7 +1642,7 @@ export type product_monthly_dataUpdateWithoutStoresInput = {
   date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_itern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   products?: Prisma.productsUpdateOneRequiredWithoutProduct_monthly_dataNestedInput
 }
 
@@ -1689,7 +1689,7 @@ export type product_monthly_dataUncheckedUpdateWithoutStoresInput = {
   date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_itern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type product_monthly_dataUncheckedUpdateManyWithoutStoresInput = {
@@ -1735,7 +1735,7 @@ export type product_monthly_dataUncheckedUpdateManyWithoutStoresInput = {
   date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_itern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type product_monthly_dataCreateManyProductsInput = {
@@ -1781,7 +1781,7 @@ export type product_monthly_dataCreateManyProductsInput = {
   date_last_sale?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_itern_code_last_sale?: string | null
+  supplier_intern_code_last_sale?: string | null
 }
 
 export type product_monthly_dataUpdateWithoutProductsInput = {
@@ -1826,7 +1826,7 @@ export type product_monthly_dataUpdateWithoutProductsInput = {
   date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_itern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stores?: Prisma.storesUpdateOneRequiredWithoutProduct_monthly_dataNestedInput
 }
 
@@ -1873,7 +1873,7 @@ export type product_monthly_dataUncheckedUpdateWithoutProductsInput = {
   date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_itern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type product_monthly_dataUncheckedUpdateManyWithoutProductsInput = {
@@ -1919,7 +1919,7 @@ export type product_monthly_dataUncheckedUpdateManyWithoutProductsInput = {
   date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_itern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -1968,7 +1968,7 @@ export type product_monthly_dataSelect<ExtArgs extends runtime.Types.Extensions.
   date_last_sale?: boolean
   icms_aliquot_mix_fiscal_stores?: boolean
   icms_aliquot_mix_fiscal_jasps?: boolean
-  supplier_itern_code_last_sale?: boolean
+  supplier_intern_code_last_sale?: boolean
   products?: boolean | Prisma.productsDefaultArgs<ExtArgs>
   stores?: boolean | Prisma.storesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["product_monthly_data"]>
@@ -2017,7 +2017,7 @@ export type product_monthly_dataSelectCreateManyAndReturn<ExtArgs extends runtim
   date_last_sale?: boolean
   icms_aliquot_mix_fiscal_stores?: boolean
   icms_aliquot_mix_fiscal_jasps?: boolean
-  supplier_itern_code_last_sale?: boolean
+  supplier_intern_code_last_sale?: boolean
   products?: boolean | Prisma.productsDefaultArgs<ExtArgs>
   stores?: boolean | Prisma.storesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["product_monthly_data"]>
@@ -2066,7 +2066,7 @@ export type product_monthly_dataSelectUpdateManyAndReturn<ExtArgs extends runtim
   date_last_sale?: boolean
   icms_aliquot_mix_fiscal_stores?: boolean
   icms_aliquot_mix_fiscal_jasps?: boolean
-  supplier_itern_code_last_sale?: boolean
+  supplier_intern_code_last_sale?: boolean
   products?: boolean | Prisma.productsDefaultArgs<ExtArgs>
   stores?: boolean | Prisma.storesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["product_monthly_data"]>
@@ -2115,10 +2115,10 @@ export type product_monthly_dataSelectScalar = {
   date_last_sale?: boolean
   icms_aliquot_mix_fiscal_stores?: boolean
   icms_aliquot_mix_fiscal_jasps?: boolean
-  supplier_itern_code_last_sale?: boolean
+  supplier_intern_code_last_sale?: boolean
 }
 
-export type product_monthly_dataOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "product_id" | "store_id" | "reference_month" | "obs" | "is_new" | "correct_icms_office" | "was_st" | "made_in_store" | "monitored" | "department" | "section" | "category_group" | "barcode" | "plucode" | "description" | "billing" | "icms" | "icms_aliquot" | "icms_aliquot_last_sale" | "cest" | "cest_mix_fiscal" | "cest_last_sale" | "cbenef" | "cbenef_mix_fiscal" | "cbenef_last_sale" | "ncm" | "ncm_mix_fiscal" | "ncm_last_sale" | "pis_cofins" | "pis_cofins_mix_fiscal" | "pis_cofins_last_sale" | "c_class" | "c_class_mix_fiscal" | "c_class_last_sale" | "created_at" | "updated_at" | "note_number_last_sale" | "access_key_last_sale" | "supplier_last_sale" | "date_last_sale" | "icms_aliquot_mix_fiscal_stores" | "icms_aliquot_mix_fiscal_jasps" | "supplier_itern_code_last_sale", ExtArgs["result"]["product_monthly_data"]>
+export type product_monthly_dataOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "product_id" | "store_id" | "reference_month" | "obs" | "is_new" | "correct_icms_office" | "was_st" | "made_in_store" | "monitored" | "department" | "section" | "category_group" | "barcode" | "plucode" | "description" | "billing" | "icms" | "icms_aliquot" | "icms_aliquot_last_sale" | "cest" | "cest_mix_fiscal" | "cest_last_sale" | "cbenef" | "cbenef_mix_fiscal" | "cbenef_last_sale" | "ncm" | "ncm_mix_fiscal" | "ncm_last_sale" | "pis_cofins" | "pis_cofins_mix_fiscal" | "pis_cofins_last_sale" | "c_class" | "c_class_mix_fiscal" | "c_class_last_sale" | "created_at" | "updated_at" | "note_number_last_sale" | "access_key_last_sale" | "supplier_last_sale" | "date_last_sale" | "icms_aliquot_mix_fiscal_stores" | "icms_aliquot_mix_fiscal_jasps" | "supplier_intern_code_last_sale", ExtArgs["result"]["product_monthly_data"]>
 export type product_monthly_dataInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   products?: boolean | Prisma.productsDefaultArgs<ExtArgs>
   stores?: boolean | Prisma.storesDefaultArgs<ExtArgs>
@@ -2182,7 +2182,7 @@ export type $product_monthly_dataPayload<ExtArgs extends runtime.Types.Extension
     date_last_sale: string | null
     icms_aliquot_mix_fiscal_stores: string | null
     icms_aliquot_mix_fiscal_jasps: string | null
-    supplier_itern_code_last_sale: string | null
+    supplier_intern_code_last_sale: string | null
   }, ExtArgs["result"]["product_monthly_data"]>
   composites: {}
 }
@@ -2651,7 +2651,7 @@ export interface product_monthly_dataFieldRefs {
   readonly date_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly icms_aliquot_mix_fiscal_stores: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly icms_aliquot_mix_fiscal_jasps: Prisma.FieldRef<"product_monthly_data", 'String'>
-  readonly supplier_itern_code_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
+  readonly supplier_intern_code_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
 }
     
 
