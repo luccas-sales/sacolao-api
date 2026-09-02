@@ -75,6 +75,24 @@ export class ProductsService {
         }
 
         for (const monthData of prod.monthly_data) {
+          const barcode = String(monthData.barcode || '').trim();
+          const plucode = String(monthData.plucode || '').trim();
+
+          const hasBarcode =
+            barcode !== '' &&
+            barcode !== '-' &&
+            barcode !== 'null' &&
+            barcode !== 'undefined';
+          const hasPlu =
+            plucode !== '' &&
+            plucode !== '-' &&
+            plucode !== 'null' &&
+            plucode !== 'undefined';
+
+          if (!hasBarcode && !hasPlu) {
+            continue;
+          }
+
           const dataPayload = {
             barcode: monthData.barcode,
             obs: monthData.obs,
