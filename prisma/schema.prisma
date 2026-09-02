@@ -91,52 +91,52 @@ model cash_registers {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model product_monthly_data {
-  id                             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  product_id                     String    @db.Uuid
-  store_id                       String    @db.Uuid
-  reference_month                DateTime  @db.Date
-  obs                            String?
-  is_new                         String?
-  correct_icms_office            String?
-  was_st                         Boolean?
-  made_in_store                  Boolean?
-  monitored                      String?
-  department                     String?
-  section                        String?
-  category_group                 String?
-  barcode                        String?
-  plucode                        String?
-  description                    String?
-  billing                        String?
-  icms                           String?
-  icms_aliquot                   String?
-  icms_aliquot_last_sale         String?
-  cest                           String?
-  cest_mix_fiscal                String?
-  cest_last_sale                 String?
-  cbenef                         String?
-  cbenef_mix_fiscal              String?
-  cbenef_last_sale               String?
-  ncm                            String?
-  ncm_mix_fiscal                 String?
-  ncm_last_sale                  String?
-  pis_cofins                     Boolean?
-  pis_cofins_mix_fiscal          Boolean?
-  pis_cofins_last_sale           Boolean?
-  c_class                        String?
-  c_class_mix_fiscal             String?
-  c_class_last_sale              String?
-  created_at                     DateTime? @default(now()) @db.Timestamptz(6)
-  updated_at                     DateTime? @default(now()) @db.Timestamptz(6)
-  note_number_last_sale          String?
-  access_key_last_sale           String?
-  supplier_last_sale             String?
-  date_last_sale                 String?
-  icms_aliquot_mix_fiscal_stores String?
-  icms_aliquot_mix_fiscal_jasps  String?
-  supplier_intern_code_last_sale String?
-  products                       products  @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  stores                         stores    @relation(fields: [store_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  id                                 String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  product_id                         String    @db.Uuid
+  store_id                           String    @db.Uuid
+  reference_month                    DateTime  @db.Date
+  obs                                String?
+  is_new                             String?
+  correct_icms_office                String?
+  was_st                             Boolean?
+  made_in_store                      Boolean?
+  monitored                          String?
+  department                         String?
+  section                            String?
+  category_group                     String?
+  barcode                            String?
+  plucode                            String?
+  description                        String?
+  billing                            String?
+  icms                               String?
+  icms_aliquot                       String?
+  icms_aliquot_last_purchase         String?
+  cest                               String?
+  cest_mix_fiscal                    String?
+  cest_last_purchase                 String?
+  cbenef                             String?
+  cbenef_mix_fiscal                  String?
+  cbenef_last_purchase               String?
+  ncm                                String?
+  ncm_mix_fiscal                     String?
+  ncm_last_purchase                  String?
+  pis_cofins                         Boolean?
+  pis_cofins_mix_fiscal              Boolean?
+  pis_cofins_last_purchase           Boolean?
+  c_class                            String?
+  c_class_mix_fiscal                 String?
+  c_class_last_purchase              String?
+  created_at                         DateTime? @default(now()) @db.Timestamptz(6)
+  updated_at                         DateTime? @default(now()) @db.Timestamptz(6)
+  note_number_last_purchase          String?
+  access_key_last_purchase           String?
+  supplier_last_purchase             String?
+  date_last_purchase                 String?
+  icms_aliquot_mix_fiscal_stores     String?
+  icms_aliquot_mix_fiscal_jasps      String?
+  supplier_intern_code_last_purchase String?
+  products                           products  @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  stores                             stores    @relation(fields: [store_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([product_id, store_id, reference_month], map: "unique_product_store_month")
 }

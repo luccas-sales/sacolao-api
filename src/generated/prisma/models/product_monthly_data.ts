@@ -44,31 +44,31 @@ export type Product_monthly_dataMinAggregateOutputType = {
   billing: string | null
   icms: string | null
   icms_aliquot: string | null
-  icms_aliquot_last_sale: string | null
+  icms_aliquot_last_purchase: string | null
   cest: string | null
   cest_mix_fiscal: string | null
-  cest_last_sale: string | null
+  cest_last_purchase: string | null
   cbenef: string | null
   cbenef_mix_fiscal: string | null
-  cbenef_last_sale: string | null
+  cbenef_last_purchase: string | null
   ncm: string | null
   ncm_mix_fiscal: string | null
-  ncm_last_sale: string | null
+  ncm_last_purchase: string | null
   pis_cofins: boolean | null
   pis_cofins_mix_fiscal: boolean | null
-  pis_cofins_last_sale: boolean | null
+  pis_cofins_last_purchase: boolean | null
   c_class: string | null
   c_class_mix_fiscal: string | null
-  c_class_last_sale: string | null
+  c_class_last_purchase: string | null
   created_at: Date | null
   updated_at: Date | null
-  note_number_last_sale: string | null
-  access_key_last_sale: string | null
-  supplier_last_sale: string | null
-  date_last_sale: string | null
+  note_number_last_purchase: string | null
+  access_key_last_purchase: string | null
+  supplier_last_purchase: string | null
+  date_last_purchase: string | null
   icms_aliquot_mix_fiscal_stores: string | null
   icms_aliquot_mix_fiscal_jasps: string | null
-  supplier_intern_code_last_sale: string | null
+  supplier_intern_code_last_purchase: string | null
 }
 
 export type Product_monthly_dataMaxAggregateOutputType = {
@@ -91,31 +91,31 @@ export type Product_monthly_dataMaxAggregateOutputType = {
   billing: string | null
   icms: string | null
   icms_aliquot: string | null
-  icms_aliquot_last_sale: string | null
+  icms_aliquot_last_purchase: string | null
   cest: string | null
   cest_mix_fiscal: string | null
-  cest_last_sale: string | null
+  cest_last_purchase: string | null
   cbenef: string | null
   cbenef_mix_fiscal: string | null
-  cbenef_last_sale: string | null
+  cbenef_last_purchase: string | null
   ncm: string | null
   ncm_mix_fiscal: string | null
-  ncm_last_sale: string | null
+  ncm_last_purchase: string | null
   pis_cofins: boolean | null
   pis_cofins_mix_fiscal: boolean | null
-  pis_cofins_last_sale: boolean | null
+  pis_cofins_last_purchase: boolean | null
   c_class: string | null
   c_class_mix_fiscal: string | null
-  c_class_last_sale: string | null
+  c_class_last_purchase: string | null
   created_at: Date | null
   updated_at: Date | null
-  note_number_last_sale: string | null
-  access_key_last_sale: string | null
-  supplier_last_sale: string | null
-  date_last_sale: string | null
+  note_number_last_purchase: string | null
+  access_key_last_purchase: string | null
+  supplier_last_purchase: string | null
+  date_last_purchase: string | null
   icms_aliquot_mix_fiscal_stores: string | null
   icms_aliquot_mix_fiscal_jasps: string | null
-  supplier_intern_code_last_sale: string | null
+  supplier_intern_code_last_purchase: string | null
 }
 
 export type Product_monthly_dataCountAggregateOutputType = {
@@ -138,31 +138,31 @@ export type Product_monthly_dataCountAggregateOutputType = {
   billing: number
   icms: number
   icms_aliquot: number
-  icms_aliquot_last_sale: number
+  icms_aliquot_last_purchase: number
   cest: number
   cest_mix_fiscal: number
-  cest_last_sale: number
+  cest_last_purchase: number
   cbenef: number
   cbenef_mix_fiscal: number
-  cbenef_last_sale: number
+  cbenef_last_purchase: number
   ncm: number
   ncm_mix_fiscal: number
-  ncm_last_sale: number
+  ncm_last_purchase: number
   pis_cofins: number
   pis_cofins_mix_fiscal: number
-  pis_cofins_last_sale: number
+  pis_cofins_last_purchase: number
   c_class: number
   c_class_mix_fiscal: number
-  c_class_last_sale: number
+  c_class_last_purchase: number
   created_at: number
   updated_at: number
-  note_number_last_sale: number
-  access_key_last_sale: number
-  supplier_last_sale: number
-  date_last_sale: number
+  note_number_last_purchase: number
+  access_key_last_purchase: number
+  supplier_last_purchase: number
+  date_last_purchase: number
   icms_aliquot_mix_fiscal_stores: number
   icms_aliquot_mix_fiscal_jasps: number
-  supplier_intern_code_last_sale: number
+  supplier_intern_code_last_purchase: number
   _all: number
 }
 
@@ -187,31 +187,31 @@ export type Product_monthly_dataMinAggregateInputType = {
   billing?: true
   icms?: true
   icms_aliquot?: true
-  icms_aliquot_last_sale?: true
+  icms_aliquot_last_purchase?: true
   cest?: true
   cest_mix_fiscal?: true
-  cest_last_sale?: true
+  cest_last_purchase?: true
   cbenef?: true
   cbenef_mix_fiscal?: true
-  cbenef_last_sale?: true
+  cbenef_last_purchase?: true
   ncm?: true
   ncm_mix_fiscal?: true
-  ncm_last_sale?: true
+  ncm_last_purchase?: true
   pis_cofins?: true
   pis_cofins_mix_fiscal?: true
-  pis_cofins_last_sale?: true
+  pis_cofins_last_purchase?: true
   c_class?: true
   c_class_mix_fiscal?: true
-  c_class_last_sale?: true
+  c_class_last_purchase?: true
   created_at?: true
   updated_at?: true
-  note_number_last_sale?: true
-  access_key_last_sale?: true
-  supplier_last_sale?: true
-  date_last_sale?: true
+  note_number_last_purchase?: true
+  access_key_last_purchase?: true
+  supplier_last_purchase?: true
+  date_last_purchase?: true
   icms_aliquot_mix_fiscal_stores?: true
   icms_aliquot_mix_fiscal_jasps?: true
-  supplier_intern_code_last_sale?: true
+  supplier_intern_code_last_purchase?: true
 }
 
 export type Product_monthly_dataMaxAggregateInputType = {
@@ -234,31 +234,31 @@ export type Product_monthly_dataMaxAggregateInputType = {
   billing?: true
   icms?: true
   icms_aliquot?: true
-  icms_aliquot_last_sale?: true
+  icms_aliquot_last_purchase?: true
   cest?: true
   cest_mix_fiscal?: true
-  cest_last_sale?: true
+  cest_last_purchase?: true
   cbenef?: true
   cbenef_mix_fiscal?: true
-  cbenef_last_sale?: true
+  cbenef_last_purchase?: true
   ncm?: true
   ncm_mix_fiscal?: true
-  ncm_last_sale?: true
+  ncm_last_purchase?: true
   pis_cofins?: true
   pis_cofins_mix_fiscal?: true
-  pis_cofins_last_sale?: true
+  pis_cofins_last_purchase?: true
   c_class?: true
   c_class_mix_fiscal?: true
-  c_class_last_sale?: true
+  c_class_last_purchase?: true
   created_at?: true
   updated_at?: true
-  note_number_last_sale?: true
-  access_key_last_sale?: true
-  supplier_last_sale?: true
-  date_last_sale?: true
+  note_number_last_purchase?: true
+  access_key_last_purchase?: true
+  supplier_last_purchase?: true
+  date_last_purchase?: true
   icms_aliquot_mix_fiscal_stores?: true
   icms_aliquot_mix_fiscal_jasps?: true
-  supplier_intern_code_last_sale?: true
+  supplier_intern_code_last_purchase?: true
 }
 
 export type Product_monthly_dataCountAggregateInputType = {
@@ -281,31 +281,31 @@ export type Product_monthly_dataCountAggregateInputType = {
   billing?: true
   icms?: true
   icms_aliquot?: true
-  icms_aliquot_last_sale?: true
+  icms_aliquot_last_purchase?: true
   cest?: true
   cest_mix_fiscal?: true
-  cest_last_sale?: true
+  cest_last_purchase?: true
   cbenef?: true
   cbenef_mix_fiscal?: true
-  cbenef_last_sale?: true
+  cbenef_last_purchase?: true
   ncm?: true
   ncm_mix_fiscal?: true
-  ncm_last_sale?: true
+  ncm_last_purchase?: true
   pis_cofins?: true
   pis_cofins_mix_fiscal?: true
-  pis_cofins_last_sale?: true
+  pis_cofins_last_purchase?: true
   c_class?: true
   c_class_mix_fiscal?: true
-  c_class_last_sale?: true
+  c_class_last_purchase?: true
   created_at?: true
   updated_at?: true
-  note_number_last_sale?: true
-  access_key_last_sale?: true
-  supplier_last_sale?: true
-  date_last_sale?: true
+  note_number_last_purchase?: true
+  access_key_last_purchase?: true
+  supplier_last_purchase?: true
+  date_last_purchase?: true
   icms_aliquot_mix_fiscal_stores?: true
   icms_aliquot_mix_fiscal_jasps?: true
-  supplier_intern_code_last_sale?: true
+  supplier_intern_code_last_purchase?: true
   _all?: true
 }
 
@@ -401,31 +401,31 @@ export type Product_monthly_dataGroupByOutputType = {
   billing: string | null
   icms: string | null
   icms_aliquot: string | null
-  icms_aliquot_last_sale: string | null
+  icms_aliquot_last_purchase: string | null
   cest: string | null
   cest_mix_fiscal: string | null
-  cest_last_sale: string | null
+  cest_last_purchase: string | null
   cbenef: string | null
   cbenef_mix_fiscal: string | null
-  cbenef_last_sale: string | null
+  cbenef_last_purchase: string | null
   ncm: string | null
   ncm_mix_fiscal: string | null
-  ncm_last_sale: string | null
+  ncm_last_purchase: string | null
   pis_cofins: boolean | null
   pis_cofins_mix_fiscal: boolean | null
-  pis_cofins_last_sale: boolean | null
+  pis_cofins_last_purchase: boolean | null
   c_class: string | null
   c_class_mix_fiscal: string | null
-  c_class_last_sale: string | null
+  c_class_last_purchase: string | null
   created_at: Date | null
   updated_at: Date | null
-  note_number_last_sale: string | null
-  access_key_last_sale: string | null
-  supplier_last_sale: string | null
-  date_last_sale: string | null
+  note_number_last_purchase: string | null
+  access_key_last_purchase: string | null
+  supplier_last_purchase: string | null
+  date_last_purchase: string | null
   icms_aliquot_mix_fiscal_stores: string | null
   icms_aliquot_mix_fiscal_jasps: string | null
-  supplier_intern_code_last_sale: string | null
+  supplier_intern_code_last_purchase: string | null
   _count: Product_monthly_dataCountAggregateOutputType | null
   _min: Product_monthly_dataMinAggregateOutputType | null
   _max: Product_monthly_dataMaxAggregateOutputType | null
@@ -469,31 +469,31 @@ export type product_monthly_dataWhereInput = {
   billing?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  icms_aliquot_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  icms_aliquot_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cest?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cest_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  cest_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  cest_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cbenef?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cbenef_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  cbenef_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  cbenef_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   ncm?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   ncm_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  ncm_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  ncm_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   pis_cofins?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
   pis_cofins_mix_fiscal?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
-  pis_cofins_last_sale?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
+  pis_cofins_last_purchase?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
   c_class?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   c_class_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  c_class_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  c_class_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"product_monthly_data"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"product_monthly_data"> | Date | string | null
-  note_number_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  access_key_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  supplier_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  date_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  note_number_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  access_key_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  supplier_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  date_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  supplier_intern_code_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  supplier_intern_code_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   products?: Prisma.XOR<Prisma.ProductsScalarRelationFilter, Prisma.productsWhereInput>
   stores?: Prisma.XOR<Prisma.StoresScalarRelationFilter, Prisma.storesWhereInput>
 }
@@ -518,31 +518,31 @@ export type product_monthly_dataOrderByWithRelationInput = {
   billing?: Prisma.SortOrderInput | Prisma.SortOrder
   icms?: Prisma.SortOrderInput | Prisma.SortOrder
   icms_aliquot?: Prisma.SortOrderInput | Prisma.SortOrder
-  icms_aliquot_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  icms_aliquot_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   cest?: Prisma.SortOrderInput | Prisma.SortOrder
   cest_mix_fiscal?: Prisma.SortOrderInput | Prisma.SortOrder
-  cest_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  cest_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   cbenef?: Prisma.SortOrderInput | Prisma.SortOrder
   cbenef_mix_fiscal?: Prisma.SortOrderInput | Prisma.SortOrder
-  cbenef_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  cbenef_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   ncm?: Prisma.SortOrderInput | Prisma.SortOrder
   ncm_mix_fiscal?: Prisma.SortOrderInput | Prisma.SortOrder
-  ncm_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  ncm_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   pis_cofins?: Prisma.SortOrderInput | Prisma.SortOrder
   pis_cofins_mix_fiscal?: Prisma.SortOrderInput | Prisma.SortOrder
-  pis_cofins_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  pis_cofins_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   c_class?: Prisma.SortOrderInput | Prisma.SortOrder
   c_class_mix_fiscal?: Prisma.SortOrderInput | Prisma.SortOrder
-  c_class_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  c_class_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  note_number_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
-  access_key_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
-  supplier_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
-  date_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  note_number_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
+  access_key_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplier_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
+  date_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   icms_aliquot_mix_fiscal_stores?: Prisma.SortOrderInput | Prisma.SortOrder
   icms_aliquot_mix_fiscal_jasps?: Prisma.SortOrderInput | Prisma.SortOrder
-  supplier_intern_code_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplier_intern_code_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   products?: Prisma.productsOrderByWithRelationInput
   stores?: Prisma.storesOrderByWithRelationInput
 }
@@ -571,31 +571,31 @@ export type product_monthly_dataWhereUniqueInput = Prisma.AtLeast<{
   billing?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  icms_aliquot_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  icms_aliquot_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cest?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cest_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  cest_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  cest_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cbenef?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cbenef_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  cbenef_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  cbenef_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   ncm?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   ncm_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  ncm_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  ncm_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   pis_cofins?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
   pis_cofins_mix_fiscal?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
-  pis_cofins_last_sale?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
+  pis_cofins_last_purchase?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
   c_class?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   c_class_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  c_class_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  c_class_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"product_monthly_data"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"product_monthly_data"> | Date | string | null
-  note_number_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  access_key_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  supplier_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  date_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  note_number_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  access_key_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  supplier_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  date_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  supplier_intern_code_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  supplier_intern_code_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   products?: Prisma.XOR<Prisma.ProductsScalarRelationFilter, Prisma.productsWhereInput>
   stores?: Prisma.XOR<Prisma.StoresScalarRelationFilter, Prisma.storesWhereInput>
 }, "id" | "product_id_store_id_reference_month">
@@ -620,31 +620,31 @@ export type product_monthly_dataOrderByWithAggregationInput = {
   billing?: Prisma.SortOrderInput | Prisma.SortOrder
   icms?: Prisma.SortOrderInput | Prisma.SortOrder
   icms_aliquot?: Prisma.SortOrderInput | Prisma.SortOrder
-  icms_aliquot_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  icms_aliquot_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   cest?: Prisma.SortOrderInput | Prisma.SortOrder
   cest_mix_fiscal?: Prisma.SortOrderInput | Prisma.SortOrder
-  cest_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  cest_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   cbenef?: Prisma.SortOrderInput | Prisma.SortOrder
   cbenef_mix_fiscal?: Prisma.SortOrderInput | Prisma.SortOrder
-  cbenef_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  cbenef_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   ncm?: Prisma.SortOrderInput | Prisma.SortOrder
   ncm_mix_fiscal?: Prisma.SortOrderInput | Prisma.SortOrder
-  ncm_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  ncm_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   pis_cofins?: Prisma.SortOrderInput | Prisma.SortOrder
   pis_cofins_mix_fiscal?: Prisma.SortOrderInput | Prisma.SortOrder
-  pis_cofins_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  pis_cofins_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   c_class?: Prisma.SortOrderInput | Prisma.SortOrder
   c_class_mix_fiscal?: Prisma.SortOrderInput | Prisma.SortOrder
-  c_class_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  c_class_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  note_number_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
-  access_key_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
-  supplier_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
-  date_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  note_number_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
+  access_key_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplier_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
+  date_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   icms_aliquot_mix_fiscal_stores?: Prisma.SortOrderInput | Prisma.SortOrder
   icms_aliquot_mix_fiscal_jasps?: Prisma.SortOrderInput | Prisma.SortOrder
-  supplier_intern_code_last_sale?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplier_intern_code_last_purchase?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.product_monthly_dataCountOrderByAggregateInput
   _max?: Prisma.product_monthly_dataMaxOrderByAggregateInput
   _min?: Prisma.product_monthly_dataMinOrderByAggregateInput
@@ -673,31 +673,31 @@ export type product_monthly_dataScalarWhereWithAggregatesInput = {
   billing?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   icms?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   icms_aliquot?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
-  icms_aliquot_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
+  icms_aliquot_last_purchase?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   cest?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   cest_mix_fiscal?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
-  cest_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
+  cest_last_purchase?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   cbenef?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   cbenef_mix_fiscal?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
-  cbenef_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
+  cbenef_last_purchase?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   ncm?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   ncm_mix_fiscal?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
-  ncm_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
+  ncm_last_purchase?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   pis_cofins?: Prisma.BoolNullableWithAggregatesFilter<"product_monthly_data"> | boolean | null
   pis_cofins_mix_fiscal?: Prisma.BoolNullableWithAggregatesFilter<"product_monthly_data"> | boolean | null
-  pis_cofins_last_sale?: Prisma.BoolNullableWithAggregatesFilter<"product_monthly_data"> | boolean | null
+  pis_cofins_last_purchase?: Prisma.BoolNullableWithAggregatesFilter<"product_monthly_data"> | boolean | null
   c_class?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   c_class_mix_fiscal?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
-  c_class_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
+  c_class_last_purchase?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"product_monthly_data"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"product_monthly_data"> | Date | string | null
-  note_number_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
-  access_key_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
-  supplier_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
-  date_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
+  note_number_last_purchase?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
+  access_key_last_purchase?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
+  supplier_last_purchase?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
+  date_last_purchase?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
-  supplier_intern_code_last_sale?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
+  supplier_intern_code_last_purchase?: Prisma.StringNullableWithAggregatesFilter<"product_monthly_data"> | string | null
 }
 
 export type product_monthly_dataCreateInput = {
@@ -718,31 +718,31 @@ export type product_monthly_dataCreateInput = {
   billing?: string | null
   icms?: string | null
   icms_aliquot?: string | null
-  icms_aliquot_last_sale?: string | null
+  icms_aliquot_last_purchase?: string | null
   cest?: string | null
   cest_mix_fiscal?: string | null
-  cest_last_sale?: string | null
+  cest_last_purchase?: string | null
   cbenef?: string | null
   cbenef_mix_fiscal?: string | null
-  cbenef_last_sale?: string | null
+  cbenef_last_purchase?: string | null
   ncm?: string | null
   ncm_mix_fiscal?: string | null
-  ncm_last_sale?: string | null
+  ncm_last_purchase?: string | null
   pis_cofins?: boolean | null
   pis_cofins_mix_fiscal?: boolean | null
-  pis_cofins_last_sale?: boolean | null
+  pis_cofins_last_purchase?: boolean | null
   c_class?: string | null
   c_class_mix_fiscal?: string | null
-  c_class_last_sale?: string | null
+  c_class_last_purchase?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
-  note_number_last_sale?: string | null
-  access_key_last_sale?: string | null
-  supplier_last_sale?: string | null
-  date_last_sale?: string | null
+  note_number_last_purchase?: string | null
+  access_key_last_purchase?: string | null
+  supplier_last_purchase?: string | null
+  date_last_purchase?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_intern_code_last_sale?: string | null
+  supplier_intern_code_last_purchase?: string | null
   products: Prisma.productsCreateNestedOneWithoutProduct_monthly_dataInput
   stores: Prisma.storesCreateNestedOneWithoutProduct_monthly_dataInput
 }
@@ -767,31 +767,31 @@ export type product_monthly_dataUncheckedCreateInput = {
   billing?: string | null
   icms?: string | null
   icms_aliquot?: string | null
-  icms_aliquot_last_sale?: string | null
+  icms_aliquot_last_purchase?: string | null
   cest?: string | null
   cest_mix_fiscal?: string | null
-  cest_last_sale?: string | null
+  cest_last_purchase?: string | null
   cbenef?: string | null
   cbenef_mix_fiscal?: string | null
-  cbenef_last_sale?: string | null
+  cbenef_last_purchase?: string | null
   ncm?: string | null
   ncm_mix_fiscal?: string | null
-  ncm_last_sale?: string | null
+  ncm_last_purchase?: string | null
   pis_cofins?: boolean | null
   pis_cofins_mix_fiscal?: boolean | null
-  pis_cofins_last_sale?: boolean | null
+  pis_cofins_last_purchase?: boolean | null
   c_class?: string | null
   c_class_mix_fiscal?: string | null
-  c_class_last_sale?: string | null
+  c_class_last_purchase?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
-  note_number_last_sale?: string | null
-  access_key_last_sale?: string | null
-  supplier_last_sale?: string | null
-  date_last_sale?: string | null
+  note_number_last_purchase?: string | null
+  access_key_last_purchase?: string | null
+  supplier_last_purchase?: string | null
+  date_last_purchase?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_intern_code_last_sale?: string | null
+  supplier_intern_code_last_purchase?: string | null
 }
 
 export type product_monthly_dataUpdateInput = {
@@ -812,31 +812,31 @@ export type product_monthly_dataUpdateInput = {
   billing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icms_aliquot_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icms_aliquot_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cest_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cest_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cbenef_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cbenef_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ncm_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pis_cofins?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   pis_cofins_mix_fiscal?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  pis_cofins_last_sale?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  pis_cofins_last_purchase?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   c_class?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   c_class_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  c_class_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  c_class_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  note_number_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  access_key_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  note_number_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  access_key_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   products?: Prisma.productsUpdateOneRequiredWithoutProduct_monthly_dataNestedInput
   stores?: Prisma.storesUpdateOneRequiredWithoutProduct_monthly_dataNestedInput
 }
@@ -861,31 +861,31 @@ export type product_monthly_dataUncheckedUpdateInput = {
   billing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icms_aliquot_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icms_aliquot_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cest_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cest_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cbenef_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cbenef_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ncm_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pis_cofins?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   pis_cofins_mix_fiscal?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  pis_cofins_last_sale?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  pis_cofins_last_purchase?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   c_class?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   c_class_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  c_class_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  c_class_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  note_number_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  access_key_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  note_number_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  access_key_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type product_monthly_dataCreateManyInput = {
@@ -908,31 +908,31 @@ export type product_monthly_dataCreateManyInput = {
   billing?: string | null
   icms?: string | null
   icms_aliquot?: string | null
-  icms_aliquot_last_sale?: string | null
+  icms_aliquot_last_purchase?: string | null
   cest?: string | null
   cest_mix_fiscal?: string | null
-  cest_last_sale?: string | null
+  cest_last_purchase?: string | null
   cbenef?: string | null
   cbenef_mix_fiscal?: string | null
-  cbenef_last_sale?: string | null
+  cbenef_last_purchase?: string | null
   ncm?: string | null
   ncm_mix_fiscal?: string | null
-  ncm_last_sale?: string | null
+  ncm_last_purchase?: string | null
   pis_cofins?: boolean | null
   pis_cofins_mix_fiscal?: boolean | null
-  pis_cofins_last_sale?: boolean | null
+  pis_cofins_last_purchase?: boolean | null
   c_class?: string | null
   c_class_mix_fiscal?: string | null
-  c_class_last_sale?: string | null
+  c_class_last_purchase?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
-  note_number_last_sale?: string | null
-  access_key_last_sale?: string | null
-  supplier_last_sale?: string | null
-  date_last_sale?: string | null
+  note_number_last_purchase?: string | null
+  access_key_last_purchase?: string | null
+  supplier_last_purchase?: string | null
+  date_last_purchase?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_intern_code_last_sale?: string | null
+  supplier_intern_code_last_purchase?: string | null
 }
 
 export type product_monthly_dataUpdateManyMutationInput = {
@@ -953,31 +953,31 @@ export type product_monthly_dataUpdateManyMutationInput = {
   billing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icms_aliquot_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icms_aliquot_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cest_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cest_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cbenef_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cbenef_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ncm_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pis_cofins?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   pis_cofins_mix_fiscal?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  pis_cofins_last_sale?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  pis_cofins_last_purchase?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   c_class?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   c_class_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  c_class_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  c_class_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  note_number_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  access_key_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  note_number_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  access_key_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type product_monthly_dataUncheckedUpdateManyInput = {
@@ -1000,31 +1000,31 @@ export type product_monthly_dataUncheckedUpdateManyInput = {
   billing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icms_aliquot_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icms_aliquot_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cest_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cest_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cbenef_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cbenef_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ncm_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pis_cofins?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   pis_cofins_mix_fiscal?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  pis_cofins_last_sale?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  pis_cofins_last_purchase?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   c_class?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   c_class_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  c_class_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  c_class_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  note_number_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  access_key_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  note_number_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  access_key_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type Product_monthly_dataListRelationFilter = {
@@ -1063,31 +1063,31 @@ export type product_monthly_dataCountOrderByAggregateInput = {
   billing?: Prisma.SortOrder
   icms?: Prisma.SortOrder
   icms_aliquot?: Prisma.SortOrder
-  icms_aliquot_last_sale?: Prisma.SortOrder
+  icms_aliquot_last_purchase?: Prisma.SortOrder
   cest?: Prisma.SortOrder
   cest_mix_fiscal?: Prisma.SortOrder
-  cest_last_sale?: Prisma.SortOrder
+  cest_last_purchase?: Prisma.SortOrder
   cbenef?: Prisma.SortOrder
   cbenef_mix_fiscal?: Prisma.SortOrder
-  cbenef_last_sale?: Prisma.SortOrder
+  cbenef_last_purchase?: Prisma.SortOrder
   ncm?: Prisma.SortOrder
   ncm_mix_fiscal?: Prisma.SortOrder
-  ncm_last_sale?: Prisma.SortOrder
+  ncm_last_purchase?: Prisma.SortOrder
   pis_cofins?: Prisma.SortOrder
   pis_cofins_mix_fiscal?: Prisma.SortOrder
-  pis_cofins_last_sale?: Prisma.SortOrder
+  pis_cofins_last_purchase?: Prisma.SortOrder
   c_class?: Prisma.SortOrder
   c_class_mix_fiscal?: Prisma.SortOrder
-  c_class_last_sale?: Prisma.SortOrder
+  c_class_last_purchase?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  note_number_last_sale?: Prisma.SortOrder
-  access_key_last_sale?: Prisma.SortOrder
-  supplier_last_sale?: Prisma.SortOrder
-  date_last_sale?: Prisma.SortOrder
+  note_number_last_purchase?: Prisma.SortOrder
+  access_key_last_purchase?: Prisma.SortOrder
+  supplier_last_purchase?: Prisma.SortOrder
+  date_last_purchase?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_stores?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_jasps?: Prisma.SortOrder
-  supplier_intern_code_last_sale?: Prisma.SortOrder
+  supplier_intern_code_last_purchase?: Prisma.SortOrder
 }
 
 export type product_monthly_dataMaxOrderByAggregateInput = {
@@ -1110,31 +1110,31 @@ export type product_monthly_dataMaxOrderByAggregateInput = {
   billing?: Prisma.SortOrder
   icms?: Prisma.SortOrder
   icms_aliquot?: Prisma.SortOrder
-  icms_aliquot_last_sale?: Prisma.SortOrder
+  icms_aliquot_last_purchase?: Prisma.SortOrder
   cest?: Prisma.SortOrder
   cest_mix_fiscal?: Prisma.SortOrder
-  cest_last_sale?: Prisma.SortOrder
+  cest_last_purchase?: Prisma.SortOrder
   cbenef?: Prisma.SortOrder
   cbenef_mix_fiscal?: Prisma.SortOrder
-  cbenef_last_sale?: Prisma.SortOrder
+  cbenef_last_purchase?: Prisma.SortOrder
   ncm?: Prisma.SortOrder
   ncm_mix_fiscal?: Prisma.SortOrder
-  ncm_last_sale?: Prisma.SortOrder
+  ncm_last_purchase?: Prisma.SortOrder
   pis_cofins?: Prisma.SortOrder
   pis_cofins_mix_fiscal?: Prisma.SortOrder
-  pis_cofins_last_sale?: Prisma.SortOrder
+  pis_cofins_last_purchase?: Prisma.SortOrder
   c_class?: Prisma.SortOrder
   c_class_mix_fiscal?: Prisma.SortOrder
-  c_class_last_sale?: Prisma.SortOrder
+  c_class_last_purchase?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  note_number_last_sale?: Prisma.SortOrder
-  access_key_last_sale?: Prisma.SortOrder
-  supplier_last_sale?: Prisma.SortOrder
-  date_last_sale?: Prisma.SortOrder
+  note_number_last_purchase?: Prisma.SortOrder
+  access_key_last_purchase?: Prisma.SortOrder
+  supplier_last_purchase?: Prisma.SortOrder
+  date_last_purchase?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_stores?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_jasps?: Prisma.SortOrder
-  supplier_intern_code_last_sale?: Prisma.SortOrder
+  supplier_intern_code_last_purchase?: Prisma.SortOrder
 }
 
 export type product_monthly_dataMinOrderByAggregateInput = {
@@ -1157,31 +1157,31 @@ export type product_monthly_dataMinOrderByAggregateInput = {
   billing?: Prisma.SortOrder
   icms?: Prisma.SortOrder
   icms_aliquot?: Prisma.SortOrder
-  icms_aliquot_last_sale?: Prisma.SortOrder
+  icms_aliquot_last_purchase?: Prisma.SortOrder
   cest?: Prisma.SortOrder
   cest_mix_fiscal?: Prisma.SortOrder
-  cest_last_sale?: Prisma.SortOrder
+  cest_last_purchase?: Prisma.SortOrder
   cbenef?: Prisma.SortOrder
   cbenef_mix_fiscal?: Prisma.SortOrder
-  cbenef_last_sale?: Prisma.SortOrder
+  cbenef_last_purchase?: Prisma.SortOrder
   ncm?: Prisma.SortOrder
   ncm_mix_fiscal?: Prisma.SortOrder
-  ncm_last_sale?: Prisma.SortOrder
+  ncm_last_purchase?: Prisma.SortOrder
   pis_cofins?: Prisma.SortOrder
   pis_cofins_mix_fiscal?: Prisma.SortOrder
-  pis_cofins_last_sale?: Prisma.SortOrder
+  pis_cofins_last_purchase?: Prisma.SortOrder
   c_class?: Prisma.SortOrder
   c_class_mix_fiscal?: Prisma.SortOrder
-  c_class_last_sale?: Prisma.SortOrder
+  c_class_last_purchase?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  note_number_last_sale?: Prisma.SortOrder
-  access_key_last_sale?: Prisma.SortOrder
-  supplier_last_sale?: Prisma.SortOrder
-  date_last_sale?: Prisma.SortOrder
+  note_number_last_purchase?: Prisma.SortOrder
+  access_key_last_purchase?: Prisma.SortOrder
+  supplier_last_purchase?: Prisma.SortOrder
+  date_last_purchase?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_stores?: Prisma.SortOrder
   icms_aliquot_mix_fiscal_jasps?: Prisma.SortOrder
-  supplier_intern_code_last_sale?: Prisma.SortOrder
+  supplier_intern_code_last_purchase?: Prisma.SortOrder
 }
 
 export type product_monthly_dataCreateNestedManyWithoutStoresInput = {
@@ -1286,31 +1286,31 @@ export type product_monthly_dataCreateWithoutStoresInput = {
   billing?: string | null
   icms?: string | null
   icms_aliquot?: string | null
-  icms_aliquot_last_sale?: string | null
+  icms_aliquot_last_purchase?: string | null
   cest?: string | null
   cest_mix_fiscal?: string | null
-  cest_last_sale?: string | null
+  cest_last_purchase?: string | null
   cbenef?: string | null
   cbenef_mix_fiscal?: string | null
-  cbenef_last_sale?: string | null
+  cbenef_last_purchase?: string | null
   ncm?: string | null
   ncm_mix_fiscal?: string | null
-  ncm_last_sale?: string | null
+  ncm_last_purchase?: string | null
   pis_cofins?: boolean | null
   pis_cofins_mix_fiscal?: boolean | null
-  pis_cofins_last_sale?: boolean | null
+  pis_cofins_last_purchase?: boolean | null
   c_class?: string | null
   c_class_mix_fiscal?: string | null
-  c_class_last_sale?: string | null
+  c_class_last_purchase?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
-  note_number_last_sale?: string | null
-  access_key_last_sale?: string | null
-  supplier_last_sale?: string | null
-  date_last_sale?: string | null
+  note_number_last_purchase?: string | null
+  access_key_last_purchase?: string | null
+  supplier_last_purchase?: string | null
+  date_last_purchase?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_intern_code_last_sale?: string | null
+  supplier_intern_code_last_purchase?: string | null
   products: Prisma.productsCreateNestedOneWithoutProduct_monthly_dataInput
 }
 
@@ -1333,31 +1333,31 @@ export type product_monthly_dataUncheckedCreateWithoutStoresInput = {
   billing?: string | null
   icms?: string | null
   icms_aliquot?: string | null
-  icms_aliquot_last_sale?: string | null
+  icms_aliquot_last_purchase?: string | null
   cest?: string | null
   cest_mix_fiscal?: string | null
-  cest_last_sale?: string | null
+  cest_last_purchase?: string | null
   cbenef?: string | null
   cbenef_mix_fiscal?: string | null
-  cbenef_last_sale?: string | null
+  cbenef_last_purchase?: string | null
   ncm?: string | null
   ncm_mix_fiscal?: string | null
-  ncm_last_sale?: string | null
+  ncm_last_purchase?: string | null
   pis_cofins?: boolean | null
   pis_cofins_mix_fiscal?: boolean | null
-  pis_cofins_last_sale?: boolean | null
+  pis_cofins_last_purchase?: boolean | null
   c_class?: string | null
   c_class_mix_fiscal?: string | null
-  c_class_last_sale?: string | null
+  c_class_last_purchase?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
-  note_number_last_sale?: string | null
-  access_key_last_sale?: string | null
-  supplier_last_sale?: string | null
-  date_last_sale?: string | null
+  note_number_last_purchase?: string | null
+  access_key_last_purchase?: string | null
+  supplier_last_purchase?: string | null
+  date_last_purchase?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_intern_code_last_sale?: string | null
+  supplier_intern_code_last_purchase?: string | null
 }
 
 export type product_monthly_dataCreateOrConnectWithoutStoresInput = {
@@ -1409,31 +1409,31 @@ export type product_monthly_dataScalarWhereInput = {
   billing?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  icms_aliquot_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  icms_aliquot_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cest?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cest_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  cest_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  cest_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cbenef?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   cbenef_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  cbenef_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  cbenef_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   ncm?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   ncm_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  ncm_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  ncm_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   pis_cofins?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
   pis_cofins_mix_fiscal?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
-  pis_cofins_last_sale?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
+  pis_cofins_last_purchase?: Prisma.BoolNullableFilter<"product_monthly_data"> | boolean | null
   c_class?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   c_class_mix_fiscal?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  c_class_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  c_class_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"product_monthly_data"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"product_monthly_data"> | Date | string | null
-  note_number_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  access_key_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  supplier_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  date_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  note_number_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  access_key_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  supplier_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  date_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
-  supplier_intern_code_last_sale?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
+  supplier_intern_code_last_purchase?: Prisma.StringNullableFilter<"product_monthly_data"> | string | null
 }
 
 export type product_monthly_dataCreateWithoutProductsInput = {
@@ -1454,31 +1454,31 @@ export type product_monthly_dataCreateWithoutProductsInput = {
   billing?: string | null
   icms?: string | null
   icms_aliquot?: string | null
-  icms_aliquot_last_sale?: string | null
+  icms_aliquot_last_purchase?: string | null
   cest?: string | null
   cest_mix_fiscal?: string | null
-  cest_last_sale?: string | null
+  cest_last_purchase?: string | null
   cbenef?: string | null
   cbenef_mix_fiscal?: string | null
-  cbenef_last_sale?: string | null
+  cbenef_last_purchase?: string | null
   ncm?: string | null
   ncm_mix_fiscal?: string | null
-  ncm_last_sale?: string | null
+  ncm_last_purchase?: string | null
   pis_cofins?: boolean | null
   pis_cofins_mix_fiscal?: boolean | null
-  pis_cofins_last_sale?: boolean | null
+  pis_cofins_last_purchase?: boolean | null
   c_class?: string | null
   c_class_mix_fiscal?: string | null
-  c_class_last_sale?: string | null
+  c_class_last_purchase?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
-  note_number_last_sale?: string | null
-  access_key_last_sale?: string | null
-  supplier_last_sale?: string | null
-  date_last_sale?: string | null
+  note_number_last_purchase?: string | null
+  access_key_last_purchase?: string | null
+  supplier_last_purchase?: string | null
+  date_last_purchase?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_intern_code_last_sale?: string | null
+  supplier_intern_code_last_purchase?: string | null
   stores: Prisma.storesCreateNestedOneWithoutProduct_monthly_dataInput
 }
 
@@ -1501,31 +1501,31 @@ export type product_monthly_dataUncheckedCreateWithoutProductsInput = {
   billing?: string | null
   icms?: string | null
   icms_aliquot?: string | null
-  icms_aliquot_last_sale?: string | null
+  icms_aliquot_last_purchase?: string | null
   cest?: string | null
   cest_mix_fiscal?: string | null
-  cest_last_sale?: string | null
+  cest_last_purchase?: string | null
   cbenef?: string | null
   cbenef_mix_fiscal?: string | null
-  cbenef_last_sale?: string | null
+  cbenef_last_purchase?: string | null
   ncm?: string | null
   ncm_mix_fiscal?: string | null
-  ncm_last_sale?: string | null
+  ncm_last_purchase?: string | null
   pis_cofins?: boolean | null
   pis_cofins_mix_fiscal?: boolean | null
-  pis_cofins_last_sale?: boolean | null
+  pis_cofins_last_purchase?: boolean | null
   c_class?: string | null
   c_class_mix_fiscal?: string | null
-  c_class_last_sale?: string | null
+  c_class_last_purchase?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
-  note_number_last_sale?: string | null
-  access_key_last_sale?: string | null
-  supplier_last_sale?: string | null
-  date_last_sale?: string | null
+  note_number_last_purchase?: string | null
+  access_key_last_purchase?: string | null
+  supplier_last_purchase?: string | null
+  date_last_purchase?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_intern_code_last_sale?: string | null
+  supplier_intern_code_last_purchase?: string | null
 }
 
 export type product_monthly_dataCreateOrConnectWithoutProductsInput = {
@@ -1573,31 +1573,31 @@ export type product_monthly_dataCreateManyStoresInput = {
   billing?: string | null
   icms?: string | null
   icms_aliquot?: string | null
-  icms_aliquot_last_sale?: string | null
+  icms_aliquot_last_purchase?: string | null
   cest?: string | null
   cest_mix_fiscal?: string | null
-  cest_last_sale?: string | null
+  cest_last_purchase?: string | null
   cbenef?: string | null
   cbenef_mix_fiscal?: string | null
-  cbenef_last_sale?: string | null
+  cbenef_last_purchase?: string | null
   ncm?: string | null
   ncm_mix_fiscal?: string | null
-  ncm_last_sale?: string | null
+  ncm_last_purchase?: string | null
   pis_cofins?: boolean | null
   pis_cofins_mix_fiscal?: boolean | null
-  pis_cofins_last_sale?: boolean | null
+  pis_cofins_last_purchase?: boolean | null
   c_class?: string | null
   c_class_mix_fiscal?: string | null
-  c_class_last_sale?: string | null
+  c_class_last_purchase?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
-  note_number_last_sale?: string | null
-  access_key_last_sale?: string | null
-  supplier_last_sale?: string | null
-  date_last_sale?: string | null
+  note_number_last_purchase?: string | null
+  access_key_last_purchase?: string | null
+  supplier_last_purchase?: string | null
+  date_last_purchase?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_intern_code_last_sale?: string | null
+  supplier_intern_code_last_purchase?: string | null
 }
 
 export type product_monthly_dataUpdateWithoutStoresInput = {
@@ -1618,31 +1618,31 @@ export type product_monthly_dataUpdateWithoutStoresInput = {
   billing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icms_aliquot_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icms_aliquot_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cest_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cest_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cbenef_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cbenef_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ncm_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pis_cofins?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   pis_cofins_mix_fiscal?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  pis_cofins_last_sale?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  pis_cofins_last_purchase?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   c_class?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   c_class_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  c_class_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  c_class_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  note_number_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  access_key_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  note_number_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  access_key_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   products?: Prisma.productsUpdateOneRequiredWithoutProduct_monthly_dataNestedInput
 }
 
@@ -1665,31 +1665,31 @@ export type product_monthly_dataUncheckedUpdateWithoutStoresInput = {
   billing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icms_aliquot_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icms_aliquot_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cest_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cest_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cbenef_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cbenef_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ncm_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pis_cofins?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   pis_cofins_mix_fiscal?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  pis_cofins_last_sale?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  pis_cofins_last_purchase?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   c_class?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   c_class_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  c_class_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  c_class_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  note_number_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  access_key_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  note_number_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  access_key_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type product_monthly_dataUncheckedUpdateManyWithoutStoresInput = {
@@ -1711,31 +1711,31 @@ export type product_monthly_dataUncheckedUpdateManyWithoutStoresInput = {
   billing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icms_aliquot_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icms_aliquot_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cest_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cest_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cbenef_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cbenef_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ncm_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pis_cofins?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   pis_cofins_mix_fiscal?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  pis_cofins_last_sale?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  pis_cofins_last_purchase?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   c_class?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   c_class_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  c_class_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  c_class_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  note_number_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  access_key_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  note_number_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  access_key_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type product_monthly_dataCreateManyProductsInput = {
@@ -1757,31 +1757,31 @@ export type product_monthly_dataCreateManyProductsInput = {
   billing?: string | null
   icms?: string | null
   icms_aliquot?: string | null
-  icms_aliquot_last_sale?: string | null
+  icms_aliquot_last_purchase?: string | null
   cest?: string | null
   cest_mix_fiscal?: string | null
-  cest_last_sale?: string | null
+  cest_last_purchase?: string | null
   cbenef?: string | null
   cbenef_mix_fiscal?: string | null
-  cbenef_last_sale?: string | null
+  cbenef_last_purchase?: string | null
   ncm?: string | null
   ncm_mix_fiscal?: string | null
-  ncm_last_sale?: string | null
+  ncm_last_purchase?: string | null
   pis_cofins?: boolean | null
   pis_cofins_mix_fiscal?: boolean | null
-  pis_cofins_last_sale?: boolean | null
+  pis_cofins_last_purchase?: boolean | null
   c_class?: string | null
   c_class_mix_fiscal?: string | null
-  c_class_last_sale?: string | null
+  c_class_last_purchase?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
-  note_number_last_sale?: string | null
-  access_key_last_sale?: string | null
-  supplier_last_sale?: string | null
-  date_last_sale?: string | null
+  note_number_last_purchase?: string | null
+  access_key_last_purchase?: string | null
+  supplier_last_purchase?: string | null
+  date_last_purchase?: string | null
   icms_aliquot_mix_fiscal_stores?: string | null
   icms_aliquot_mix_fiscal_jasps?: string | null
-  supplier_intern_code_last_sale?: string | null
+  supplier_intern_code_last_purchase?: string | null
 }
 
 export type product_monthly_dataUpdateWithoutProductsInput = {
@@ -1802,31 +1802,31 @@ export type product_monthly_dataUpdateWithoutProductsInput = {
   billing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icms_aliquot_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icms_aliquot_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cest_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cest_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cbenef_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cbenef_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ncm_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pis_cofins?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   pis_cofins_mix_fiscal?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  pis_cofins_last_sale?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  pis_cofins_last_purchase?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   c_class?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   c_class_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  c_class_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  c_class_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  note_number_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  access_key_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  note_number_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  access_key_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stores?: Prisma.storesUpdateOneRequiredWithoutProduct_monthly_dataNestedInput
 }
 
@@ -1849,31 +1849,31 @@ export type product_monthly_dataUncheckedUpdateWithoutProductsInput = {
   billing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icms_aliquot_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icms_aliquot_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cest_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cest_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cbenef_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cbenef_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ncm_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pis_cofins?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   pis_cofins_mix_fiscal?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  pis_cofins_last_sale?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  pis_cofins_last_purchase?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   c_class?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   c_class_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  c_class_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  c_class_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  note_number_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  access_key_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  note_number_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  access_key_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type product_monthly_dataUncheckedUpdateManyWithoutProductsInput = {
@@ -1895,31 +1895,31 @@ export type product_monthly_dataUncheckedUpdateManyWithoutProductsInput = {
   billing?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icms_aliquot_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icms_aliquot_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cest_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cest_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cest_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cbenef_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cbenef_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cbenef_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ncm_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ncm_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pis_cofins?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   pis_cofins_mix_fiscal?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  pis_cofins_last_sale?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  pis_cofins_last_purchase?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   c_class?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   c_class_mix_fiscal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  c_class_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  c_class_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  note_number_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  access_key_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  date_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  note_number_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  access_key_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_stores?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icms_aliquot_mix_fiscal_jasps?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  supplier_intern_code_last_sale?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplier_intern_code_last_purchase?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -1944,31 +1944,31 @@ export type product_monthly_dataSelect<ExtArgs extends runtime.Types.Extensions.
   billing?: boolean
   icms?: boolean
   icms_aliquot?: boolean
-  icms_aliquot_last_sale?: boolean
+  icms_aliquot_last_purchase?: boolean
   cest?: boolean
   cest_mix_fiscal?: boolean
-  cest_last_sale?: boolean
+  cest_last_purchase?: boolean
   cbenef?: boolean
   cbenef_mix_fiscal?: boolean
-  cbenef_last_sale?: boolean
+  cbenef_last_purchase?: boolean
   ncm?: boolean
   ncm_mix_fiscal?: boolean
-  ncm_last_sale?: boolean
+  ncm_last_purchase?: boolean
   pis_cofins?: boolean
   pis_cofins_mix_fiscal?: boolean
-  pis_cofins_last_sale?: boolean
+  pis_cofins_last_purchase?: boolean
   c_class?: boolean
   c_class_mix_fiscal?: boolean
-  c_class_last_sale?: boolean
+  c_class_last_purchase?: boolean
   created_at?: boolean
   updated_at?: boolean
-  note_number_last_sale?: boolean
-  access_key_last_sale?: boolean
-  supplier_last_sale?: boolean
-  date_last_sale?: boolean
+  note_number_last_purchase?: boolean
+  access_key_last_purchase?: boolean
+  supplier_last_purchase?: boolean
+  date_last_purchase?: boolean
   icms_aliquot_mix_fiscal_stores?: boolean
   icms_aliquot_mix_fiscal_jasps?: boolean
-  supplier_intern_code_last_sale?: boolean
+  supplier_intern_code_last_purchase?: boolean
   products?: boolean | Prisma.productsDefaultArgs<ExtArgs>
   stores?: boolean | Prisma.storesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["product_monthly_data"]>
@@ -1993,31 +1993,31 @@ export type product_monthly_dataSelectCreateManyAndReturn<ExtArgs extends runtim
   billing?: boolean
   icms?: boolean
   icms_aliquot?: boolean
-  icms_aliquot_last_sale?: boolean
+  icms_aliquot_last_purchase?: boolean
   cest?: boolean
   cest_mix_fiscal?: boolean
-  cest_last_sale?: boolean
+  cest_last_purchase?: boolean
   cbenef?: boolean
   cbenef_mix_fiscal?: boolean
-  cbenef_last_sale?: boolean
+  cbenef_last_purchase?: boolean
   ncm?: boolean
   ncm_mix_fiscal?: boolean
-  ncm_last_sale?: boolean
+  ncm_last_purchase?: boolean
   pis_cofins?: boolean
   pis_cofins_mix_fiscal?: boolean
-  pis_cofins_last_sale?: boolean
+  pis_cofins_last_purchase?: boolean
   c_class?: boolean
   c_class_mix_fiscal?: boolean
-  c_class_last_sale?: boolean
+  c_class_last_purchase?: boolean
   created_at?: boolean
   updated_at?: boolean
-  note_number_last_sale?: boolean
-  access_key_last_sale?: boolean
-  supplier_last_sale?: boolean
-  date_last_sale?: boolean
+  note_number_last_purchase?: boolean
+  access_key_last_purchase?: boolean
+  supplier_last_purchase?: boolean
+  date_last_purchase?: boolean
   icms_aliquot_mix_fiscal_stores?: boolean
   icms_aliquot_mix_fiscal_jasps?: boolean
-  supplier_intern_code_last_sale?: boolean
+  supplier_intern_code_last_purchase?: boolean
   products?: boolean | Prisma.productsDefaultArgs<ExtArgs>
   stores?: boolean | Prisma.storesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["product_monthly_data"]>
@@ -2042,31 +2042,31 @@ export type product_monthly_dataSelectUpdateManyAndReturn<ExtArgs extends runtim
   billing?: boolean
   icms?: boolean
   icms_aliquot?: boolean
-  icms_aliquot_last_sale?: boolean
+  icms_aliquot_last_purchase?: boolean
   cest?: boolean
   cest_mix_fiscal?: boolean
-  cest_last_sale?: boolean
+  cest_last_purchase?: boolean
   cbenef?: boolean
   cbenef_mix_fiscal?: boolean
-  cbenef_last_sale?: boolean
+  cbenef_last_purchase?: boolean
   ncm?: boolean
   ncm_mix_fiscal?: boolean
-  ncm_last_sale?: boolean
+  ncm_last_purchase?: boolean
   pis_cofins?: boolean
   pis_cofins_mix_fiscal?: boolean
-  pis_cofins_last_sale?: boolean
+  pis_cofins_last_purchase?: boolean
   c_class?: boolean
   c_class_mix_fiscal?: boolean
-  c_class_last_sale?: boolean
+  c_class_last_purchase?: boolean
   created_at?: boolean
   updated_at?: boolean
-  note_number_last_sale?: boolean
-  access_key_last_sale?: boolean
-  supplier_last_sale?: boolean
-  date_last_sale?: boolean
+  note_number_last_purchase?: boolean
+  access_key_last_purchase?: boolean
+  supplier_last_purchase?: boolean
+  date_last_purchase?: boolean
   icms_aliquot_mix_fiscal_stores?: boolean
   icms_aliquot_mix_fiscal_jasps?: boolean
-  supplier_intern_code_last_sale?: boolean
+  supplier_intern_code_last_purchase?: boolean
   products?: boolean | Prisma.productsDefaultArgs<ExtArgs>
   stores?: boolean | Prisma.storesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["product_monthly_data"]>
@@ -2091,34 +2091,34 @@ export type product_monthly_dataSelectScalar = {
   billing?: boolean
   icms?: boolean
   icms_aliquot?: boolean
-  icms_aliquot_last_sale?: boolean
+  icms_aliquot_last_purchase?: boolean
   cest?: boolean
   cest_mix_fiscal?: boolean
-  cest_last_sale?: boolean
+  cest_last_purchase?: boolean
   cbenef?: boolean
   cbenef_mix_fiscal?: boolean
-  cbenef_last_sale?: boolean
+  cbenef_last_purchase?: boolean
   ncm?: boolean
   ncm_mix_fiscal?: boolean
-  ncm_last_sale?: boolean
+  ncm_last_purchase?: boolean
   pis_cofins?: boolean
   pis_cofins_mix_fiscal?: boolean
-  pis_cofins_last_sale?: boolean
+  pis_cofins_last_purchase?: boolean
   c_class?: boolean
   c_class_mix_fiscal?: boolean
-  c_class_last_sale?: boolean
+  c_class_last_purchase?: boolean
   created_at?: boolean
   updated_at?: boolean
-  note_number_last_sale?: boolean
-  access_key_last_sale?: boolean
-  supplier_last_sale?: boolean
-  date_last_sale?: boolean
+  note_number_last_purchase?: boolean
+  access_key_last_purchase?: boolean
+  supplier_last_purchase?: boolean
+  date_last_purchase?: boolean
   icms_aliquot_mix_fiscal_stores?: boolean
   icms_aliquot_mix_fiscal_jasps?: boolean
-  supplier_intern_code_last_sale?: boolean
+  supplier_intern_code_last_purchase?: boolean
 }
 
-export type product_monthly_dataOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "product_id" | "store_id" | "reference_month" | "obs" | "is_new" | "correct_icms_office" | "was_st" | "made_in_store" | "monitored" | "department" | "section" | "category_group" | "barcode" | "plucode" | "description" | "billing" | "icms" | "icms_aliquot" | "icms_aliquot_last_sale" | "cest" | "cest_mix_fiscal" | "cest_last_sale" | "cbenef" | "cbenef_mix_fiscal" | "cbenef_last_sale" | "ncm" | "ncm_mix_fiscal" | "ncm_last_sale" | "pis_cofins" | "pis_cofins_mix_fiscal" | "pis_cofins_last_sale" | "c_class" | "c_class_mix_fiscal" | "c_class_last_sale" | "created_at" | "updated_at" | "note_number_last_sale" | "access_key_last_sale" | "supplier_last_sale" | "date_last_sale" | "icms_aliquot_mix_fiscal_stores" | "icms_aliquot_mix_fiscal_jasps" | "supplier_intern_code_last_sale", ExtArgs["result"]["product_monthly_data"]>
+export type product_monthly_dataOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "product_id" | "store_id" | "reference_month" | "obs" | "is_new" | "correct_icms_office" | "was_st" | "made_in_store" | "monitored" | "department" | "section" | "category_group" | "barcode" | "plucode" | "description" | "billing" | "icms" | "icms_aliquot" | "icms_aliquot_last_purchase" | "cest" | "cest_mix_fiscal" | "cest_last_purchase" | "cbenef" | "cbenef_mix_fiscal" | "cbenef_last_purchase" | "ncm" | "ncm_mix_fiscal" | "ncm_last_purchase" | "pis_cofins" | "pis_cofins_mix_fiscal" | "pis_cofins_last_purchase" | "c_class" | "c_class_mix_fiscal" | "c_class_last_purchase" | "created_at" | "updated_at" | "note_number_last_purchase" | "access_key_last_purchase" | "supplier_last_purchase" | "date_last_purchase" | "icms_aliquot_mix_fiscal_stores" | "icms_aliquot_mix_fiscal_jasps" | "supplier_intern_code_last_purchase", ExtArgs["result"]["product_monthly_data"]>
 export type product_monthly_dataInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   products?: boolean | Prisma.productsDefaultArgs<ExtArgs>
   stores?: boolean | Prisma.storesDefaultArgs<ExtArgs>
@@ -2158,31 +2158,31 @@ export type $product_monthly_dataPayload<ExtArgs extends runtime.Types.Extension
     billing: string | null
     icms: string | null
     icms_aliquot: string | null
-    icms_aliquot_last_sale: string | null
+    icms_aliquot_last_purchase: string | null
     cest: string | null
     cest_mix_fiscal: string | null
-    cest_last_sale: string | null
+    cest_last_purchase: string | null
     cbenef: string | null
     cbenef_mix_fiscal: string | null
-    cbenef_last_sale: string | null
+    cbenef_last_purchase: string | null
     ncm: string | null
     ncm_mix_fiscal: string | null
-    ncm_last_sale: string | null
+    ncm_last_purchase: string | null
     pis_cofins: boolean | null
     pis_cofins_mix_fiscal: boolean | null
-    pis_cofins_last_sale: boolean | null
+    pis_cofins_last_purchase: boolean | null
     c_class: string | null
     c_class_mix_fiscal: string | null
-    c_class_last_sale: string | null
+    c_class_last_purchase: string | null
     created_at: Date | null
     updated_at: Date | null
-    note_number_last_sale: string | null
-    access_key_last_sale: string | null
-    supplier_last_sale: string | null
-    date_last_sale: string | null
+    note_number_last_purchase: string | null
+    access_key_last_purchase: string | null
+    supplier_last_purchase: string | null
+    date_last_purchase: string | null
     icms_aliquot_mix_fiscal_stores: string | null
     icms_aliquot_mix_fiscal_jasps: string | null
-    supplier_intern_code_last_sale: string | null
+    supplier_intern_code_last_purchase: string | null
   }, ExtArgs["result"]["product_monthly_data"]>
   composites: {}
 }
@@ -2627,31 +2627,31 @@ export interface product_monthly_dataFieldRefs {
   readonly billing: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly icms: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly icms_aliquot: Prisma.FieldRef<"product_monthly_data", 'String'>
-  readonly icms_aliquot_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
+  readonly icms_aliquot_last_purchase: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly cest: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly cest_mix_fiscal: Prisma.FieldRef<"product_monthly_data", 'String'>
-  readonly cest_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
+  readonly cest_last_purchase: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly cbenef: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly cbenef_mix_fiscal: Prisma.FieldRef<"product_monthly_data", 'String'>
-  readonly cbenef_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
+  readonly cbenef_last_purchase: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly ncm: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly ncm_mix_fiscal: Prisma.FieldRef<"product_monthly_data", 'String'>
-  readonly ncm_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
+  readonly ncm_last_purchase: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly pis_cofins: Prisma.FieldRef<"product_monthly_data", 'Boolean'>
   readonly pis_cofins_mix_fiscal: Prisma.FieldRef<"product_monthly_data", 'Boolean'>
-  readonly pis_cofins_last_sale: Prisma.FieldRef<"product_monthly_data", 'Boolean'>
+  readonly pis_cofins_last_purchase: Prisma.FieldRef<"product_monthly_data", 'Boolean'>
   readonly c_class: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly c_class_mix_fiscal: Prisma.FieldRef<"product_monthly_data", 'String'>
-  readonly c_class_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
+  readonly c_class_last_purchase: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly created_at: Prisma.FieldRef<"product_monthly_data", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"product_monthly_data", 'DateTime'>
-  readonly note_number_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
-  readonly access_key_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
-  readonly supplier_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
-  readonly date_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
+  readonly note_number_last_purchase: Prisma.FieldRef<"product_monthly_data", 'String'>
+  readonly access_key_last_purchase: Prisma.FieldRef<"product_monthly_data", 'String'>
+  readonly supplier_last_purchase: Prisma.FieldRef<"product_monthly_data", 'String'>
+  readonly date_last_purchase: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly icms_aliquot_mix_fiscal_stores: Prisma.FieldRef<"product_monthly_data", 'String'>
   readonly icms_aliquot_mix_fiscal_jasps: Prisma.FieldRef<"product_monthly_data", 'String'>
-  readonly supplier_intern_code_last_sale: Prisma.FieldRef<"product_monthly_data", 'String'>
+  readonly supplier_intern_code_last_purchase: Prisma.FieldRef<"product_monthly_data", 'String'>
 }
     
 
