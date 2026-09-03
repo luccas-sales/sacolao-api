@@ -62,12 +62,23 @@ export class ProductsService {
               firstMonthData.plucode &&
               firstMonthData.plucode !== '-'
             ) {
+              const storeInfo = await prisma.stores.findUnique({
+                where: { id: firstMonthData.store_id },
+                select: { number: true },
+              });
+              const isLapa = storeInfo?.number === 3;
               const ex = await prisma.product_monthly_data.findFirst({
-                where: { plucode: firstMonthData.plucode },
+                where: {
+                  plucode: firstMonthData.plucode,
+                  stores: {
+                    number: isLapa ? 3 : { not: 3 },
+                  },
+                },
                 select: { product_id: true },
               });
               if (ex) foundId = ex.product_id;
             }
+
             if (!foundId) {
               const newProduct = await prisma.products.create({ data: {} });
               foundId = newProduct.id;
