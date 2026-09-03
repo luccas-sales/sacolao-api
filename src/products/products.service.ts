@@ -181,7 +181,7 @@ export class ProductsService {
         return { success: true, updatedCount: products.length };
       },
       {
-        timeout: 30000,
+        timeout: 60000,
       },
     );
   }
