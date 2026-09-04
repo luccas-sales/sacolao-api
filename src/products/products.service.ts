@@ -3,11 +3,19 @@ import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class ProductsService {
+  private cache = new Map<string, { data: any; exp: number }>();
+
   constructor(private prisma: PrismaService) {}
 
   async getProductsFromMonth(monthStr: string) {
     if (!monthStr) {
       throw new BadRequestException('Data não encontrada!');
+    }
+
+    const cacheKey = `products_${monthStr}`;
+    const cached = this.cache.get(cacheKey);
+    if (cached && cached.exp > Date.now()) {
+      return cached.data;
     }
 
     const referenceDate = new Date(monthStr);
@@ -24,6 +32,7 @@ export class ProductsService {
       },
     };
 
+    console.log('🗄️ Buscando 16k produtos no SUPABASE...');
     const monthlyData = await this.prisma.product_monthly_data.findMany({
       where: whereClause,
       include: {
@@ -33,12 +42,19 @@ export class ProductsService {
       orderBy: [{ reference_month: 'asc' }, { description: 'asc' }],
     });
 
+    this.cache.set(cacheKey, {
+      data: monthlyData,
+      exp: Date.now() + 1000 * 60 * 15,
+    });
+
     return monthlyData;
   }
 
   async bulkUpdate(products: any[]) {
     if (!products || products.length === 0)
       return { success: true, updatedCount: 0 };
+
+    this.cache.clear();
 
     return await this.prisma.$transaction(
       async (prisma) => {
@@ -218,6 +234,8 @@ export class ProductsService {
   }
 
   async deleteProduct(id: string) {
+    this.cache.clear();
+
     return await this.prisma.products.delete({ where: { id } });
   }
 }
