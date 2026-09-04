@@ -14,6 +14,9 @@ export class NotesRuralSuppliersService {
   constructor(private prismaService: PrismaService) {}
 
   async createNotesRuralSuppliers(payload: CreateNotesRuralSuppliersListDTO) {
+    let createdCount = 0;
+    let updatedCount = 0;
+
     const suppliers = await this.prismaService.suppliers.findMany({
       select: {
         tax_id: true,
@@ -117,6 +120,8 @@ export class NotesRuralSuppliersService {
                 status: sefazStatus,
               },
             });
+
+            updatedCount++;
           }
           continue;
         }
@@ -139,11 +144,17 @@ export class NotesRuralSuppliersService {
           is_duplicate: false,
         },
       });
+
+      createdCount++;
     }
 
     await this.autoMergeOrphanNotes();
     await this.recalculateDuplicates();
-    return { message: 'Importado com sucesso' };
+    return {
+      message: 'Importado com sucesso',
+      created: createdCount,
+      updated: updatedCount,
+    };
   }
 
   async getNotes(startDate?: string, endDate?: string) {
