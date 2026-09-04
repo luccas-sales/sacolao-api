@@ -67,16 +67,36 @@ export class ProductsService {
                 select: { number: true },
               });
               const isLapa = storeInfo?.number === 3;
-              const ex = await prisma.product_monthly_data.findFirst({
-                where: {
-                  plucode: firstMonthData.plucode,
-                  stores: {
-                    number: isLapa ? 3 : { not: 3 },
+
+              if (firstMonthData.barcode && firstMonthData.barcode !== '-') {
+                const ex = await prisma.product_monthly_data.findFirst({
+                  where: {
+                    barcode: firstMonthData.barcode,
+                    stores: {
+                      number: isLapa ? 3 : { not: 3 },
+                    },
                   },
-                },
-                select: { product_id: true },
-              });
-              if (ex) foundId = ex.product_id;
+                  select: { product_id: true },
+                });
+                if (ex) foundId = ex.product_id;
+              }
+
+              if (
+                !foundId &&
+                firstMonthData.plucode &&
+                firstMonthData.plucode !== '-'
+              ) {
+                const ex = await prisma.product_monthly_data.findFirst({
+                  where: {
+                    plucode: firstMonthData.plucode,
+                    stores: {
+                      number: isLapa ? 3 : { not: 3 },
+                    },
+                  },
+                  select: { product_id: true },
+                });
+                if (ex) foundId = ex.product_id;
+              }
             }
 
             if (!foundId) {
