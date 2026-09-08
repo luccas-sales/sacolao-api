@@ -12,13 +12,13 @@ export class ProductsService {
       throw new BadRequestException('Data não encontrada!');
     }
 
-    const cacheKey = `products_${monthStr}`;
+    const cacheKey = `products_ytd_${monthStr}`;
     const cached = this.cache.get(cacheKey);
     if (cached && cached.exp > Date.now()) {
       return cached.data;
     }
 
-    const referenceDate = new Date(monthStr);
+    const referenceDate = new Date(`${monthStr}T00:00:00.000Z`);
 
     if (isNaN(referenceDate.getTime())) {
       throw new BadRequestException(
@@ -26,13 +26,16 @@ export class ProductsService {
       );
     }
 
+    const year = referenceDate.getUTCFullYear();
+    const startOfYear = new Date(Date.UTC(year, 0, 1));
+
     const whereClause: any = {
       reference_month: {
-        gte: referenceDate,
+        gte: startOfYear,
+        lte: referenceDate,
       },
     };
 
-    console.log('🗄️ Buscando 16k produtos no SUPABASE...');
     const monthlyData = await this.prisma.product_monthly_data.findMany({
       where: whereClause,
       include: {
@@ -231,6 +234,15 @@ export class ProductsService {
         timeout: 60000,
       },
     );
+  }
+
+  async getAvailableMonths() {
+    const months = await this.prisma.product_monthly_data.findMany({
+      select: { reference_month: true },
+      distinct: ['reference_month'],
+      orderBy: { reference_month: 'asc' },
+    });
+    return months.map((m) => m.reference_month.toISOString().split('T')[0]);
   }
 
   async deleteProduct(id: string) {

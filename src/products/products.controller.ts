@@ -1,4 +1,14 @@
-import { Body, Controller, Get, Post, Put, Delete, Param, Query, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Param,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { AuthGuard } from '../auth/auth.guard';
 
@@ -10,6 +20,11 @@ export class ProductsController {
   @Get()
   async getProducts(@Query('month') month: string) {
     return await this.productsService.getProductsFromMonth(month);
+  }
+
+  @Get('months')
+  async getAvailableMonths() {
+    return await this.productsService.getAvailableMonths();
   }
 
   @Put('bulk-update')
