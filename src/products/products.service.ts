@@ -61,6 +61,20 @@ export class ProductsService {
 
     return await this.prisma.$transaction(
       async (prisma) => {
+        const firstMonthData = products[0]?.monthly_data[0];
+        if (firstMonthData && firstMonthData.reference_month) {
+          const targetMonth = new Date(firstMonthData.reference_month)
+            .toISOString()
+            .substring(0, 7);
+          const isLocked =
+            await prisma.$queryRaw`SELECT * FROM "locked_months" WHERE month = ${targetMonth}`;
+          if ((isLocked as any[]).length > 0) {
+            throw new BadRequestException(
+              'Este mês está bloqueado pelo cadeado e não pode ser alterado.',
+            );
+          }
+        }
+
         for (const prod of products) {
           let productId = prod.product_id;
 
@@ -255,6 +269,25 @@ export class ProductsService {
         timeout: 60000,
       },
     );
+  }
+
+  async getLockedMonths() {
+    const locks = await this.prisma.$queryRaw`SELECT * FROM "locked_months"`;
+    return (locks as any[]).map((l) => l.month);
+  }
+
+  async toggleLockMonth(month: string) {
+    const existing = await this.prisma
+      .$queryRaw`SELECT * FROM "locked_months" WHERE month = ${month}`;
+    if ((existing as any[]).length > 0) {
+      await this.prisma
+        .$queryRaw`DELETE FROM "locked_months" WHERE month = ${month}`;
+      return { locked: false };
+    } else {
+      await this.prisma
+        .$queryRaw`INSERT INTO "locked_months" (month) VALUES (${month})`;
+      return { locked: true };
+    }
   }
 
   async getProductsForProcessor(storeId: string) {

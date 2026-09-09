@@ -391,7 +391,8 @@ export const ModelName = {
   users: 'users',
   cash_registers: 'cash_registers',
   product_monthly_data: 'product_monthly_data',
-  products: 'products'
+  products: 'products',
+  locked_months: 'locked_months'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -407,7 +408,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "suppliers" | "notes_rural_suppliers" | "daily_sales" | "stores" | "users" | "cash_registers" | "product_monthly_data" | "products"
+    modelProps: "suppliers" | "notes_rural_suppliers" | "daily_sales" | "stores" | "users" | "cash_registers" | "product_monthly_data" | "products" | "locked_months"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1003,6 +1004,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    locked_months: {
+      payload: Prisma.$locked_monthsPayload<ExtArgs>
+      fields: Prisma.locked_monthsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.locked_monthsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$locked_monthsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.locked_monthsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$locked_monthsPayload>
+        }
+        findFirst: {
+          args: Prisma.locked_monthsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$locked_monthsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.locked_monthsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$locked_monthsPayload>
+        }
+        findMany: {
+          args: Prisma.locked_monthsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$locked_monthsPayload>[]
+        }
+        create: {
+          args: Prisma.locked_monthsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$locked_monthsPayload>
+        }
+        createMany: {
+          args: Prisma.locked_monthsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.locked_monthsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$locked_monthsPayload>[]
+        }
+        delete: {
+          args: Prisma.locked_monthsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$locked_monthsPayload>
+        }
+        update: {
+          args: Prisma.locked_monthsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$locked_monthsPayload>
+        }
+        deleteMany: {
+          args: Prisma.locked_monthsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.locked_monthsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.locked_monthsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$locked_monthsPayload>[]
+        }
+        upsert: {
+          args: Prisma.locked_monthsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$locked_monthsPayload>
+        }
+        aggregate: {
+          args: Prisma.Locked_monthsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLocked_months>
+        }
+        groupBy: {
+          args: Prisma.locked_monthsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Locked_monthsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.locked_monthsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Locked_monthsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1180,6 +1255,13 @@ export const ProductsScalarFieldEnum = {
 } as const
 
 export type ProductsScalarFieldEnum = (typeof ProductsScalarFieldEnum)[keyof typeof ProductsScalarFieldEnum]
+
+
+export const Locked_monthsScalarFieldEnum = {
+  month: 'month'
+} as const
+
+export type Locked_monthsScalarFieldEnum = (typeof Locked_monthsScalarFieldEnum)[keyof typeof Locked_monthsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1421,6 +1503,7 @@ export type GlobalOmitConfig = {
   cash_registers?: Prisma.cash_registersOmit
   product_monthly_data?: Prisma.product_monthly_dataOmit
   products?: Prisma.productsOmit
+  locked_months?: Prisma.locked_monthsOmit
 }
 
 /* Types for Logging */

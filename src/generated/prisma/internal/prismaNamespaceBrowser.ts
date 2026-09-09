@@ -58,7 +58,8 @@ export const ModelName = {
   users: 'users',
   cash_registers: 'cash_registers',
   product_monthly_data: 'product_monthly_data',
-  products: 'products'
+  products: 'products',
+  locked_months: 'locked_months'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -215,6 +216,13 @@ export const ProductsScalarFieldEnum = {
 } as const
 
 export type ProductsScalarFieldEnum = (typeof ProductsScalarFieldEnum)[keyof typeof ProductsScalarFieldEnum]
+
+
+export const Locked_monthsScalarFieldEnum = {
+  month: 'month'
+} as const
+
+export type Locked_monthsScalarFieldEnum = (typeof Locked_monthsScalarFieldEnum)[keyof typeof Locked_monthsScalarFieldEnum]
 
 
 export const SortOrder = {

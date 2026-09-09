@@ -32,6 +32,16 @@ export class ProductsController {
     return await this.productsService.getProductsForProcessor(storeId);
   }
 
+  @Get('locked-months')
+  async getLockedMonths() {
+    return await this.productsService.getLockedMonths();
+  }
+
+  @Post('toggle-lock')
+  async toggleLockMonth(@Body('month') month: string) {
+    return await this.productsService.toggleLockMonth(month);
+  }
+
   @Put('bulk-update')
   async bulkUpdateProducts(@Body('products') products: any[]) {
     return await this.productsService.bulkUpdate(products);
