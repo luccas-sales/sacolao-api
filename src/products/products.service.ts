@@ -145,7 +145,20 @@ export class ProductsService {
                 return;
               }
 
-              const dataPayload = {
+              const hasLastPurchaseData =
+                monthData.supplier_last_purchase != null ||
+                monthData.supplier_intern_code_last_purchase != null ||
+                monthData.note_number_last_purchase != null ||
+                monthData.access_key_last_purchase != null ||
+                monthData.date_last_purchase != null ||
+                monthData.ncm_last_purchase != null ||
+                monthData.cest_last_purchase != null ||
+                monthData.c_class_last_purchase != null ||
+                monthData.cbenef_last_purchase != null ||
+                monthData.pis_cofins_last_purchase != null ||
+                monthData.icms_aliquot_last_purchase != null;
+
+              const dataPayload: any = {
                 barcode: monthData.barcode,
                 obs: monthData.obs,
                 is_new:
@@ -183,21 +196,29 @@ export class ProductsService {
                   monthData.icms_aliquot_mix_fiscal_stores,
                 icms_aliquot_mix_fiscal_jasps:
                   monthData.icms_aliquot_mix_fiscal_jasps,
-
-                supplier_last_purchase: monthData.supplier_last_purchase,
-                supplier_intern_code_last_purchase:
-                  monthData.supplier_intern_code_last_purchase,
-                note_number_last_purchase: monthData.note_number_last_purchase,
-                access_key_last_purchase: monthData.access_key_last_purchase,
-                date_last_purchase: monthData.date_last_purchase,
-                ncm_last_purchase: monthData.ncm_last_purchase,
-                cest_last_purchase: monthData.cest_last_purchase,
-                c_class_last_purchase: monthData.c_class_last_purchase,
-                cbenef_last_purchase: monthData.cbenef_last_purchase,
-                pis_cofins_last_purchase: monthData.pis_cofins_last_purchase,
-                icms_aliquot_last_purchase:
-                  monthData.icms_aliquot_last_purchase,
               };
+
+              if (hasLastPurchaseData) {
+                dataPayload.supplier_last_purchase =
+                  monthData.supplier_last_purchase;
+                dataPayload.supplier_intern_code_last_purchase =
+                  monthData.supplier_intern_code_last_purchase;
+                dataPayload.note_number_last_purchase =
+                  monthData.note_number_last_purchase;
+                dataPayload.access_key_last_purchase =
+                  monthData.access_key_last_purchase;
+                dataPayload.date_last_purchase = monthData.date_last_purchase;
+                dataPayload.ncm_last_purchase = monthData.ncm_last_purchase;
+                dataPayload.cest_last_purchase = monthData.cest_last_purchase;
+                dataPayload.c_class_last_purchase =
+                  monthData.c_class_last_purchase;
+                dataPayload.cbenef_last_purchase =
+                  monthData.cbenef_last_purchase;
+                dataPayload.pis_cofins_last_purchase =
+                  monthData.pis_cofins_last_purchase;
+                dataPayload.icms_aliquot_last_purchase =
+                  monthData.icms_aliquot_last_purchase;
+              }
 
               const existingRecord =
                 await prisma.product_monthly_data.findFirst({
@@ -277,7 +298,7 @@ export class ProductsService {
         },
       },
       orderBy: { reference_month: 'desc' },
-      distinct: ['plucode'], 
+      distinct: ['plucode'],
     });
 
     return data.map((item) => ({
