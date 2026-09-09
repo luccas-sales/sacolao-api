@@ -236,6 +236,56 @@ export class ProductsService {
     );
   }
 
+  async getProductsForProcessor(storeId: string) {
+    if (!storeId) {
+      throw new BadRequestException('ID da loja é obrigatório');
+    }
+
+    const store = await this.prisma.stores.findUnique({
+      where: { id: storeId },
+      select: { number: true },
+    });
+
+    if (!store) {
+      throw new BadRequestException('Loja não encontrada');
+    }
+
+    const isLapa = store.number === 3;
+
+    const data = await this.prisma.product_monthly_data.findMany({
+      where: {
+        stores: {
+          number: isLapa ? 3 : { not: 3 },
+        },
+        plucode: { not: null, notIn: ['', '-'] },
+      },
+      select: {
+        plucode: true,
+        barcode: true,
+        description: true,
+        ncm: true,
+        pis_cofins: true,
+        icms_aliquot: true,
+        cest: true,
+        c_class: true,
+        cbenef: true,
+        department: true,
+        section: true,
+        category_group: true,
+        stores: {
+          select: { number: true },
+        },
+      },
+      orderBy: { reference_month: 'desc' },
+      distinct: ['plucode'], 
+    });
+
+    return data.map((item) => ({
+      ...item,
+      stores: { number: store.number },
+    }));
+  }
+
   async getAvailableMonths() {
     const months = await this.prisma.product_monthly_data.findMany({
       select: { reference_month: true },

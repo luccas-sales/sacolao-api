@@ -27,6 +27,11 @@ export class ProductsController {
     return await this.productsService.getAvailableMonths();
   }
 
+  @Get('processor-data')
+  async getProductsForProcessor(@Query('storeId') storeId: string) {
+    return await this.productsService.getProductsForProcessor(storeId);
+  }
+
   @Put('bulk-update')
   async bulkUpdateProducts(@Body('products') products: any[]) {
     return await this.productsService.bulkUpdate(products);
