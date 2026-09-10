@@ -185,7 +185,7 @@ export const Product_monthly_dataScalarFieldEnum = {
   cest_mix_fiscal: 'cest_mix_fiscal',
   cest_last_purchase: 'cest_last_purchase',
   cbenef: 'cbenef',
-  cbenef_mix_fiscal: 'cbenef_mix_fiscal',
+  cbenef_mix_fiscal_stores: 'cbenef_mix_fiscal_stores',
   cbenef_last_purchase: 'cbenef_last_purchase',
   ncm: 'ncm',
   ncm_mix_fiscal: 'ncm_mix_fiscal',
@@ -204,7 +204,8 @@ export const Product_monthly_dataScalarFieldEnum = {
   date_last_purchase: 'date_last_purchase',
   icms_aliquot_mix_fiscal_stores: 'icms_aliquot_mix_fiscal_stores',
   icms_aliquot_mix_fiscal_jasps: 'icms_aliquot_mix_fiscal_jasps',
-  supplier_intern_code_last_purchase: 'supplier_intern_code_last_purchase'
+  supplier_intern_code_last_purchase: 'supplier_intern_code_last_purchase',
+  cbenef_mix_fiscal_jasps: 'cbenef_mix_fiscal_jasps'
 } as const
 
 export type Product_monthly_dataScalarFieldEnum = (typeof Product_monthly_dataScalarFieldEnum)[keyof typeof Product_monthly_dataScalarFieldEnum]
