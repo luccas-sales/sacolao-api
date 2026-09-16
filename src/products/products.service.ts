@@ -138,19 +138,6 @@ export class ProductsService {
                 return;
               }
 
-              const hasLastPurchaseData =
-                monthData.supplier_last_purchase != null ||
-                monthData.supplier_intern_code_last_purchase != null ||
-                monthData.note_number_last_purchase != null ||
-                monthData.access_key_last_purchase != null ||
-                monthData.date_last_purchase != null ||
-                monthData.ncm_last_purchase != null ||
-                monthData.cest_last_purchase != null ||
-                monthData.c_class_last_purchase != null ||
-                monthData.cbenef_last_purchase != null ||
-                monthData.pis_cofins_last_purchase != null ||
-                monthData.icms_aliquot_last_purchase != null;
-
               const dataPayload: any = {
                 barcode: monthData.barcode,
                 obs: monthData.obs,
@@ -190,28 +177,77 @@ export class ProductsService {
                   monthData.icms_aliquot_mix_fiscal_stores,
                 icms_aliquot_mix_fiscal_jasps:
                   monthData.icms_aliquot_mix_fiscal_jasps,
+
+                supplier_last_purchase: monthData.supplier_last_purchase,
+                supplier_intern_code_last_purchase:
+                  monthData.supplier_intern_code_last_purchase,
+                note_number_last_purchase: monthData.note_number_last_purchase,
+                access_key_last_purchase: monthData.access_key_last_purchase,
+                date_last_purchase: monthData.date_last_purchase,
+                ncm_last_purchase: monthData.ncm_last_purchase,
+                cest_last_purchase: monthData.cest_last_purchase,
+                c_class_last_purchase: monthData.c_class_last_purchase,
+                cbenef_last_purchase: monthData.cbenef_last_purchase,
+                pis_cofins_last_purchase: monthData.pis_cofins_last_purchase,
+                icms_aliquot_last_purchase:
+                  monthData.icms_aliquot_last_purchase,
               };
 
-              if (hasLastPurchaseData) {
-                dataPayload.supplier_last_purchase =
-                  monthData.supplier_last_purchase;
-                dataPayload.supplier_intern_code_last_purchase =
-                  monthData.supplier_intern_code_last_purchase;
-                dataPayload.note_number_last_purchase =
-                  monthData.note_number_last_purchase;
-                dataPayload.access_key_last_purchase =
-                  monthData.access_key_last_purchase;
-                dataPayload.date_last_purchase = monthData.date_last_purchase;
-                dataPayload.ncm_last_purchase = monthData.ncm_last_purchase;
-                dataPayload.cest_last_purchase = monthData.cest_last_purchase;
-                dataPayload.c_class_last_purchase =
-                  monthData.c_class_last_purchase;
-                dataPayload.cbenef_last_purchase =
-                  monthData.cbenef_last_purchase;
-                dataPayload.pis_cofins_last_purchase =
-                  monthData.pis_cofins_last_purchase;
-                dataPayload.icms_aliquot_last_purchase =
-                  monthData.icms_aliquot_last_purchase;
+              const lastRecord = await prisma.product_monthly_data.findFirst({
+                where: {
+                  product_id: productId,
+                  store_id: monthData.store_id,
+                  reference_month: { lte: new Date(monthData.reference_month) },
+                },
+                orderBy: { reference_month: 'desc' },
+              });
+
+              if (lastRecord) {
+                const baseFields = [
+                  'obs',
+                  'is_new',
+                  'correct_icms_office',
+                  'was_st',
+                  'made_in_store',
+                  'monitored',
+                  'department',
+                  'section',
+                  'category_group',
+                  'plucode',
+                  'barcode',
+                  'description',
+
+                  'ncm_mix_fiscal',
+                  'cest_mix_fiscal',
+                  'c_class_mix_fiscal',
+                  'cbenef_mix_fiscal_stores',
+                  'cbenef_mix_fiscal_jasps',
+                  'pis_cofins_mix_fiscal',
+                  'icms_aliquot_mix_fiscal_stores',
+                  'icms_aliquot_mix_fiscal_jasps',
+
+                  'supplier_last_purchase',
+                  'supplier_intern_code_last_purchase',
+                  'note_number_last_purchase',
+                  'access_key_last_purchase',
+                  'date_last_purchase',
+                  'ncm_last_purchase',
+                  'cest_last_purchase',
+                  'c_class_last_purchase',
+                  'cbenef_last_purchase',
+                  'pis_cofins_last_purchase',
+                  'icms_aliquot_last_purchase',
+                ];
+
+                for (const field of baseFields) {
+                  if (
+                    dataPayload[field] === null ||
+                    dataPayload[field] === undefined ||
+                    dataPayload[field] === ''
+                  ) {
+                    dataPayload[field] = (lastRecord as any)[field];
+                  }
+                }
               }
 
               const existingRecord =
@@ -306,6 +342,31 @@ export class ProductsService {
         department: true,
         section: true,
         category_group: true,
+        obs: true,
+        is_new: true,
+        correct_icms_office: true,
+        was_st: true,
+        made_in_store: true,
+        monitored: true,
+        ncm_mix_fiscal: true,
+        cest_mix_fiscal: true,
+        c_class_mix_fiscal: true,
+        cbenef_mix_fiscal_stores: true,
+        cbenef_mix_fiscal_jasps: true,
+        pis_cofins_mix_fiscal: true,
+        icms_aliquot_mix_fiscal_stores: true,
+        icms_aliquot_mix_fiscal_jasps: true,
+        supplier_last_purchase: true,
+        supplier_intern_code_last_purchase: true,
+        note_number_last_purchase: true,
+        access_key_last_purchase: true,
+        date_last_purchase: true,
+        ncm_last_purchase: true,
+        cest_last_purchase: true,
+        c_class_last_purchase: true,
+        cbenef_last_purchase: true,
+        pis_cofins_last_purchase: true,
+        icms_aliquot_last_purchase: true,
         stores: {
           select: { number: true },
         },
