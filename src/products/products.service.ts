@@ -12,8 +12,6 @@ export class ProductsService {
       throw new BadRequestException('Data não encontrada!');
     }
 
-    console.log(monthStr);
-
     const cacheKey = `products_ytd_${monthStr}`;
     const cached = this.cache.get(cacheKey);
     if (cached && cached.exp > Date.now()) {
@@ -22,22 +20,14 @@ export class ProductsService {
 
     const referenceDate = new Date(`${monthStr}T00:00:00.000Z`);
 
-    console.log(referenceDate);
-
     if (isNaN(referenceDate.getTime())) {
       throw new BadRequestException(
         'Formato de data inválido. Use YYYY-MM-DD.',
       );
     }
 
-    const year = referenceDate.getUTCFullYear();
-    const startOfYear = new Date(Date.UTC(year, 0, 1));
-
     const whereClause: any = {
-      reference_month: {
-        gte: startOfYear,
-        lte: referenceDate,
-      },
+      reference_month: referenceDate,
     };
 
     const monthlyData = await this.prisma.product_monthly_data.findMany({
