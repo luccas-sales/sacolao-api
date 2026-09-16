@@ -187,6 +187,15 @@ export class ProductsService {
                   monthData.icms_aliquot_last_purchase,
               };
 
+              const existingRecord =
+                await prisma.product_monthly_data.findFirst({
+                  where: {
+                    product_id: productId,
+                    store_id: monthData.store_id,
+                    reference_month: new Date(monthData.reference_month),
+                  },
+                });
+
               const lastRecord = await prisma.product_monthly_data.findFirst({
                 where: {
                   product_id: productId,
@@ -234,24 +243,17 @@ export class ProductsService {
                 ];
 
                 for (const field of baseFields) {
-                  if (
-                    dataPayload[field] === null ||
-                    dataPayload[field] === undefined ||
-                    dataPayload[field] === ''
-                  ) {
+                  const currentValue = dataPayload[field];
+                  const isFieldEmpty =
+                    currentValue === null ||
+                    currentValue === undefined ||
+                    currentValue === '';
+
+                  if (isFieldEmpty && !existingRecord) {
                     dataPayload[field] = (lastRecord as any)[field];
                   }
                 }
               }
-
-              const existingRecord =
-                await prisma.product_monthly_data.findFirst({
-                  where: {
-                    product_id: productId,
-                    store_id: monthData.store_id,
-                    reference_month: new Date(monthData.reference_month),
-                  },
-                });
 
               if (existingRecord) {
                 await prisma.product_monthly_data.update({
