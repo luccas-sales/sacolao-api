@@ -12,6 +12,8 @@ export class ProductsService {
       throw new BadRequestException('Data não encontrada!');
     }
 
+    console.log(monthStr);
+
     const cacheKey = `products_ytd_${monthStr}`;
     const cached = this.cache.get(cacheKey);
     if (cached && cached.exp > Date.now()) {
@@ -19,6 +21,8 @@ export class ProductsService {
     }
 
     const referenceDate = new Date(`${monthStr}T00:00:00.000Z`);
+
+    console.log(referenceDate);
 
     if (isNaN(referenceDate.getTime())) {
       throw new BadRequestException(
