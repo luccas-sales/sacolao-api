@@ -48,11 +48,17 @@ export class ReleasesService {
 
       if (assetResponse.status === 302 || assetResponse.status === 301) {
         const s3Url = assetResponse.headers.get('location') || '';
+
+        console.log('s3Url');
+        console.log(s3Url);
         return res.redirect(302, s3Url);
       }
 
       const content = await assetResponse.text();
       res.setHeader('Content-Type', 'text/plain');
+
+      console.log('content');
+      console.log(content);
       return res.status(200).send(content);
     } catch (error) {
       console.error('[UPDATER ERROR]', error);
