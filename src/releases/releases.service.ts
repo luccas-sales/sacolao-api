@@ -46,6 +46,12 @@ export class ReleasesService {
         redirect: 'manual',
       });
 
+      if (file.toUpperCase() === 'RELEASES') {
+        const textContent = await assetResponse.text();
+        res.setHeader('Content-Type', 'text/plain');
+        return res.status(200).send(textContent);
+      }
+
       if (assetResponse.status === 302 || assetResponse.status === 301) {
         const s3Url = assetResponse.headers.get('location') || '';
         return res.redirect(302, s3Url);
