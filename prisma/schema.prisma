@@ -161,7 +161,7 @@ model user_sessions {
   user_id     String    @db.Uuid
   hostname    String?
   os_platform String?
-  mac_address String?
+  mac_address String?   @unique
   ip_address  String?
   app_version String?
   is_online   Boolean?  @default(true)

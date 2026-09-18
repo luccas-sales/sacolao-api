@@ -241,20 +241,20 @@ export type user_sessionsOrderByWithRelationInput = {
 
 export type user_sessionsWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  mac_address?: string
   AND?: Prisma.user_sessionsWhereInput | Prisma.user_sessionsWhereInput[]
   OR?: Prisma.user_sessionsWhereInput[]
   NOT?: Prisma.user_sessionsWhereInput | Prisma.user_sessionsWhereInput[]
   user_id?: Prisma.UuidFilter<"user_sessions"> | string
   hostname?: Prisma.StringNullableFilter<"user_sessions"> | string | null
   os_platform?: Prisma.StringNullableFilter<"user_sessions"> | string | null
-  mac_address?: Prisma.StringNullableFilter<"user_sessions"> | string | null
   ip_address?: Prisma.StringNullableFilter<"user_sessions"> | string | null
   app_version?: Prisma.StringNullableFilter<"user_sessions"> | string | null
   is_online?: Prisma.BoolNullableFilter<"user_sessions"> | boolean | null
   created_at?: Prisma.DateTimeNullableFilter<"user_sessions"> | Date | string | null
   last_seen?: Prisma.DateTimeNullableFilter<"user_sessions"> | Date | string | null
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
-}, "id">
+}, "id" | "mac_address">
 
 export type user_sessionsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

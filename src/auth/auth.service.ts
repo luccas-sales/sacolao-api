@@ -36,8 +36,18 @@ export class AuthService {
     let sessionId: string | null = null;
 
     if (data.machineInfo) {
-      const session = await this.prismaService.user_sessions.create({
-        data: {
+      const session = await this.prismaService.user_sessions.upsert({
+        where: { mac_address: data.machineInfo.mac_address },
+        update: {
+          user_id: user.id,
+          hostname: data.machineInfo.hostname,
+          os_platform: data.machineInfo.os_platform,
+          ip_address: data.machineInfo.ip_address,
+          app_version: data.machineInfo.app_version,
+          is_online: true,
+          last_seen: new Date(),
+        },
+        create: {
           user_id: user.id,
           hostname: data.machineInfo.hostname,
           os_platform: data.machineInfo.os_platform,
