@@ -84,3 +84,8 @@ export type products = Prisma.productsModel
  * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
  */
 export type locked_months = Prisma.locked_monthsModel
+/**
+ * Model user_sessions
+ * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ */
+export type user_sessions = Prisma.user_sessionsModel

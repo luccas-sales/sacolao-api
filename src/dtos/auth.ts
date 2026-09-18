@@ -10,6 +10,14 @@ export class SignInDTO {
   @MinLength(6)
   @MaxLength(50)
   password: string;
+
+  machineInfo?: {
+    hostname: string;
+    os_platform: string;
+    mac_address: string;
+    ip_address: string;
+    app_version: string;
+  };
 }
 
 export class UpdatePasswordDTO {

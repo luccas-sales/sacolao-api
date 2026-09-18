@@ -33,16 +33,35 @@ export class AuthService {
       throw new UnauthorizedException('Usuário ou senha inválidos');
     }
 
+    let sessionId: string | null = null;
+
+    if (data.machineInfo) {
+      const session = await this.prismaService.user_sessions.create({
+        data: {
+          user_id: user.id,
+          hostname: data.machineInfo.hostname,
+          os_platform: data.machineInfo.os_platform,
+          mac_address: data.machineInfo.mac_address,
+          ip_address: data.machineInfo.ip_address,
+          app_version: data.machineInfo.app_version,
+          is_online: true,
+        },
+      });
+      sessionId = session.id;
+    }
+
     const accessToken = await this.jwtService.sign({
       id: user.id,
       username: user.username,
       permissions: user.permissions,
+      sessionId,
     });
 
     return {
       id: user.id,
       username: user.username,
       permissions: user.permissions,
+      sessionId,
       accessToken,
     };
   }

@@ -392,7 +392,8 @@ export const ModelName = {
   cash_registers: 'cash_registers',
   product_monthly_data: 'product_monthly_data',
   products: 'products',
-  locked_months: 'locked_months'
+  locked_months: 'locked_months',
+  user_sessions: 'user_sessions'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -408,7 +409,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "suppliers" | "notes_rural_suppliers" | "daily_sales" | "stores" | "users" | "cash_registers" | "product_monthly_data" | "products" | "locked_months"
+    modelProps: "suppliers" | "notes_rural_suppliers" | "daily_sales" | "stores" | "users" | "cash_registers" | "product_monthly_data" | "products" | "locked_months" | "user_sessions"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1078,6 +1079,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    user_sessions: {
+      payload: Prisma.$user_sessionsPayload<ExtArgs>
+      fields: Prisma.user_sessionsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.user_sessionsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$user_sessionsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.user_sessionsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$user_sessionsPayload>
+        }
+        findFirst: {
+          args: Prisma.user_sessionsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$user_sessionsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.user_sessionsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$user_sessionsPayload>
+        }
+        findMany: {
+          args: Prisma.user_sessionsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$user_sessionsPayload>[]
+        }
+        create: {
+          args: Prisma.user_sessionsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$user_sessionsPayload>
+        }
+        createMany: {
+          args: Prisma.user_sessionsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.user_sessionsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$user_sessionsPayload>[]
+        }
+        delete: {
+          args: Prisma.user_sessionsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$user_sessionsPayload>
+        }
+        update: {
+          args: Prisma.user_sessionsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$user_sessionsPayload>
+        }
+        deleteMany: {
+          args: Prisma.user_sessionsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.user_sessionsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.user_sessionsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$user_sessionsPayload>[]
+        }
+        upsert: {
+          args: Prisma.user_sessionsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$user_sessionsPayload>
+        }
+        aggregate: {
+          args: Prisma.User_sessionsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUser_sessions>
+        }
+        groupBy: {
+          args: Prisma.user_sessionsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.User_sessionsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.user_sessionsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.User_sessionsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1263,6 +1338,22 @@ export const Locked_monthsScalarFieldEnum = {
 } as const
 
 export type Locked_monthsScalarFieldEnum = (typeof Locked_monthsScalarFieldEnum)[keyof typeof Locked_monthsScalarFieldEnum]
+
+
+export const User_sessionsScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  hostname: 'hostname',
+  os_platform: 'os_platform',
+  mac_address: 'mac_address',
+  ip_address: 'ip_address',
+  app_version: 'app_version',
+  is_online: 'is_online',
+  created_at: 'created_at',
+  last_seen: 'last_seen'
+} as const
+
+export type User_sessionsScalarFieldEnum = (typeof User_sessionsScalarFieldEnum)[keyof typeof User_sessionsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1505,6 +1596,7 @@ export type GlobalOmitConfig = {
   product_monthly_data?: Prisma.product_monthly_dataOmit
   products?: Prisma.productsOmit
   locked_months?: Prisma.locked_monthsOmit
+  user_sessions?: Prisma.user_sessionsOmit
 }
 
 /* Types for Logging */

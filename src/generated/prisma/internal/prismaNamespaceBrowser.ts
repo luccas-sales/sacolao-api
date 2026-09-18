@@ -59,7 +59,8 @@ export const ModelName = {
   cash_registers: 'cash_registers',
   product_monthly_data: 'product_monthly_data',
   products: 'products',
-  locked_months: 'locked_months'
+  locked_months: 'locked_months',
+  user_sessions: 'user_sessions'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -224,6 +225,22 @@ export const Locked_monthsScalarFieldEnum = {
 } as const
 
 export type Locked_monthsScalarFieldEnum = (typeof Locked_monthsScalarFieldEnum)[keyof typeof Locked_monthsScalarFieldEnum]
+
+
+export const User_sessionsScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  hostname: 'hostname',
+  os_platform: 'os_platform',
+  mac_address: 'mac_address',
+  ip_address: 'ip_address',
+  app_version: 'app_version',
+  is_online: 'is_online',
+  created_at: 'created_at',
+  last_seen: 'last_seen'
+} as const
+
+export type User_sessionsScalarFieldEnum = (typeof User_sessionsScalarFieldEnum)[keyof typeof User_sessionsScalarFieldEnum]
 
 
 export const SortOrder = {
