@@ -11,6 +11,11 @@ export class AuthController {
     return await this.authService.signin(body);
   }
 
+  @Post('logout')
+  async logout(@Body() body: { sessionId: string }) {
+    return await this.authService.logoutSession(body.sessionId);
+  }
+
   @Put('update-password')
   async updatePassword(@Body() body: UpdatePasswordDTO) {
     return await this.authService.updatePassword(body);

@@ -66,6 +66,14 @@ export class AuthService {
     };
   }
 
+  async logoutSession(sessionId: string) {
+    if (!sessionId) return;
+    await this.prismaService.user_sessions.updateMany({
+      where: { id: sessionId },
+      data: { is_online: false, last_seen: new Date() },
+    });
+  }
+
   async updatePassword(data: UpdatePasswordDTO) {
     const user = await this.prismaService.users.findUnique({
       where: { username: data.username },
