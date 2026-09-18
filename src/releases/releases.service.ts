@@ -47,9 +47,12 @@ export class ReleasesService {
       });
 
       if (file.toUpperCase() === 'RELEASES') {
-        const textContent = await assetResponse.text();
-        res.setHeader('Content-Type', 'text/plain');
-        return res.status(200).send(textContent);
+        const arrayBuffer = await assetResponse.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+
+        res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+        res.setHeader('Content-Length', buffer.length);
+        return res.status(200).send(buffer);
       }
 
       if (assetResponse.status === 302 || assetResponse.status === 301) {
