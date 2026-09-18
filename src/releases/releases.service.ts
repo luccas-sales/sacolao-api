@@ -46,23 +46,8 @@ export class ReleasesService {
         redirect: 'manual',
       });
 
-      if (file.toUpperCase() === 'RELEASES') {
-        const arrayBuffer = await assetResponse.arrayBuffer();
-        const buffer = Buffer.from(arrayBuffer);
-
-        res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-        res.setHeader('Content-Length', buffer.length);
-        console.log('arrayBuffer');
-        console.log(arrayBuffer);
-        console.log('buffer');
-        console.log(buffer);
-        return res.status(200).send(buffer);
-      }
-
       if (assetResponse.status === 302 || assetResponse.status === 301) {
         const s3Url = assetResponse.headers.get('location') || '';
-        console.log('s3Url');
-        console.log(s3Url);
         return res.redirect(302, s3Url);
       }
 
