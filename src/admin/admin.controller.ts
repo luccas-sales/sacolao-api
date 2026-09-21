@@ -46,7 +46,7 @@ export class AdminController {
     return this.adminService.createUser(body);
   }
 
-  @Patch('users/:id')
+  @Post('users/:id')
   updateUser(@Param('id') id: string, @Body() body: any) {
     return this.adminService.updateUser(id, body);
   }
