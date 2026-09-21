@@ -53,4 +53,34 @@ export class AdminService {
       },
     });
   }
+
+  async updateUser(id: string, data: any) {
+    const updateData: any = {};
+    if (data.username) {
+      updateData.username = data.username;
+    }
+    if (data.password && data.password.trim() !== '') {
+      updateData.password_hash = await bcrypt.hash(data.password, 10);
+    }
+    if (data.permissions) {
+      updateData.permissions = data.permissions;
+    }
+
+    return this.prisma.users.update({
+      where: { id },
+      data: updateData,
+    });
+  }
+
+  async deleteUser(id: string) {
+    await this.prisma.user_sessions
+      .deleteMany({
+        where: { user_id: id },
+      })
+      .catch(() => {});
+
+    return this.prisma.users.delete({
+      where: { id },
+    });
+  }
 }

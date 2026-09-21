@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   UseGuards,
+  Delete,
 } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { AdminGuard } from './admin.guard';
@@ -43,5 +44,15 @@ export class AdminController {
   @Post('users')
   createUser(@Body() body: any) {
     return this.adminService.createUser(body);
+  }
+
+  @Patch('users/:id')
+  updateUser(@Param('id') id: string, @Body() body: any) {
+    return this.adminService.updateUser(id, body);
+  }
+
+  @Delete('users/:id')
+  deleteUser(@Param('id') id: string) {
+    return this.adminService.deleteUser(id);
   }
 }
