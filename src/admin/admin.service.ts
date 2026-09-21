@@ -24,7 +24,7 @@ export class AdminService {
   async revokeMachine(macAddress: string) {
     return this.prisma.user_sessions.update({
       where: { mac_address: macAddress },
-      data: { is_approved: false, is_online: false },
+      data: { is_approved: false },
     });
   }
 
