@@ -37,7 +37,6 @@ export class AdminService {
         permissions: true,
         user_sessions: {
           orderBy: { last_seen: 'desc' },
-          take: 1,
         },
       },
       orderBy: { created_at: 'desc' },
