@@ -28,17 +28,18 @@ export class AdminService {
     });
   }
 
-  async getOnlineUsers() {
-    return this.prisma.user_sessions.findMany({
-      where: { is_online: true },
-      include: { users: { select: { username: true } } },
-      orderBy: { last_seen: 'desc' },
-    });
-  }
-
   async getAllUsers() {
     return this.prisma.users.findMany({
-      select: { id: true, username: true, created_at: true, permissions: true },
+      select: {
+        id: true,
+        username: true,
+        created_at: true,
+        permissions: true,
+        user_sessions: {
+          orderBy: { last_seen: 'desc' },
+          take: 1,
+        },
+      },
       orderBy: { created_at: 'desc' },
     });
   }

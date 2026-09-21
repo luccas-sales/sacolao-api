@@ -31,11 +31,6 @@ export class AdminController {
     return this.adminService.revokeMachine(mac);
   }
 
-  @Get('users/online')
-  getOnlineUsers() {
-    return this.adminService.getOnlineUsers();
-  }
-
   @Get('users')
   getAllUsers() {
     return this.adminService.getAllUsers();
