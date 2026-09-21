@@ -56,7 +56,7 @@ export class AuthService {
           },
         });
         throw new UnauthorizedException(
-          'Máquina não reconhecida. Aguardando aprovação do administrador.',
+          'Máquina registrada e aguardando aprovação do administrador.',
         );
       }
 
