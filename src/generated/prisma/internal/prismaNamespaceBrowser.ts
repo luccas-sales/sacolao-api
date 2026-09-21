@@ -237,7 +237,8 @@ export const User_sessionsScalarFieldEnum = {
   app_version: 'app_version',
   is_online: 'is_online',
   created_at: 'created_at',
-  last_seen: 'last_seen'
+  last_seen: 'last_seen',
+  is_approved: 'is_approved'
 } as const
 
 export type User_sessionsScalarFieldEnum = (typeof User_sessionsScalarFieldEnum)[keyof typeof User_sessionsScalarFieldEnum]

@@ -1,0 +1,56 @@
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { PrismaService } from 'src/prisma.service';
+import * as bcrypt from 'bcrypt';
+
+@Injectable()
+export class AdminService {
+  constructor(private prisma: PrismaService) {}
+
+  async getPendingMachines() {
+    return this.prisma.user_sessions.findMany({
+      where: { is_approved: false },
+      include: { users: { select: { username: true } } },
+      orderBy: { last_seen: 'desc' },
+    });
+  }
+
+  async approveMachine(macAddress: string) {
+    return this.prisma.user_sessions.update({
+      where: { mac_address: macAddress },
+      data: { is_approved: true },
+    });
+  }
+
+  async revokeMachine(macAddress: string) {
+    return this.prisma.user_sessions.update({
+      where: { mac_address: macAddress },
+      data: { is_approved: false, is_online: false },
+    });
+  }
+
+  async getOnlineUsers() {
+    return this.prisma.user_sessions.findMany({
+      where: { is_online: true },
+      include: { users: { select: { username: true } } },
+      orderBy: { last_seen: 'desc' },
+    });
+  }
+
+  async getAllUsers() {
+    return this.prisma.users.findMany({
+      select: { id: true, username: true, created_at: true, permissions: true },
+      orderBy: { created_at: 'desc' },
+    });
+  }
+
+  async createUser(data: any) {
+    const hash = await bcrypt.hash(data.password, 10);
+    return this.prisma.users.create({
+      data: {
+        username: data.username,
+        password_hash: hash,
+        permissions: data.permissions || [],
+      },
+    });
+  }
+}

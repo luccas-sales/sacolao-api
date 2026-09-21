@@ -35,6 +35,7 @@ export type User_sessionsMinAggregateOutputType = {
   is_online: boolean | null
   created_at: Date | null
   last_seen: Date | null
+  is_approved: boolean | null
 }
 
 export type User_sessionsMaxAggregateOutputType = {
@@ -48,6 +49,7 @@ export type User_sessionsMaxAggregateOutputType = {
   is_online: boolean | null
   created_at: Date | null
   last_seen: Date | null
+  is_approved: boolean | null
 }
 
 export type User_sessionsCountAggregateOutputType = {
@@ -61,6 +63,7 @@ export type User_sessionsCountAggregateOutputType = {
   is_online: number
   created_at: number
   last_seen: number
+  is_approved: number
   _all: number
 }
 
@@ -76,6 +79,7 @@ export type User_sessionsMinAggregateInputType = {
   is_online?: true
   created_at?: true
   last_seen?: true
+  is_approved?: true
 }
 
 export type User_sessionsMaxAggregateInputType = {
@@ -89,6 +93,7 @@ export type User_sessionsMaxAggregateInputType = {
   is_online?: true
   created_at?: true
   last_seen?: true
+  is_approved?: true
 }
 
 export type User_sessionsCountAggregateInputType = {
@@ -102,6 +107,7 @@ export type User_sessionsCountAggregateInputType = {
   is_online?: true
   created_at?: true
   last_seen?: true
+  is_approved?: true
   _all?: true
 }
 
@@ -188,6 +194,7 @@ export type User_sessionsGroupByOutputType = {
   is_online: boolean | null
   created_at: Date | null
   last_seen: Date | null
+  is_approved: boolean | null
   _count: User_sessionsCountAggregateOutputType | null
   _min: User_sessionsMinAggregateOutputType | null
   _max: User_sessionsMaxAggregateOutputType | null
@@ -222,6 +229,7 @@ export type user_sessionsWhereInput = {
   is_online?: Prisma.BoolNullableFilter<"user_sessions"> | boolean | null
   created_at?: Prisma.DateTimeNullableFilter<"user_sessions"> | Date | string | null
   last_seen?: Prisma.DateTimeNullableFilter<"user_sessions"> | Date | string | null
+  is_approved?: Prisma.BoolNullableFilter<"user_sessions"> | boolean | null
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
 }
 
@@ -236,6 +244,7 @@ export type user_sessionsOrderByWithRelationInput = {
   is_online?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   last_seen?: Prisma.SortOrderInput | Prisma.SortOrder
+  is_approved?: Prisma.SortOrderInput | Prisma.SortOrder
   users?: Prisma.usersOrderByWithRelationInput
 }
 
@@ -253,6 +262,7 @@ export type user_sessionsWhereUniqueInput = Prisma.AtLeast<{
   is_online?: Prisma.BoolNullableFilter<"user_sessions"> | boolean | null
   created_at?: Prisma.DateTimeNullableFilter<"user_sessions"> | Date | string | null
   last_seen?: Prisma.DateTimeNullableFilter<"user_sessions"> | Date | string | null
+  is_approved?: Prisma.BoolNullableFilter<"user_sessions"> | boolean | null
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
 }, "id" | "mac_address">
 
@@ -267,6 +277,7 @@ export type user_sessionsOrderByWithAggregationInput = {
   is_online?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   last_seen?: Prisma.SortOrderInput | Prisma.SortOrder
+  is_approved?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.user_sessionsCountOrderByAggregateInput
   _max?: Prisma.user_sessionsMaxOrderByAggregateInput
   _min?: Prisma.user_sessionsMinOrderByAggregateInput
@@ -286,6 +297,7 @@ export type user_sessionsScalarWhereWithAggregatesInput = {
   is_online?: Prisma.BoolNullableWithAggregatesFilter<"user_sessions"> | boolean | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"user_sessions"> | Date | string | null
   last_seen?: Prisma.DateTimeNullableWithAggregatesFilter<"user_sessions"> | Date | string | null
+  is_approved?: Prisma.BoolNullableWithAggregatesFilter<"user_sessions"> | boolean | null
 }
 
 export type user_sessionsCreateInput = {
@@ -298,6 +310,7 @@ export type user_sessionsCreateInput = {
   is_online?: boolean | null
   created_at?: Date | string | null
   last_seen?: Date | string | null
+  is_approved?: boolean | null
   users: Prisma.usersCreateNestedOneWithoutUser_sessionsInput
 }
 
@@ -312,6 +325,7 @@ export type user_sessionsUncheckedCreateInput = {
   is_online?: boolean | null
   created_at?: Date | string | null
   last_seen?: Date | string | null
+  is_approved?: boolean | null
 }
 
 export type user_sessionsUpdateInput = {
@@ -324,6 +338,7 @@ export type user_sessionsUpdateInput = {
   is_online?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_seen?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  is_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   users?: Prisma.usersUpdateOneRequiredWithoutUser_sessionsNestedInput
 }
 
@@ -338,6 +353,7 @@ export type user_sessionsUncheckedUpdateInput = {
   is_online?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_seen?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  is_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type user_sessionsCreateManyInput = {
@@ -351,6 +367,7 @@ export type user_sessionsCreateManyInput = {
   is_online?: boolean | null
   created_at?: Date | string | null
   last_seen?: Date | string | null
+  is_approved?: boolean | null
 }
 
 export type user_sessionsUpdateManyMutationInput = {
@@ -363,6 +380,7 @@ export type user_sessionsUpdateManyMutationInput = {
   is_online?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_seen?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  is_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type user_sessionsUncheckedUpdateManyInput = {
@@ -376,6 +394,7 @@ export type user_sessionsUncheckedUpdateManyInput = {
   is_online?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_seen?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  is_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type User_sessionsListRelationFilter = {
@@ -399,6 +418,7 @@ export type user_sessionsCountOrderByAggregateInput = {
   is_online?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   last_seen?: Prisma.SortOrder
+  is_approved?: Prisma.SortOrder
 }
 
 export type user_sessionsMaxOrderByAggregateInput = {
@@ -412,6 +432,7 @@ export type user_sessionsMaxOrderByAggregateInput = {
   is_online?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   last_seen?: Prisma.SortOrder
+  is_approved?: Prisma.SortOrder
 }
 
 export type user_sessionsMinOrderByAggregateInput = {
@@ -425,6 +446,7 @@ export type user_sessionsMinOrderByAggregateInput = {
   is_online?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   last_seen?: Prisma.SortOrder
+  is_approved?: Prisma.SortOrder
 }
 
 export type user_sessionsCreateNestedManyWithoutUsersInput = {
@@ -479,6 +501,7 @@ export type user_sessionsCreateWithoutUsersInput = {
   is_online?: boolean | null
   created_at?: Date | string | null
   last_seen?: Date | string | null
+  is_approved?: boolean | null
 }
 
 export type user_sessionsUncheckedCreateWithoutUsersInput = {
@@ -491,6 +514,7 @@ export type user_sessionsUncheckedCreateWithoutUsersInput = {
   is_online?: boolean | null
   created_at?: Date | string | null
   last_seen?: Date | string | null
+  is_approved?: boolean | null
 }
 
 export type user_sessionsCreateOrConnectWithoutUsersInput = {
@@ -533,6 +557,7 @@ export type user_sessionsScalarWhereInput = {
   is_online?: Prisma.BoolNullableFilter<"user_sessions"> | boolean | null
   created_at?: Prisma.DateTimeNullableFilter<"user_sessions"> | Date | string | null
   last_seen?: Prisma.DateTimeNullableFilter<"user_sessions"> | Date | string | null
+  is_approved?: Prisma.BoolNullableFilter<"user_sessions"> | boolean | null
 }
 
 export type user_sessionsCreateManyUsersInput = {
@@ -545,6 +570,7 @@ export type user_sessionsCreateManyUsersInput = {
   is_online?: boolean | null
   created_at?: Date | string | null
   last_seen?: Date | string | null
+  is_approved?: boolean | null
 }
 
 export type user_sessionsUpdateWithoutUsersInput = {
@@ -557,6 +583,7 @@ export type user_sessionsUpdateWithoutUsersInput = {
   is_online?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_seen?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  is_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type user_sessionsUncheckedUpdateWithoutUsersInput = {
@@ -569,6 +596,7 @@ export type user_sessionsUncheckedUpdateWithoutUsersInput = {
   is_online?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_seen?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  is_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type user_sessionsUncheckedUpdateManyWithoutUsersInput = {
@@ -581,6 +609,7 @@ export type user_sessionsUncheckedUpdateManyWithoutUsersInput = {
   is_online?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_seen?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  is_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 
@@ -596,6 +625,7 @@ export type user_sessionsSelect<ExtArgs extends runtime.Types.Extensions.Interna
   is_online?: boolean
   created_at?: boolean
   last_seen?: boolean
+  is_approved?: boolean
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user_sessions"]>
 
@@ -610,6 +640,7 @@ export type user_sessionsSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   is_online?: boolean
   created_at?: boolean
   last_seen?: boolean
+  is_approved?: boolean
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user_sessions"]>
 
@@ -624,6 +655,7 @@ export type user_sessionsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   is_online?: boolean
   created_at?: boolean
   last_seen?: boolean
+  is_approved?: boolean
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user_sessions"]>
 
@@ -638,9 +670,10 @@ export type user_sessionsSelectScalar = {
   is_online?: boolean
   created_at?: boolean
   last_seen?: boolean
+  is_approved?: boolean
 }
 
-export type user_sessionsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "hostname" | "os_platform" | "mac_address" | "ip_address" | "app_version" | "is_online" | "created_at" | "last_seen", ExtArgs["result"]["user_sessions"]>
+export type user_sessionsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "hostname" | "os_platform" | "mac_address" | "ip_address" | "app_version" | "is_online" | "created_at" | "last_seen" | "is_approved", ExtArgs["result"]["user_sessions"]>
 export type user_sessionsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }
@@ -667,6 +700,7 @@ export type $user_sessionsPayload<ExtArgs extends runtime.Types.Extensions.Inter
     is_online: boolean | null
     created_at: Date | null
     last_seen: Date | null
+    is_approved: boolean | null
   }, ExtArgs["result"]["user_sessions"]>
   composites: {}
 }
@@ -1101,6 +1135,7 @@ export interface user_sessionsFieldRefs {
   readonly is_online: Prisma.FieldRef<"user_sessions", 'Boolean'>
   readonly created_at: Prisma.FieldRef<"user_sessions", 'DateTime'>
   readonly last_seen: Prisma.FieldRef<"user_sessions", 'DateTime'>
+  readonly is_approved: Prisma.FieldRef<"user_sessions", 'Boolean'>
 }
     
 
