@@ -133,4 +133,26 @@ export class AuthService {
 
     return { message: 'Senha atualizada com sucesso' };
   }
+
+  async checkSession(authHeader: string) {
+    if (!authHeader) throw new UnauthorizedException('Token ausente');
+
+    const token = authHeader.split(' ')[1];
+
+    try {
+      const payload = this.jwtService.verify(token);
+
+      const session = await this.prismaService.user_sessions.findUnique({
+        where: { id: payload.sessionId },
+      });
+
+      if (!session || !session.is_approved || !session.is_online) {
+        throw new UnauthorizedException('Sessão revogada pelo administrador');
+      }
+
+      return { valid: true };
+    } catch (error) {
+      throw new UnauthorizedException('Sessão expirada ou inválida');
+    }
+  }
 }
