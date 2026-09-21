@@ -62,7 +62,7 @@ export class AuthService {
 
       if (!existingSession.is_approved) {
         throw new UnauthorizedException(
-          'Esta máquina ainda aguarda aprovação do administrador.',
+          'Esta máquina ainda não foi aprovada pelo administrador.',
         );
       }
 
