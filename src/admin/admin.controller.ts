@@ -20,13 +20,13 @@ export class AdminController {
     return this.adminService.getPendingMachines();
   }
 
-  @Patch('machines/:mac/approve')
-  approveMachine(@Param('mac') mac: string) {
+  @Patch('machines/approve')
+  approveMachine(@Body('mac') mac: string) {
     return this.adminService.approveMachine(mac);
   }
 
-  @Patch('machines/:mac/revoke')
-  revokeMachine(@Param('mac') mac: string) {
+  @Patch('machines/revoke')
+  revokeMachine(@Body('mac') mac: string) {
     return this.adminService.revokeMachine(mac);
   }
 
