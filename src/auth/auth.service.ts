@@ -52,17 +52,24 @@ export class AuthService {
             ip_address: data.machineInfo.ip_address,
             app_version: data.machineInfo.app_version,
             is_online: false,
+            is_approved: null,
             last_seen: new Date(),
           },
         });
         throw new UnauthorizedException(
-          'Máquina registrada e aguardando aprovação do administrador.',
+          'Máquina pendente: Aguardando aprovação do administrador.',
         );
       }
 
-      if (!existingSession.is_approved) {
+      if (existingSession.is_approved === null) {
         throw new UnauthorizedException(
-          'Esta máquina ainda não foi aprovada pelo administrador.',
+          'Acesso pendente: Sua máquina aguarda aprovação do administrador.',
+        );
+      }
+
+      if (existingSession.is_approved === false) {
+        throw new UnauthorizedException(
+          'Acesso negado: Sua máquina foi banida pelo administrador.',
         );
       }
 
@@ -146,7 +153,7 @@ export class AuthService {
         where: { id: payload.sessionId },
       });
 
-      if (!session || !session.is_approved || !session.is_online) {
+      if (!session || session.is_approved !== true || !session.is_online) {
         throw new UnauthorizedException('Sessão revogada pelo administrador');
       }
 
