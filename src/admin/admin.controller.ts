@@ -16,19 +16,12 @@ import { AdminGuard } from './admin.guard';
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
-  @Get('machines/pending')
-  getPendingMachines() {
-    return this.adminService.getPendingMachines();
-  }
-
-  @Post('machines/approve')
-  approveMachine(@Body('mac') mac: string) {
-    return this.adminService.approveMachine(mac);
-  }
-
-  @Post('machines/revoke')
-  revokeMachine(@Body('mac') mac: string) {
-    return this.adminService.revokeMachine(mac);
+  @Post('machines/status')
+  updateMachineStatus(
+    @Body('mac') mac: string,
+    @Body('status') status: boolean | null,
+  ) {
+    return this.adminService.updateMachineStatus(mac, status);
   }
 
   @Get('users')

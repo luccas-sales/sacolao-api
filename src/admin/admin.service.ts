@@ -6,25 +6,10 @@ import * as bcrypt from 'bcrypt';
 export class AdminService {
   constructor(private prisma: PrismaService) {}
 
-  async getPendingMachines() {
-    return this.prisma.user_sessions.findMany({
-      where: { is_approved: false },
-      include: { users: { select: { username: true } } },
-      orderBy: { last_seen: 'desc' },
-    });
-  }
-
-  async approveMachine(macAddress: string) {
+  async updateMachineStatus(macAddress: string, status: boolean | null) {
     return this.prisma.user_sessions.update({
       where: { mac_address: macAddress },
-      data: { is_approved: true },
-    });
-  }
-
-  async revokeMachine(macAddress: string) {
-    return this.prisma.user_sessions.update({
-      where: { mac_address: macAddress },
-      data: { is_approved: false },
+      data: { is_approved: status },
     });
   }
 
