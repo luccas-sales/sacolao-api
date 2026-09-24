@@ -1,5 +1,6 @@
 import {
   Injectable,
+  Logger,
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -10,12 +11,18 @@ import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
+
   constructor(
     private prismaService: PrismaService,
     private jwtService: JwtService,
   ) {}
 
   async signin(data: SignInDTO) {
+    this.logger.log(
+      `Tentativa de login recebida para o usuário: ${data.username}`,
+    );
+
     const user = await this.prismaService.users.findUnique({
       where: { username: data.username },
     });
@@ -30,6 +37,9 @@ export class AuthService {
     );
 
     if (!passwordMatch) {
+      this.logger.warn(
+        `Falha de autenticação para o usuário: ${data.username}`,
+      );
       throw new UnauthorizedException('Usuário ou senha inválidos');
     }
 
@@ -43,6 +53,10 @@ export class AuthService {
       );
 
       if (!existingSession) {
+        this.logger.warn(
+          `Nova máquina detectada (Aguardando aprovação). MAC: ${data.machineInfo.mac_address}, Hostname: ${data.machineInfo.hostname}`,
+        );
+
         await this.prismaService.user_sessions.create({
           data: {
             user_id: user.id,
@@ -62,12 +76,20 @@ export class AuthService {
       }
 
       if (existingSession.is_approved === null) {
+        this.logger.log(
+          `Tentativa de login em máquina pendente. Usuário: ${data.username}, MAC: ${data.machineInfo.mac_address}`,
+        );
+
         throw new UnauthorizedException(
           'Acesso pendente: Sua máquina aguarda aprovação do administrador.',
         );
       }
 
       if (existingSession.is_approved === false) {
+        this.logger.warn(
+          `Tentativa de login em máquina BANIDA. Usuário: ${data.username}, MAC: ${data.machineInfo.mac_address}`,
+        );
+
         throw new UnauthorizedException(
           'Acesso negado: Sua máquina foi banida pelo administrador.',
         );
@@ -86,6 +108,10 @@ export class AuthService {
         },
       });
       sessionId = session.id;
+
+      this.logger.log(
+        `Login bem-sucedido. Usuário: ${data.username} está online na máquina ${data.machineInfo.hostname} (${data.machineInfo.ip_address}).`,
+      );
     }
 
     const accessToken = await this.jwtService.sign({
@@ -106,6 +132,8 @@ export class AuthService {
 
   async logoutSession(sessionId: string) {
     if (!sessionId) return;
+    this.logger.log(`Encerrando sessão ID: ${sessionId} (Usuário offline)`);
+
     await this.prismaService.user_sessions.updateMany({
       where: { id: sessionId },
       data: { is_online: false, last_seen: new Date() },
@@ -113,6 +141,8 @@ export class AuthService {
   }
 
   async updatePassword(data: UpdatePasswordDTO) {
+    this.logger.log(`Usuário ${data.username} solicitou alteração de senha`);
+
     const user = await this.prismaService.users.findUnique({
       where: { username: data.username },
     });

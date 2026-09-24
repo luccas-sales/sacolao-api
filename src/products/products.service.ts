@@ -1,8 +1,10 @@
-import { Injectable, BadRequestException } from '@nestjs/common';
+import { Injectable, BadRequestException, Logger } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class ProductsService {
+  private readonly logger = new Logger(ProductsService.name);
+
   private cache = new Map<string, { data: any; exp: number }>();
 
   constructor(private prisma: PrismaService) {}
@@ -15,8 +17,13 @@ export class ProductsService {
     const cacheKey = `products_ytd_${monthStr}`;
     const cached = this.cache.get(cacheKey);
     if (cached && cached.exp > Date.now()) {
+      this.logger.debug(
+        `Retornando produtos do mês ${monthStr} a partir do CACHE.`,
+      );
       return cached.data;
     }
+
+    this.logger.log(`Buscando produtos do mês ${monthStr} no BANCO DE DADOS.`);
 
     const referenceDate = new Date(`${monthStr}T00:00:00.000Z`);
 
@@ -48,6 +55,10 @@ export class ProductsService {
   }
 
   async bulkUpdate(products: any[]) {
+    this.logger.log(
+      `Iniciando atualização em massa (Bulk Update) para ${products?.length || 0} produtos.`,
+    );
+
     if (!products || products.length === 0)
       return { success: true, updatedCount: 0 };
 
@@ -289,6 +300,8 @@ export class ProductsService {
   }
 
   async toggleLockMonth(month: string) {
+    this.logger.log(`Alternando bloqueio (Lock) do mês: ${month}`);
+
     const existing = await this.prisma
       .$queryRaw`SELECT * FROM "locked_months" WHERE month = ${month}`;
     if ((existing as any[]).length > 0) {
@@ -387,6 +400,8 @@ export class ProductsService {
   }
 
   async deleteProduct(id: string) {
+    this.logger.warn(`Deletando produto ID: ${id}. Cache será limpo.`);
+
     this.cache.clear();
 
     return await this.prisma.products.delete({ where: { id } });

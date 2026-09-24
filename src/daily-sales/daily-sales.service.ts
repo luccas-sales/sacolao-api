@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import {
   CreateDailySalesListDTO,
   UpdateDailySaleDTO,
@@ -7,9 +7,15 @@ import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class DailySalesService {
+  private readonly logger = new Logger(DailySalesService.name);
+
   constructor(private prismaService: PrismaService) {}
 
   async createDailySales(payload: CreateDailySalesListDTO) {
+    this.logger.log(
+      `Iniciando importação de ${payload.sales.length} vendas diárias`,
+    );
+
     const cnpjs = [...new Set(payload.sales.map((s) => s.store_cnpj))];
     const stores = await this.prismaService.stores.findMany({
       where: { tax_id: { in: cnpjs } },
@@ -21,7 +27,9 @@ export class DailySalesService {
       const storeId = storeMap.get(item.store_cnpj);
 
       if (!storeId) {
-        console.warn(`Loja com CNPJ ${item.store_cnpj} não encontrada.`);
+        this.logger.warn(
+          `Loja com CNPJ ${item.store_cnpj} não encontrada na base de dados.`,
+        );
         continue;
       }
 
@@ -80,6 +88,7 @@ export class DailySalesService {
       });
     }
 
+    this.logger.log('Importação concluída e caixas sincronizados com sucesso.');
     return { message: 'Importado com sucesso e caixas sincronizados!' };
   }
 
@@ -154,6 +163,7 @@ export class DailySalesService {
   }
 
   async updateSale(id: string, data: UpdateDailySaleDTO) {
+    this.logger.log(`Atualizando venda diária ID: ${id}`);
     const currentSale = await this.prismaService.daily_sales.findUnique({
       where: { id },
     });

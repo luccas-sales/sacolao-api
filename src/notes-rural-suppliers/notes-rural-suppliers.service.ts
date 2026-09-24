@@ -1,6 +1,7 @@
 import {
   BadRequestException,
   Injectable,
+  Logger,
   NotFoundException,
 } from '@nestjs/common';
 import {
@@ -11,9 +12,15 @@ import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class NotesRuralSuppliersService {
+  private readonly logger = new Logger(NotesRuralSuppliersService.name);
+
   constructor(private prismaService: PrismaService) {}
 
   async createNotesRuralSuppliers(payload: CreateNotesRuralSuppliersListDTO) {
+    this.logger.log(
+      `Iniciando processamento de ${payload.notes.length} notas de produtores rurais`,
+    );
+
     let createdCount = 0;
     let updatedCount = 0;
 
@@ -150,6 +157,10 @@ export class NotesRuralSuppliersService {
 
     await this.autoMergeOrphanNotes();
     await this.recalculateDuplicates();
+
+    this.logger.log(
+      `Processamento finalizado. Criadas: ${createdCount}, Atualizadas: ${updatedCount}`,
+    );
     return {
       message: 'Importado com sucesso',
       created: createdCount,
@@ -181,6 +192,8 @@ export class NotesRuralSuppliersService {
   }
 
   async deleteNote(id: string) {
+    this.logger.warn(`Solicitação para deletar a nota fiscal ID: ${id}`);
+
     const numericId = parseInt(id, 10);
 
     const note = await this.prismaService.notes_rural_suppliers.findUnique({
@@ -459,10 +472,10 @@ export class NotesRuralSuppliersService {
           return data.pdf_base64;
         }
       }
-    } catch (error) {
-      console.warn(
-        `(consultadanfe.com) Falha na consultando para a chave ${receiptAccessKey}:`,
-        error,
+    } catch (error: any) {
+      this.logger.error(
+        `(consultadanfe.com) Falha na consulta para a chave ${receiptAccessKey}`,
+        error.stack,
       );
     }
 
@@ -485,10 +498,10 @@ export class NotesRuralSuppliersService {
           return result.data;
         }
       }
-    } catch (error) {
-      console.warn(
-        `(meudanfe.com) Falha na consultando para a chave ${receiptAccessKey}:`,
-        error,
+    } catch (error: any) {
+      this.logger.error(
+        `(meudanfe.com) Falha na consulta para a chave ${receiptAccessKey}`,
+        error.stack,
       );
     }
 
@@ -510,10 +523,10 @@ export class NotesRuralSuppliersService {
           `(meudanfe.com) Falha ao adicionar a nota com chave ${receiptAccessKey}: ${response.status}`,
         );
       }
-    } catch (error) {
-      console.warn(
-        `(meudanfe.com) Falha ao adicionar a nota com chave ${receiptAccessKey}:`,
-        error,
+    } catch (error: any) {
+      this.logger.error(
+        `(meudanfe.com) Falha ao adicionar a nota com chave ${receiptAccessKey}`,
+        error.stack,
       );
     }
 
@@ -539,14 +552,16 @@ export class NotesRuralSuppliersService {
             return result.data;
           }
         }
-      } catch (error) {
-        console.warn(
-          `(meudanfe.com) Tentativa de consultar ${attempt}/4 falhou:`,
-          error,
+      } catch (error: any) {
+        this.logger.warn(
+          `(meudanfe.com) Tentativa de consultar ${attempt}/4 falhou: ${error.message}`,
         );
       }
     }
 
+    this.logger.error(
+      `Excedido limite de tentativas para resgatar DANFE da chave ${receiptAccessKey}`,
+    );
     throw new BadRequestException(
       `Não foi possível resgatar o DANFE para a chave ${receiptAccessKey}. Verifique se o status do SEFAZ ou se há pendências no serviço.`,
     );
