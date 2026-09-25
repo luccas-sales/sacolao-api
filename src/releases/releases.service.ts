@@ -4,19 +4,40 @@ import {
   NotFoundException,
   Logger,
 } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import { jwtConstants } from '../auth/constants';
 import type { Response } from 'express';
 
 @Injectable()
 export class ReleasesService {
   private readonly logger = new Logger(ReleasesService.name);
 
+  constructor(private jwtService: JwtService) {}
+
   async getUpdate(version: string, file: string, token: string, res: Response) {
     this.logger.log(
       `Verificando atualização para a versão ${version}, arquivo: ${file}`,
     );
 
-    if (token !== process.env.GLOBAL_APP_TOKEN) {
-      throw new UnauthorizedException('Token inválido');
+    const isLegacyToken = token === process.env.GLOBAL_APP_TOKEN;
+    let isUserTokenValid = false;
+
+    if (!isLegacyToken) {
+      try {
+        const payload = await this.jwtService.verifyAsync(token, {
+          secret: jwtConstants.secret,
+        });
+        isUserTokenValid = !!payload;
+      } catch (error: any) {
+        this.logger.warn(
+          `Falha na validação do token de atualização: ${error.message}`,
+        );
+        isUserTokenValid = false;
+      }
+    }
+
+    if (!isLegacyToken && !isUserTokenValid) {
+      throw new UnauthorizedException('Token inválido ou expirado');
     }
 
     const owner = 'luccas-sales';
